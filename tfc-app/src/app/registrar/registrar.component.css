@@ -1,0 +1,11 @@
+.combox{
+  height: 30px;
+  margin-top: 3%;
+}
+.lblSex{
+  display: block;
+}
+
+.txtDireccion{
+  resize: none;
+}

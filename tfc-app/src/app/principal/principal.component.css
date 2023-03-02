@@ -1,0 +1,901 @@
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(135deg, #9d3ADF, #106ab6);
+  color: white;
+  padding: 15px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-left a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  margin-left: 15px;
+  color: white;
+  font-weight: sans-serif;
+  font-size: large;
+}
+
+.logo {
+  width: 30px;
+  height: 30px;
+  margin-right: 5px;
+}
+
+.navbar-right a {
+  text-decoration: none;
+  color: white;
+  margin-left: 20px;
+  font-weight: sans-serif;
+  font-size: large;
+}
+
+.navbar-right a:first-child {
+  margin-left: 0;
+}
+
+
+.navbar-right {
+  margin-right: 30px;
+}
+
+html {
+  margin-top: 65px;
+
+}
+
+/* BOTON EDITAR */
+
+.btn-neon {
+  position: relative;
+  display: inline-block;
+  padding: 15px 30px;
+  color: rgb(1, 1, 1);
+  letter-spacing: 4px;
+  font-size: 15px;
+  text-decoration: none;
+  overflow: hidden;
+  transition: 0.2s;
+  background: linear-gradient(135deg, #9d3ADF, #106ab6);
+  box-shadow: 3px 3px 10px #464444, 3px 3px 20px #3f3e3e;
+  color: #E1FFEE;
+}
+
+.btn-neon:hover {
+  background: #62B6B7;
+  box-shadow: 0 0 10px #62B6B7, 0 0 20px #62B6B7, 0 0 40px #62B6B7;
+  transition-delay: 0.95s;
+}
+
+.BOTONC {
+
+  margin-top: 70px;
+}
+
+.btn-neon span {
+  position: absolute;
+  display: block;
+}
+
+#spain1 {
+
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #E1FFEE);
+}
+
+.btn-neon:hover #spain1 {
+
+  left: 100%;
+  transition: 1s;
+}
+
+#spain3 {
+
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(270deg, transparent, #E1FFEE);
+}
+
+.btn-neon:hover #spain3 {
+
+  right: 100%;
+  transition: 1s;
+  transition-delay: 0.50s;
+}
+
+#spain2 {
+
+  top: -100%;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(100deg, transparent, #E1FFEE);
+}
+
+.btn-neon:hover #spain2 {
+
+  top: 100%;
+  transition: 1s;
+  transition-delay: 0.25s;
+
+}
+
+#spain4 {
+
+  bottom: -100%;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(360deg, transparent, #E1FFEE);
+}
+
+.btn-neon:hover #spain4 {
+
+  bottom: 100%;
+  transition: 1s;
+  transition-delay: 0.75s;
+
+}
+
+/* BOTON MODIFICAR */
+
+.btn-neon2 {
+  position: relative;
+  display: inline-block;
+  padding: 15px 30px;
+  color: rgb(1, 1, 1);
+  letter-spacing: 4px;
+  font-size: 15px;
+  text-decoration: none;
+  overflow: hidden;
+  transition: 0.2s;
+  background: linear-gradient(135deg, #9d3ADF, #106ab6);
+  box-shadow: 3px 3px 10px #464444, 3px 3px 20px #3f3e3e;
+  color: #E1FFEE;
+  margin-left: 10px;
+}
+
+.btn-neon2:hover {
+  background: #62B6B7;
+  box-shadow: 0 0 10px #62B6B7, 0 0 20px #62B6B7, 0 0 40px #62B6B7;
+  transition-delay: 0.95s;
+}
+
+.BOTONC {
+
+  margin-top: 70px;
+}
+
+.btn-neon2 span {
+  position: absolute;
+  display: block;
+}
+
+#spain1 {
+
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #E1FFEE);
+}
+
+.btn-neon2:hover #spain1 {
+
+  left: 100%;
+  transition: 1s;
+}
+
+#spain3 {
+
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(270deg, transparent, #E1FFEE);
+}
+
+.btn-neon2:hover #spain3 {
+
+  right: 100%;
+  transition: 1s;
+  transition-delay: 0.50s;
+}
+
+#spain2 {
+
+  top: -100%;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(100deg, transparent, #E1FFEE);
+}
+
+.btn-neon2:hover #spain2 {
+
+  top: 100%;
+  transition: 1s;
+  transition-delay: 0.25s;
+
+}
+
+#spain4 {
+
+  bottom: -100%;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(360deg, transparent, #E1FFEE);
+}
+
+.btn-neon2:hover #spain4 {
+
+  bottom: 100%;
+  transition: 1s;
+  transition-delay: 0.75s;
+
+}
+
+/* BOTON AGREGAR */
+
+.btn-neon3 {
+  position: relative;
+  display: inline-block;
+  padding: 15px 30px;
+  color: rgb(1, 1, 1);
+  letter-spacing: 4px;
+  font-size: 15px;
+  text-decoration: none;
+  overflow: hidden;
+  transition: 0.2s;
+  background: linear-gradient(135deg, #9d3ADF, #106ab6);
+  box-shadow: 3px 3px 10px #464444, 3px 3px 20px #3f3e3e;
+  color: #E1FFEE;
+}
+
+.btn-neon3:hover {
+  background: #62B6B7;
+  box-shadow: 0 0 10px #62B6B7, 0 0 20px #62B6B7, 0 0 40px #62B6B7;
+  transition-delay: 0.95s;
+}
+
+.BOTONC {
+
+  margin-top: 70px;
+}
+
+.btn-neon3 span {
+  position: absolute;
+  display: block;
+}
+
+#spain1 {
+
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #E1FFEE);
+}
+
+.btn-neon3:hover #spain1 {
+
+  left: 100%;
+  transition: 1s;
+}
+
+#spain3 {
+
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(270deg, transparent, #E1FFEE);
+}
+
+.btn-neon3:hover #spain3 {
+
+  right: 100%;
+  transition: 1s;
+  transition-delay: 0.50s;
+}
+
+#spain2 {
+
+  top: -100%;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(100deg, transparent, #E1FFEE);
+}
+
+.btn-neon3:hover #spain2 {
+
+  top: 100%;
+  transition: 1s;
+  transition-delay: 0.25s;
+
+}
+
+#spain4 {
+
+  bottom: -100%;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(360deg, transparent, #E1FFEE);
+}
+
+.btn-neon3:hover #spain4 {
+
+  bottom: 100%;
+  transition: 1s;
+  transition-delay: 0.75s;
+
+}
+
+a.btn-neon3 {
+  margin-left: 12%;
+  left: 12px;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  max-width: 700px;
+  width: 100%;
+  background-color: #fff;
+  padding: 25px 30px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px #9b59b6, 0 0 20px #9b59b6, 0 0 40px #71b7e6;
+}
+
+.container .title {
+  font-size: 25px;
+  font-weight: 500;
+  position: relative;
+  text-align: center;
+}
+
+.content form .user-details {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 20px 0 12px 0;
+}
+
+form .user-details .input-box {
+  margin-bottom: 15px;
+  width: calc(100% / 2 - 20px);
+}
+
+form .input-box span.details {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.user-details .input-box input {
+  height: 45px;
+  width: 90%;
+  outline: none;
+  font-size: 16px;
+  border-radius: 5px;
+  padding-left: 15px;
+  border: 1px solid #ccc;
+  border-bottom-width: 2px;
+  transition: all 0.3s ease;
+}
+
+.user-details .input-box input:focus,
+.user-details .input-box input:valid {
+  border-color: #9b59b6;
+}
+
+form .gender-details .gender-title {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+form .category {
+  display: flex;
+  width: 80%;
+  margin: 14px 0;
+  justify-content: space-between;
+}
+
+form .category label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+span.details {
+
+  font-size: 15px;
+}
+
+form .category label .dot {
+  height: 18px;
+  width: 18px;
+  border-radius: 50%;
+  margin-right: 10px;
+  background: #d9d9d9;
+  border: 5px solid transparent;
+  transition: all 0.3s ease;
+}
+
+#dot-1:checked~.category label .one,
+#dot-2:checked~.category label .two,
+#dot-3:checked~.category label .three {
+  background: #9b59b6;
+  border-color: #d9d9d9;
+}
+
+form input[type="radio"] {
+  display: none;
+}
+
+form .button {
+  height: 45px;
+  margin: 35px 0
+}
+
+form .button input {
+  height: 100%;
+  width: 100%;
+  border-radius: 5px;
+  border: none;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: linear-gradient(135deg, #9b59b6, #71b7e6);
+}
+
+form .button input:hover {
+  /* transform: scale(0.99); */
+  background: linear-gradient(-135deg, #9b59b6, #71b7e6);
+}
+
+@media(max-width: 584px) {
+  .container {
+    max-width: 100%;
+  }
+
+  form .user-details .input-box {
+    margin-bottom: 15px;
+    width: 170%;
+  }
+
+  form .category {
+    width: 100%;
+  }
+
+  .content form .user-details {
+    max-height: 300px;
+    overflow-y: scroll;
+  }
+
+  .user-details::-webkit-scrollbar {
+    width: 5px;
+  }
+}
+
+@media(max-width: 459px) {
+  .container .content .category {
+    flex-direction: column;
+  }
+}
+
+.container {
+  background: linear-gradient(135deg, #9b59b6, #71b7e6);
+}
+
+textarea {
+  width: 90%;
+  outline: none;
+  font-size: 16px;
+  border-radius: 5px;
+  padding-left: 15px;
+  border: 1px solid #ccc;
+  border-bottom-width: 2px;
+  transition: all 0.3s ease;
+  padding-top: 10px;
+  padding-right: 15px;
+}
+
+nav {
+  height: 80px;
+}
+
+.text {
+  text-transform: uppercase;
+  font-family: verdana;
+  font-size: 34px;
+  font-weight: 700;
+  color: #f5f5f5;
+  text-shadow: 1px 1px 1px #919191,
+    1px 2px 1px #919191,
+    1px 3px 1px #919191,
+    1px 4px 1px #919191,
+    1px 5px 1px #919191,
+    1px 6px 1px #919191,
+    1px 7px 1px #919191,
+    1px 8px 1px #919191,
+    1px 9px 1px #919191,
+    1px 10px 1px #919191,
+    1px 18px 6px rgba(16, 16, 16, 0.4),
+    1px 22px 10px rgba(16, 16, 16, 0.2),
+    1px 25px 35px rgba(16, 16, 16, 0.2),
+    1px 30px 60px rgba(16, 16, 16, 0.4);
+  text-align: center;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+
+span.details {
+
+  margin-top: 30px;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 15px;
+  color: linear-gradient(135deg, #9b59b6, #71b7e6);
+}
+
+h6.text {
+  padding-bottom: 20px;
+}
+
+.user-details {
+  text-align: -webkit-center;
+}
+
+
+
+.btn-neon5 {
+  position: relative;
+  display: inline-block;
+  padding: 15px 30px;
+  color: rgb(1, 1, 1);
+  letter-spacing: 4px;
+  font-size: 18px;
+  text-decoration: none;
+  overflow: hidden;
+  transition: 0.2s;
+}
+
+
+.BOTONC {
+
+  margin-top: 70px;
+}
+
+.btn-neon5 span {
+  position: absolute;
+  display: block;
+}
+
+#spain1 {
+
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #E1FFEE);
+}
+
+.btn-neon5:hover #spain1 {
+
+  left: 100%;
+  transition: 1s;
+}
+
+#spain3 {
+
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(270deg, transparent, #E1FFEE);
+}
+
+.btn-neon5:hover #spain3 {
+
+  right: 100%;
+  transition: 1s;
+  transition-delay: 0.50s;
+}
+
+#spain2 {
+
+  top: -100%;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(100deg, transparent, #E1FFEE);
+}
+
+.btn-neon5:hover #spain2 {
+
+  top: 100%;
+  transition: 1s;
+  transition-delay: 0.25s;
+
+}
+
+#spain4 {
+
+  bottom: -100%;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(360deg, transparent, #E1FFEE);
+}
+
+.btn-neon5:hover #spain4 {
+
+  bottom: 100%;
+  transition: 1s;
+  transition-delay: 0.75s;
+
+}
+
+.container {
+  max-width: 700px;
+  width: 90%;
+  background-color: #fff;
+  padding: 25px 30px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px #9b59b6, 0 0 20px #9b59b6, 0 0 40px #71b7e6;
+}
+
+img.menu {
+  width: 40px;
+
+  position: absolute;
+  top: 18px;
+  right: 17px;
+
+}
+
+
+
+.nav {
+  background: linear-gradient(135deg, #9b59b6, #71b7e6);
+  height: 80px;
+  color: #d9d9d9;
+  position: fixed;
+}
+
+.nva__logo {
+
+  font-size: 1.5em;
+  font-weight: 900;
+}
+
+.nav_container {
+
+  display: flex;
+  height: 100%;
+  width: 99%;
+  margin: 0 auto;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav_label,
+.nav__input {
+
+  display: none;
+}
+
+.nav_menu {
+
+  display: grid;
+  grid-auto-flow: column;
+  gap: 1em;
+}
+
+.nav-item {
+
+  color: #230505;
+  text-decoration: none;
+  --custom: polygon(0 0, 0 0, 0 100%, 0% 100%);
+
+}
+
+
+.nav-item::after {
+
+  content: "";
+  display: block;
+  background: #ccc;
+  width: 100%;
+  margin-top: 3px;
+  height: 3px;
+  clip-path: var(--custom);
+  transition: clip-path .5s;
+
+}
+
+.nav-item:hover {
+
+  --custom: polygon(0 0, 100% 1%, 100% 100%, 0 100%);
+
+}
+
+@media (max-width: 1536px) {
+
+
+  .nav_label {
+    display: block;
+    cursor: pointer;
+
+  }
+
+  .nav_menu {
+
+    position: fixed;
+    top: 80px;
+    bottom: 0;
+background: #76ADE1;
+    width: 100%;
+    left: 100;
+    display: flex;
+    justify-content: space-between 3;
+    flex-direction: column;
+    align-items: center;
+    clip-path: polygon(82% 0, 100% 0, 100% 0, 82% 0);
+    transition: clip-path 1s ease-in-out;
+
+  }
+
+  a.nav-item {
+
+    margin-left: 1190px;
+    margin-top: 30px;
+  }
+
+  .nav__input:checked + .nav_menu {
+
+    background: #76ADE1;
+    clip-path: polygon(82% 0, 100% 0, 100% 35%, 82% 35%);
+
+
+  }
+
+}
+
+.btn-neon6 {
+  position: relative;
+  display: inline-block;
+  padding: 15px 30px;
+  color: rgb(1, 1, 1);
+  letter-spacing: 4px;
+  font-size: 15px;
+  text-decoration: none;
+  overflow: hidden;
+  transition: 0.2s;
+  background: transparent;
+  color: #E1FFEE;
+  width: 155px;
+  text-align: center;
+}
+
+.btn-neon6:hover {
+  box-shadow: 0 0 5px #323636, 0 0 10px #323636, 0 0 10px #323636;
+  transition-delay: 0.95s;
+}
+
+.BOTONC {
+
+  margin-top: 70px;
+}
+
+.btn-neon6 span {
+  position: absolute;
+  display: block;
+}
+
+#spain1 {
+
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #E1FFEE);
+}
+
+.btn-neon6:hover #spain1 {
+
+  left: 100%;
+  transition: 1s;
+}
+
+#spain3 {
+
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(270deg, transparent, #E1FFEE);
+}
+
+.btn-neon6:hover #spain3 {
+
+  right: 100%;
+  transition: 1s;
+  transition-delay: 0.250s;
+}
+
+#spain2 {
+
+  top: -100%;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(100deg, transparent, #E1FFEE);
+}
+
+.btn-neon6:hover #spain2 {
+
+  top: 100%;
+  transition: 1s;
+  transition-delay: 0.375s;
+
+}
+
+#spain4 {
+
+  bottom: -100%;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(360deg, transparent, #E1FFEE);
+}
+
+.btn-neon6:hover #spain4 {
+
+  bottom: 100%;
+  transition: 1s;
+  transition-delay: 0.500s;
+
+}
+
+.Botones.menu {
+  margin-left: 830px;
+
+}

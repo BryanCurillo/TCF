@@ -615,3 +615,17 @@ img.img2 {
         margin-right: 50px;
     }
     
+    a#sign-up-btn {
+        margin-right: 50px;
+    }
+
+    img.image.imageL{
+        margin-right: 50px;
+        padding-bottom: 40px;
+    }
+
+    .title {
+        font-size: 40px;
+        color: #444;
+        margin-bottom: 10px;
+    }
