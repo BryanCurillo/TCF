@@ -6,12 +6,12 @@
 
                 <div class="input-field">
                     <div class="foto2"> <img src="/assets/img/usuario.png" class="img2" alt="imagenUser"></div>
-                    <input type="text"[(ngModel)]="modeloUsuario.usu_nombre_usuario" name="a"  placeholder="Usuario">
+                    <input type="text"[(ngModel)]="modeloUsuario.UsuNombreUsuario" name="a"  placeholder="Usuario">
                 </div>
 
                 <div class="input-field">
                     <div class="foto2"> <img src="/assets/img/bloquear.png" class="img2" alt="imagenUser"></div>
-                    <input type="password" [(ngModel)]="modeloUsuario.usu_contrasena" name="a" placeholder="Contraseña">
+                    <input type="password" [(ngModel)]="modeloUsuario.UsuContraUsuario" name="a" placeholder="Contraseña">
                 </div>
 
                 <input (click)="principal(modeloUsuario)" type="submit" name="Login" class="btnNB solid" value="Iniciar Sesión">
@@ -42,20 +42,20 @@
 
                 <div class="input-field">
                     <div class="foto"> <img src="/assets/img/usuario.png"  class="img2"  alt="imagenUser"></div>
-                    <input type="text" placeholder="Usuario">
+                    <input type="text" [(ngModel)]="modeloUsuario.UsuNombreUsuario" name="user" placeholder="Usuario">
                 </div>
 
                 <div class="input-field">
                     <div class="foto"> <img src="/assets/img/gmail.png" class="img2" alt="imagenUser"></div>
-                    <input type="text" placeholder="Correo">
+                    <input type="text" [(ngModel)]="modeloPersona.PerCorreo" name="gmail" placeholder="Correo">
                 </div>
 
                 <div class="input-field">
                     <div class="foto"> <img src="/assets/img/bloquear.png" class="img2" alt="imagenUser"></div>
-                    <input type="password" placeholder="Cedula">
+                    <input type="text"[(ngModel)]="modeloPersona.PerCedula" name="cedu"placeholder="Cedula">
                 </div>
 
-                <input (click)="registrar()" type="submit" name="Sign up" class="btnNB solid" value="Continuar">
+                <input (click)="registrar(modeloUsuario,modeloPersona)" type="submit" name="Sign up" class="btnNB solid" value="Continuar">
 
                 <p class="social-text">Síguenos en nuestras plataformas </p>
                 <div class="social-media">

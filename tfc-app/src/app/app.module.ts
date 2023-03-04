@@ -9,6 +9,7 @@ import { FooterComponent } from './footer/footer.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ServisLoginResgisService } from './service/servisLoginResgis.service';
+//temporal eliminar ALERTAS
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { ServisLoginResgisService } from './service/servisLoginResgis.service';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    //TEMPORAL eliminar ALERTAS
   ],
   providers: [ServisLoginResgisService],
   bootstrap: [AppComponent]

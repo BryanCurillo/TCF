@@ -18,9 +18,20 @@ export class ServisLoginResgisService {
   //comprobar el inicio de sesion si la persona existe
   getUsuarioUserPass(usua:usuario){
 
-    return this.http.get<usuario>(this.url+"/Usuario/"+usua.usu_nombre_usuario+"/"+usua.usu_contrasena);
+    return this.http.get<usuario>(this.url+"/Usuario/"+usua.UsuNombreUsuario+"/"+usua.UsuContraUsuario);
 
   }
 
+  getExistGmail(per:persona){
+    return this.http.get<boolean>(this.url+"/persona/existG/"+per.PerCorreo);
+  }
+
+  getExistDni(per:persona){
+    return this.http.get<boolean>(this.url+"/persona/existD/"+per.PerCedula);
+  }
+
+  getExistUser(usua:usuario){
+    return this.http.get<boolean>(this.url+"/Usuario/exist/"+usua.UsuNombreUsuario);
+  }
 
 }

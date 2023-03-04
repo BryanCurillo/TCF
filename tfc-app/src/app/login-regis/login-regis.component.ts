@@ -1,8 +1,13 @@
 import { Component, ElementRef, ViewChild} from '@angular/core';
 import {  Router } from '@angular/router';
+import { persona } from '../modelo/persona';
 import { usuario } from '../modelo/usuario';
 import { ServisLoginResgisService } from '../service/servisLoginResgis.service';
+//TEMPORAL ELIMINAR ALERTAS
+import Swal from 'sweetalert2';
 
+import { ThisReceiver } from '@angular/compiler';
+import { forkJoin } from 'rxjs';
 
 
 @Component({
@@ -13,6 +18,7 @@ import { ServisLoginResgisService } from '../service/servisLoginResgis.service';
 export class LoginRegisComponent {
 
   //constructor donde paso los servicios y el ruta para regidigir
+  //ELIMINAR TEMPORAL TOASTR
   constructor(private router:Router, private service:ServisLoginResgisService){}
 
   /* sirve para poner las animaciones  */
@@ -21,6 +27,10 @@ export class LoginRegisComponent {
   @ViewChild('signUpBtn') signUpBtn: ElementRef;
   @ViewChild('signInBtn') signInBtn: ElementRef;
   @ViewChild('container') container: ElementRef;
+
+  bolCedu: boolean = false;
+  bolGmail: boolean = false;
+  bolUser: boolean = false;
 
   //sirve en para las animaciones y cambiar de estado remplaza a javascript
   ngAfterViewInit() {
@@ -38,32 +48,72 @@ export class LoginRegisComponent {
 
   //creo el modelo usuario donde se almacenaran los datos
   modeloUsuario:usuario=new usuario();
-
+  modeloPersona:persona=new persona();
   //acciones que se realizara con los botones 
-  registrar(){
-    this.router.navigate(["registrar"]);
+  registrar(modelUsu:usuario,modelPer:persona){
+    if(modelUsu.UsuNombreUsuario!="" && modelPer.PerCorreo!="" && modelPer.PerCedula!=""){
+
+      let obs1$ = this.service.getExistUser(this.modeloUsuario);
+      let obs2$ = this.service.getExistGmail(this.modeloPersona);
+      let obs3$ = this.service.getExistDni(this.modeloPersona);
+
+      forkJoin([obs1$, obs2$, obs3$]).subscribe(
+        ([bolUser, bolGmail, bolCedu]) => {
+          this.bolUser = bolUser;
+          this.bolGmail = bolGmail;
+          this.bolCedu = bolCedu;
+
+
+          if(this.bolUser){
+            //el usuario existe
+            Swal.fire('Registro','USUARIO EXISTENTE','error');
+          }else if(this.bolGmail){
+            //el gmail exite
+            Swal.fire('Registro','GMAIL REGISTRADO','error');
+          }else if(this.bolCedu){
+            //la cedula existe
+            Swal.fire('Registro','CEDULA REGISTRADA','error');
+          }else{
+            Swal.fire('Registro','USUARIO DISPONIBLE','success');
+            localStorage.setItem("user",modelUsu.UsuNombreUsuario.toString());
+            localStorage.setItem("gmail",modelPer.PerCorreo.toString());
+            localStorage.setItem("dni",modelPer.PerCedula.toString());
+            this.router.navigate(["registrar"]);
+          }
+        },
+        error => {
+          console.log(error);
+        }
+      );
+
+    }else{
+      Swal.fire('Registro','RELLENE LOS DATOS','warning');
+    }
   }
+
 
   principal(modelUsu:usuario){
 
-    if (modelUsu.usu_nombre_usuario!="" && modelUsu.usu_contrasena!="") {
-      alert(modelUsu.usu_nombre_usuario+" "+modelUsu.usu_contrasena);
+    if (modelUsu.UsuNombreUsuario!="" && modelUsu.UsuContraUsuario!="") {
+      
       this.service.getUsuarioUserPass(this.modeloUsuario).subscribe(data=>{
         //comparar si se encontro un usuario o no
         if (data!= null) {
           this.modeloUsuario=data;
-          alert("usuario encontrado")
-
+        
+          Swal.fire('LOGIN','USUARIO ENCONTRADO','success');
             //mandar a la siguiente pagina
-           this.router.navigate(["registrar"]);
+          this.router.navigate(["principal"]);
         }else{
-          alert("Constraseña o usuario incorrecto")
+      
+          Swal.fire('LOGIN','USUARIO O CONTRASEÑA INCORRECTOS','error');
         }
       });
     }else{
-      alert("por favor llene los datos ");
+      Swal.fire('LOGIN','RELLENE LOS DATOS POR FAVOR','warning');
     }
 
    
   }
 }
+
