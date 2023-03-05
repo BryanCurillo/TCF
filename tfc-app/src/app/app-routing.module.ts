@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HeaderComponent } from './header/header.component';
 import { HeadersComponent } from './headers/headers.component';
 import { LoginRegisComponent } from './login-regis/login-regis.component';
 import { PrincipalComponent } from './principal/principal.component';
