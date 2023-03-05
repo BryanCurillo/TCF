@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ServisLoginResgisService } from './service/servisLoginResgis.service';
 import { HeadersComponent } from './headers/headers.component';
+import { ProductosComponent } from './productos/productos.component';
 //temporal eliminar ALERTAS
 
 
@@ -20,7 +21,8 @@ import { HeadersComponent } from './headers/headers.component';
     RegistrarComponent,
     PrincipalComponent,
     FooterComponent,
-    HeadersComponent
+    HeadersComponent,
+    ProductosComponent
   ],
   imports: [
     BrowserModule,

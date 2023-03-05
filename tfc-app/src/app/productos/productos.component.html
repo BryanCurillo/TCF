@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<!-- Created By CodingLab - www.codinglabweb.com -->
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <!---<title> Responsive Registration Form | CodingLab </title>--->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<app-headers></app-headers>
+
+<body>
+    <div class="container">
+        <h1>DATOS PERSONALES</h1>
+        <div class="content">
+            <form action="#">
+                <div class="user-details">
+                    <div class="input-box">
+                        <span class="details">Nombre</span>
+                        <input type="text" placeholder="Ingresa el nombre del producto" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Precio</span>
+                        <input type="number" placeholder="Ingresa el precio del producto" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">descripcion</span>
+                        <textarea  name="notas" rows=3 cols=20 
+                        placeholder="Ingresa la descripcion"></textarea>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Categoria</span>
+                        <select>
+                            <option>Selecciona la categoria</option>
+                            <option>Trueque</option>
+                            <option>Venta</option>
+                          </select>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Precio</span>
+                        <input type="file" placeholder="Ingresa el precio del producto" required>
+                    </div>
+                </div>
+                <div class="button">
+                    <input type="submit" value="Register">
+                </div>
+            </form>
+        </div>
+
+    </div>
+    <div class="card">
+        <h2>REGISTRO DE PRODUCTO</h2>
+    </div>
+
+</body>
+
+
+</html>
+<app-footer></app-footer>
