@@ -1,75 +1,85 @@
-<!-- separacion del head-->
-<div class="container my-3">
 
-    <!-- esta fila tendra 3 diviciones-->
-    <div class="row"><h2>Formulario Registro</h2></div>
-    <form action="">
-        <div class="row">
-        
-            <div class="col-sm-6 col-md-4 col-lg-4 col-xl-4 py-4 bg-white">
-          
-                <label for="nombre" class="form-label">nombre</label>
-                <input type="text" class="form-control" id="nombre" >
-                <label for="nombre" class="form-label" *ngIf="boolAlertNom">Nombre vacío</label>
+<!DOCTYPE html>
+<!-- Created By CodingLab - www.codinglabweb.com -->
+<html lang="en" dir="ltr">
 
-                <label for="contraseña" class="form-label">Contraseña</label>
-                <input type="password" class="form-control" id="contraseña" placeholder="**********">
-                <label for="nombre" class="form-label" *ngIf="boolAlertCon">Contraseña vacía</label>
+<head>
+    <meta charset="UTF-8">
+    <!---<title> Responsive Registration Form | CodingLab </title>--->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<app-headers></app-headers>
 
-                <label for="repContra" class="form-label">Repetir contraseña</label>
-                <input type="password" class="form-control" id="repContra" placeholder="**********">
-                <label for="nombre" class="form-label" *ngIf="boolAlertRepCon">Contraseña vacía</label>
+<body>
+    <div class="container">
+        <h1>DATOS PERSONALES</h1>
+        <div class="content">
+            <form action="#">
+                <div class="user-details">
+                    <div class="input-box">
+                        <span class="details">Nombre</span>
+                        <input type="text" placeholder="Enter your name" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Apellido</span>
+                        <input type="text" placeholder="Enter your username" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Cedula</span>
+                        <input type="text" placeholder="Enter your email" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Direccion</span>
+                        <input type="text" placeholder="Enter your number" required>
+                    </div>
+                    <div class="input-box">
+                        <input type="radio" name="gender" id="dot-1">
+                        <input type="radio" name="gender" id="dot-2">
+                        <input type="radio" name="gender" id="dot-3">
+                        <span class="details">Genero</span>
+                        <div class="category">
+                            <label for="dot-1">
+                                <span class="dot one"></span>
+                                <span class="gender">Hombre</span>
+                            </label>
+                            <label for="dot-2">
+                                <span class="dot two"></span>
+                                <span class="gender">Mujer</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Telefono</span>
+                        <input type="text" placeholder="Enter your number" required>
+                    </div>
+                </div>
 
-                <label for="descripcion" class="form-label">Descripción</label>
-                <textarea class="form-control txtDireccion" id="descripcion" rows="3"></textarea>
-                <label for="nombre" class="form-label" *ngIf="boolAlertDes">Descripcion vacía</label>
+                <h1>Datos de Usuario</h1>
+                <div class="user-details">
+                    <div class="input-box">
+                        <span class="details">Nombre de Usuario</span>
+                        <input type="text" placeholder="Enter your name" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Correo Electronico</span>
+                        <input type="text" placeholder="Enter your username" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Correo Electronico</span>
+                        <input type="text" placeholder="Enter your username" required>
+                    </div>
+                </div>
 
+                <div class="button">
+                    <input type="submit" value="Register">
+                </div>
 
-            </div>
-        
-        
-            <div class="col-sm-6 col-md-4 col-lg-4 col-xl-4 py-4 bg-white">
-                <label for="Apellido" class="form-label">Apellido</label>
-                <input type="text" class="form-control" id="apellido" >
-                <label for="nombre" class="form-label" *ngIf="boolAlertApell">Apellido vacío</label>
-
-                <label for="Telefono" class="form-label">Telefono</label>
-                <input type="number" class="form-control" id="Telefono" >
-                <label for="nombre" class="form-label" *ngIf="boolAlertTel">Telefono vacio</label>
-
-
-                <label for="sexo" class="lblSex">Sexo</label>
-                <select id="sexo" name="sexo" class="combox" required>
-                  <option value="">Seleccione su género</option>
-                  <option value="masculino">Masculino</option>
-                  <option value="femenino">Femenino</option>
-                  <option value="femenino">No binario</option>
-                  <option value="femenino">Transformer?</option>
-                  <option value="femenino">otro</option>
-                </select>
-
-                
-            </div>
-        
-        
-            <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4 py-4 bg-white">
-                <label for="usuario" class="form-label">Usuario</label>
-                <input type="text" [(ngModel)]="modeloUsuario.UsuNombreUsuario" name="a"class="form-control" id="usuario" disabled="true" placeholder="name@example.com">
-
-                <label for="correo" class="form-label">Correo</label>
-                <input type="text" [(ngModel)]="modeloPersona.PerCorreo" name="b"class="form-control" id="correo" disabled="true" placeholder="name@example.com">
-
-                <label for="cedula" class="form-label">Cedula</label>
-                <input type="text" [(ngModel)]="modeloPersona.PerCedula" name="c"class="form-control" id="cedula" disabled="true" placeholder="name@example.com">
-
-
-            </div>
-        
+            </form>
         </div>
-    </form>
+    </div>
+
+</body>
 
 
-</div>
-
-
+</html>
 <app-footer></app-footer>

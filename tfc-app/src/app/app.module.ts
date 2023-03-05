@@ -9,6 +9,7 @@ import { FooterComponent } from './footer/footer.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ServisLoginResgisService } from './service/servisLoginResgis.service';
+import { HeadersComponent } from './headers/headers.component';
 //temporal eliminar ALERTAS
 
 
@@ -18,7 +19,8 @@ import { ServisLoginResgisService } from './service/servisLoginResgis.service';
     LoginRegisComponent,
     RegistrarComponent,
     PrincipalComponent,
-    FooterComponent
+    FooterComponent,
+    HeadersComponent
   ],
   imports: [
     BrowserModule,
