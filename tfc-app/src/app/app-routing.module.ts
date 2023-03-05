@@ -5,10 +5,12 @@ import { PrincipalComponent } from './principal/principal.component';
 import { RegistrarComponent } from './registrar/registrar.component';
 
 
+
 const routes: Routes = [{ path: '', redirectTo: '/login', pathMatch: 'full' },
 { path: 'login', component: LoginRegisComponent },
 { path: 'principal', component: PrincipalComponent },
 { path: 'registrar', component: RegistrarComponent }
+
 ];
 
 
