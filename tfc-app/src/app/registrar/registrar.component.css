@@ -4,6 +4,8 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Poppins',sans-serif;
+
+
 }
 
 h1{
@@ -12,6 +14,7 @@ h1{
   font-weight: bold;
 }
 body{
+
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -21,6 +24,8 @@ body{
   margin-top: 70px;
 }
 .container{
+
+  margin-top: 200px;
   max-width: 700px;
   width: 100%;
   background-color: #fff;
@@ -29,6 +34,7 @@ body{
   box-shadow: 0 5px 10px rgba(0,0,0,0.15);
   margin-right: 30px;
   height: 770px;
+  padding-bottom: 300px;
 }
 .container .title{
   font-size: 25px;
@@ -40,18 +46,21 @@ body{
   position: absolute;
   left: 0;
   bottom: 0;
+  
   height: 3px;
   width: 30px;
   border-radius: 5px;
   background: linear-gradient(135deg, #71b7e6, #9b59b6);
 }
 .content form .user-details{
+  
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   margin: 20px 0 12px 0;
 }
 form .user-details .input-box{
+  
   margin-bottom: 15px;
   width: calc(100% / 2 - 20px);
 }
@@ -163,6 +172,7 @@ html {
 /* CARTA DE REGISTRO */
 
 .card {
+  
   width: 500px;
   height: 300px;
   background: #07182E;
@@ -173,7 +183,12 @@ html {
   overflow: hidden;
   border-radius: 20px;
 }
+/* areglar los problemas que se sobreponen las cosas*/
+.pie{
+  height: 120px;
+  display: block;
 
+}
 .card h2 {
   z-index: 1;
   color: white;
@@ -211,3 +226,31 @@ html {
 }  
 
 
+
+/* Sirve para los atributos que ya estan verificados*/
+.check{
+  color: #21618C;
+}
+/* alertas */
+.lblAlert{
+  color: #FF9800;
+  font-size: 13px;
+  margin-top: 0;
+  position: absolute;
+  display: block;
+}
+
+.lblAlertError{
+  color: #E74C3C  ;
+  font-size: 13px;
+  margin-top: 0;
+  position: absolute;
+  display: block;
+}
+
+/* desactivar flechas de los input*/
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
