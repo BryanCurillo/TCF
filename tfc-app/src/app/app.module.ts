@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ServisLoginResgisService } from './service/servisLoginResgis.service';
 import { HeadersComponent } from './headers/headers.component';
 import { ProductosComponent } from './productos/productos.component';
+import { VerproductoComponent } from './verproducto/verproducto.component';
 //temporal eliminar ALERTAS
 
 
@@ -22,7 +23,8 @@ import { ProductosComponent } from './productos/productos.component';
     PrincipalComponent,
     FooterComponent,
     HeadersComponent,
-    ProductosComponent
+    ProductosComponent,
+    VerproductoComponent
   ],
   imports: [
     BrowserModule,

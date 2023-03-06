@@ -1,123 +1,220 @@
-<!-- HEADER INICIO -->
+<app-headers></app-headers>
+<!DOCTYPE html>
+<html lang="en">
 
-<nav class="nav">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+
+
+<!-- INICIA CARRUSEL -->
+
+
+
+<!-- FIN CARRUSEL -->
+
+<body>
+
     <div class="container">
-        <div class="logo">
-            <img src="assets/img/lot-removebg-preview.png" width="60px">
-            <button routerLink="/principal" routerLink="/principal">TRUEKSHOP</button>
+
+        <h3 class="title"> Productos De La Semana </h3>
+
+        <div class="products-container">
+
+            <div class="product" data-name="p-1">
+                <img src="assets/img/vodka.png" alt="">
+                <h3> Absolute Vodka </h3>
+                <div class="price">$19.00</div>
+            </div>
+
+            <div class="product" data-name="p-2">
+                <img src="assets/img/jd.png" alt="">
+                <h3>Jack Daniels</h3>
+                <div class="price">$17.00</div>
+            </div>
+
+            <div class="product" data-name="p-3">
+                <img src="assets/img/tequila.png" alt="">
+                <h3>Tequila Don</h3>
+                <div class="price">$4.50</div>
+            </div>
+
+            <div class="product" data-name="p-4">
+                <img src="assets/img/zhumir.png" alt="">
+                <h3>Zhumir</h3>
+                <div class="price">$10.00</div>
+            </div>
+
+            <div class="product" data-name="p-5">
+                <img src="assets/img/black.png" alt="">
+                <h3>Black Label</h3>
+                <div class="price">$8.00</div>
+            </div>
+
+            <div class="product" data-name="p-6">
+                <img src="assets/img/smir.png" alt="">
+                <h3>smir</h3>
+                <div class="price">$14.00</div>
+            </div>
 
         </div>
-        <div id="mainListDiv" class="main_list">
-            <ul class="navlinks">
-                <button routerLink="/principal">Trueque</button>
-                <button routerLink="/principal">Venta</button>
-                <button routerLink="/producto">Productos</button>
-                <button routerLink="/registrar">Perfil</button>
-            </ul>
-        </div>
 
-        <span class="navTrigger">
-            <i></i>
-            <i></i>
-            <i></i>
-        </span>
     </div>
-</nav>
 
-<section class="home">
-</section>
-<!-- Jquery needed -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script src="js/scripts.js"></script>
+    <div class="products-preview">
 
-<!-- Function used to shrink nav bar removing paddings and adding black background -->
+        <div class="preview" data-target="p-1">
+            <i class="fas fa-times"></i>
+            <img src="assets/img/vodka.png" alt="">
+            <h3>organic strawberries</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+                <span>( 250 )</span>
+            </div>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, dolorem.</p>
+            <div class="price">$2.00</div>
+            <div class="buttons">
+                <a href="#" class="buy">buy now</a>
+                <a href="#" class="cart">add to cart</a>
+            </div>
+        </div>
+
+        <div class="preview" data-target="p-2">
+            <i class="fas fa-times"></i>
+            <img src="assets/img/jd.png" alt="">
+            <h3>organic onions</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+                <span>( 250 )</span>
+            </div>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, dolorem.</p>
+            <div class="price">$2.00</div>
+            <div class="buttons">
+                <a href="#" class="buy">buy now</a>
+                <a href="#" class="cart">add to cart</a>
+            </div>
+        </div>
+
+        <div class="preview" data-target="p-3">
+            <i class="fas fa-times"></i>
+            <img src="assets/img/3.png" alt="">
+            <h3>organic tomatoes</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+                <span>( 250 )</span>
+            </div>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, dolorem.</p>
+            <div class="price">$2.00</div>
+            <div class="buttons">
+                <a href="#" class="buy">buy now</a>
+                <a href="#" class="cart">add to cart</a>
+            </div>
+        </div>
+
+        <div class="preview" data-target="p-4">
+            <i class="fas fa-times"></i>
+            <img src="assets/img/4.png" alt="">
+            <h3>organic brinjal</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+                <span>( 250 )</span>
+            </div>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, dolorem.</p>
+            <div class="price">$2.00</div>
+            <div class="buttons">
+                <a href="#" class="buy">buy now</a>
+                <a href="#" class="cart">add to cart</a>
+            </div>
+        </div>
+
+        <div class="preview" data-target="p-5">
+            <i class="fas fa-times"></i>
+            <img src="assets/img/5.png" alt="">
+            <h3>organic broccoli</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+                <span>( 250 )</span>
+            </div>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, dolorem.</p>
+            <div class="price">$2.00</div>
+            <div class="buttons">
+                <a href="#" class="buy">buy now</a>
+                <a href="#" class="cart">add to cart</a>
+            </div>
+        </div>
+
+        <div class="preview" data-target="p-6">
+            <i class="fas fa-times"></i>
+            <img src="assets/img/6.png" alt="">
+            <h3>organic potatoes</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+                <span>( 250 )</span>
+            </div>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, dolorem.</p>
+            <div class="price">$2.00</div>
+            <div class="buttons">
+                <a href="#" class="buy">buy now</a>
+                <a href="#" class="cart">add to cart</a>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>
+
+<app-footer></app-footer>
+
 <script>
-    $(window).scroll(function () {
-        if ($(document).scrollTop() > 50) {
-            $('.nav').addClass('affix');
-            console.log("OK");
-        } else {
-            $('.nav').removeClass('affix');
-        }
+
+    let preveiwContainer = document.querySelector('.products-preview');
+    let previewBox = preveiwContainer.querySelectorAll('.preview');
+
+    document.querySelectorAll('.products-container .product').forEach(product => {
+        product.onclick = () => {
+            preveiwContainer.style.display = 'flex';
+            let name = product.getAttribute('data-name');
+            previewBox.forEach(preview => {
+                let target = preview.getAttribute('data-target');
+                if (name == target) {
+                    preview.classList.add('active');
+                }
+            });
+        };
+    });
+
+    previewBox.forEach(close => {
+        close.querySelector('.fa-times').onclick = () => {
+            close.classList.remove('active');
+            preveiwContainer.style.display = 'none';
+        };
     });
 </script>
-<!-- HEADER FIN -->
-<section>
-    <ul class="slides">
-        <input type="radio" name="radio-btn" id="img-1" checked />
-        <li class="slide-container">
-            <div class="slide">
-                <img src="http://farm9.staticflickr.com/8072/8346734966_f9cd7d0941_z.jpg" />
-            </div>
-            <div class="nav">
-                <label for="img-6" class="prev">&#x2039;</label>
-                <label for="img-2" class="next">&#x203a;</label>
-            </div>
-        </li>
-    
-        <input type="radio" name="radio-btn" id="img-2" />
-        <li class="slide-container">
-            <div class="slide">
-              <img src="http://farm9.staticflickr.com/8504/8365873811_d32571df3d_z.jpg" />
-            </div>
-            <div class="nav">
-                <label for="img-1" class="prev">&#x2039;</label>
-                <label for="img-3" class="next">&#x203a;</label>
-            </div>
-        </li>
-    
-        <input type="radio" name="radio-btn" id="img-3" />
-        <li class="slide-container">
-            <div class="slide">
-              <img src="http://farm9.staticflickr.com/8068/8250438572_d1a5917072_z.jpg" />
-            </div>
-            <div class="nav">
-                <label for="img-2" class="prev">&#x2039;</label>
-                <label for="img-4" class="next">&#x203a;</label>
-            </div>
-        </li>
-    
-        <input type="radio" name="radio-btn" id="img-4" />
-        <li class="slide-container">
-            <div class="slide">
-              <img src="http://farm9.staticflickr.com/8061/8237246833_54d8fa37f0_z.jpg" />
-            </div>
-            <div class="nav">
-                <label for="img-3" class="prev">&#x2039;</label>
-                <label for="img-5" class="next">&#x203a;</label>
-            </div>
-        </li>
-    
-        <input type="radio" name="radio-btn" id="img-5" />
-        <li class="slide-container">
-            <div class="slide">
-              <img src="http://farm9.staticflickr.com/8055/8098750623_66292a35c0_z.jpg" />
-            </div>
-            <div class="nav">
-                <label for="img-4" class="prev">&#x2039;</label>
-                <label for="img-6" class="next">&#x203a;</label>
-            </div>
-        </li>
-    
-        <input type="radio" name="radio-btn" id="img-6" />
-        <li class="slide-container">
-            <div class="slide">
-              <img src="http://farm9.staticflickr.com/8195/8098750703_797e102da2_z.jpg" />
-            </div>
-            <div class="nav">
-                <label for="img-5" class="prev">&#x2039;</label>
-                <label for="img-1" class="next">&#x203a;</label>
-            </div>
-        </li>
-    
-        <li class="nav-dots">
-          <label for="img-1" class="nav-dot" id="img-dot-1"></label>
-          <label for="img-2" class="nav-dot" id="img-dot-2"></label>
-          <label for="img-3" class="nav-dot" id="img-dot-3"></label>
-          <label for="img-4" class="nav-dot" id="img-dot-4"></label>
-          <label for="img-5" class="nav-dot" id="img-dot-5"></label>
-          <label for="img-6" class="nav-dot" id="img-dot-6"></label>
-        </li>
-    </ul>
-</section>
-<app-footer></app-footer>
