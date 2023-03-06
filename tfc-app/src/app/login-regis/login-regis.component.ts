@@ -51,7 +51,7 @@ export class LoginRegisComponent {
   modeloPersona:persona=new persona();
   //acciones que se realizara con los botones 
   registrar(modelUsu:usuario,modelPer:persona){
-    if(modelUsu.UsuNombreUsuario!="" && modelPer.PerCorreo!="" && modelPer.PerCedula!=""){
+    if(modelUsu.usuNombreUsuario!="" && modelPer.perCorreo!="" && modelPer.perCedula!=""){
 
       let obs1$ = this.service.getExistUser(this.modeloUsuario);
       let obs2$ = this.service.getExistGmail(this.modeloPersona);
@@ -75,9 +75,9 @@ export class LoginRegisComponent {
             Swal.fire('Registro','CEDULA REGISTRADA','error');
           }else{
             Swal.fire('Registro','USUARIO DISPONIBLE','success');
-            localStorage.setItem("user",modelUsu.UsuNombreUsuario.toString());
-            localStorage.setItem("gmail",modelPer.PerCorreo.toString());
-            localStorage.setItem("dni",modelPer.PerCedula.toString());
+            localStorage.setItem("user",modelUsu.usuNombreUsuario.toString());
+            localStorage.setItem("gmail",modelPer.perCorreo.toString());
+            localStorage.setItem("dni",modelPer.perCedula.toString());
             this.router.navigate(["registrar"]);
           }
         },
@@ -94,7 +94,7 @@ export class LoginRegisComponent {
 
   principal(modelUsu:usuario){
 
-    if (modelUsu.UsuNombreUsuario!="" && modelUsu.UsuContraUsuario!="") {
+    if (modelUsu.usuNombreUsuario!="" && modelUsu.usuContraUsuario!="") {
       
       this.service.getUsuarioUserPass(this.modeloUsuario).subscribe(data=>{
         //comparar si se encontro un usuario o no

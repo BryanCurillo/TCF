@@ -6,12 +6,12 @@
 
                 <div class="input-field">
                     <div class="foto2"> <img src="/assets/img/usuario.png" class="img2" alt="imagenUser"></div>
-                    <input type="text"[(ngModel)]="modeloUsuario.UsuNombreUsuario" name="a"  placeholder="Usuario">
+                    <input type="text"[(ngModel)]="modeloUsuario.usuNombreUsuario" name="a"  placeholder="Usuario">
                 </div>
 
                 <div class="input-field">
                     <div class="foto2"> <img src="/assets/img/bloquear.png" class="img2" alt="imagenUser"></div>
-                    <input type="password" [(ngModel)]="modeloUsuario.UsuContraUsuario" name="a" placeholder="Contraseña">
+                    <input type="password" [(ngModel)]="modeloUsuario.usuContraUsuario" name="a" placeholder="Contraseña">
                 </div>
 
                 <input (click)="principal(modeloUsuario)" type="submit" name="Login" class="btnNB solid" value="Iniciar Sesión">
@@ -42,17 +42,17 @@
 
                 <div class="input-field">
                     <div class="foto"> <img src="/assets/img/usuario.png"  class="img2"  alt="imagenUser"></div>
-                    <input type="text" [(ngModel)]="modeloUsuario.UsuNombreUsuario" name="user" placeholder="Usuario">
+                    <input type="text" [(ngModel)]="modeloUsuario.usuNombreUsuario" name="user" placeholder="Usuario">
                 </div>
 
                 <div class="input-field">
                     <div class="foto"> <img src="/assets/img/gmail.png" class="img2" alt="imagenUser"></div>
-                    <input type="text" [(ngModel)]="modeloPersona.PerCorreo" name="gmail" placeholder="Correo">
+                    <input type="email" [(ngModel)]="modeloPersona.perCorreo" name="gmail" placeholder="Correo">
                 </div>
 
                 <div class="input-field">
-                    <div class="foto"> <img src="/assets/img/bloquear.png" class="img2" alt="imagenUser"></div>
-                    <input type="text"[(ngModel)]="modeloPersona.PerCedula" name="cedu"placeholder="Cedula">
+                    <div class="foto"> <img src="/assets/img/dni.png" class="img2" alt="imagenUser"></div>
+                    <input type="number"[(ngModel)]="modeloPersona.perCedula" name="cedu"placeholder="Cedula">
                 </div>
 
                 <input (click)="registrar(modeloUsuario,modeloPersona)" type="submit" name="Sign up" class="btnNB solid" value="Continuar">
@@ -96,7 +96,7 @@
                         <span id="spain2"></span>
                         <span id="spain3"></span>
                         <span id="spain4"></span>
-                        EDITAR</a>
+                        REGISTRARSE</a>
             </div>
         </div>
 
