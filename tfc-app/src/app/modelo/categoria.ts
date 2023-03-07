@@ -1,4 +1,4 @@
 export class Categoria{
-    CatId:number;
-	CatNombre:String;
+    catId:number;
+	catNombre:String;
 }

@@ -31,13 +31,12 @@
                     </div>
                     <div class="input-box">
                         <span class="details">Categoria</span>
-                        <input type="number" placeholder="idCat" [(ngModel)]="producto.prodIdCategoria" name="prodCat" required>
-                        <li>HOLA</li>
+                       
                         <!-- <li *ngFor="let categoria of categoriasL">{{categoria.CatNombre}}</li> -->
 
 
                         <select >
-                            <option *ngFor="let categoria of categorias">{{categoria.CatNombre}}</option>
+                            <option *ngFor="let categoria of categorias">{{categoria.catNombre}}</option>
                           </select>
                     </div>
                     <div class="input-box">
