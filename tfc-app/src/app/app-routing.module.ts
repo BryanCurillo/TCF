@@ -5,6 +5,7 @@ import { LoginRegisComponent } from './login-regis/login-regis.component';
 import { PrincipalComponent } from './principal/principal.component';
 import { ProductosComponent } from './productos/productos.component';
 import { RegistrarComponent } from './registrar/registrar.component';
+import { VerproductoComponent } from './verproducto/verproducto.component';
 
 
 
@@ -13,7 +14,9 @@ const routes: Routes = [{ path: '', redirectTo: '/login', pathMatch: 'full' },
 { path: 'principal', component: PrincipalComponent },
 { path: 'registrar', component: RegistrarComponent },
 { path: 'header', component: HeadersComponent },
+{ path: 'ProductoAbierto', component: VerproductoComponent },
 { path: 'producto', component: ProductosComponent }
+
 
 
 ];

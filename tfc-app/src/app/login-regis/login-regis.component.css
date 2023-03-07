@@ -3,6 +3,8 @@
 .body, input{
  
     font-family: sans-serif;
+  
+
 }
 
 .containerNB{
@@ -105,7 +107,12 @@ form.sign-up-form{
 .input-field{
    /*edita las cajas donde se ingresan los datos los iconoes en especial*/
     text-align: center;
-    line-height: 55px;
+
+
+
+
+    /*
+    line-height: 55px; */
     color: #acacac;
     font-size: 1.1rem;
 }
@@ -264,8 +271,7 @@ form.sign-up-form{
 .foto2{
     width: 30px;
     height: 30px;
-    /*margin-top: 1px;*/
- 
+    
 }
 
 
@@ -287,7 +293,8 @@ form.sign-up-form{
     width: 43px;
     height: 43px;
     margin-left: .5px;
-    margin-top: -.2px;
+    margin-top: -.8px;
+    
 }
 
 .input-field {
@@ -499,7 +506,8 @@ img.img2 {
     display: inline-block;
     padding: 15px 30px;
     color: rgb(1, 1, 1);
-    letter-spacing: 4px;
+  
+    font-weight: bold;
     font-size: 18px;
     text-decoration: none;
     overflow: hidden;
@@ -631,3 +639,9 @@ img.img2 {
     }
 
 
+/* desactivar flechas de los input*/
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}

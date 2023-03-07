@@ -1,20 +1,21 @@
 export class usuario {
 
-    UsuId:number;
-    UsuContraUsuario:string;
-    UsuNombreUsuario:string;
-    UsuCalificacion:string;
-    UsuIdRol:number;
-    UsuPerCedula:number;
+    usuId:number;
+    usuContraUsuario:string;
+    usuNombreUsuario:string;
+    usuCalificacion:number;
+    usuIdRol:number;
+    usuPerCedula:number;
 
     //los simbolos ? || sirve para crear objatos tipo usuario con 0 o varios atributos
     //para que no salga
-    constructor(usu_id?: number, usu_contrasena?: string, usu_nombre_usuario?: string, usu_id_rol?: number, usu_per_idfk?: number) {
-        this.UsuId = usu_id || 0;
-        this.UsuContraUsuario = usu_contrasena ||'';
-        this.UsuNombreUsuario = usu_nombre_usuario ||'';
-        this.UsuIdRol = usu_id_rol || 0;
-        this.UsuPerCedula = usu_per_idfk ||0;
+    constructor(usu_id?: number, usu_contrasena?: string, usu_nombre_usuario?: string, usu_id_rol?: number, usu_per_idfk?: number, usu_calificacion?: number) {
+        this.usuId = usu_id || 0;
+        this.usuContraUsuario = usu_contrasena ||'';
+        this.usuNombreUsuario = usu_nombre_usuario ||'';
+        this.usuIdRol = usu_id_rol || 0;
+        this.usuPerCedula = usu_per_idfk ||0;
+        this.usuCalificacion= usu_calificacion || 0;
     }
 
  
