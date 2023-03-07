@@ -13,36 +13,43 @@
     <div class="container">
         <h1>DATOS PERSONALES</h1>
         <div class="content">
-            <form action="#">
+            <!-- ngNativeValidate -->
+            <form  (ngSubmit)="create()">
                 <div class="user-details">
                     <div class="input-box">
                         <span class="details">Nombre</span>
-                        <input type="text" placeholder="Ingresa el nombre del producto" required>
+                        <input type="text" placeholder="Ingresa el nombre del producto" [(ngModel)]="producto.prodNombre" name="prodNombre" required>
                     </div>
                     <div class="input-box">
                         <span class="details">Precio</span>
-                        <input type="number" placeholder="Ingresa el precio del producto" required>
+                        <input type="number" placeholder="Ingresa el precio del producto" [(ngModel)]="producto.prodPrecio" name="prodPrecio" required>
                     </div>
                     <div class="input-box">
                         <span class="details">descripcion</span>
                         <textarea  name="notas" rows=3 cols=20 
-                        placeholder="Ingresa la descripcion"></textarea>
+                        placeholder="Ingresa la descripcion" [(ngModel)]="producto.prodDescripcion" name="prodDescripcion"></textarea>
                     </div>
                     <div class="input-box">
                         <span class="details">Categoria</span>
-                        <select>
-                            <option>Selecciona la categoria</option>
-                            <option>Trueque</option>
-                            <option>Venta</option>
+                        <input type="number" placeholder="idCat" [(ngModel)]="producto.prodIdCategoria" name="prodCat" required>
+                        <li>HOLA</li>
+                        <!-- <li *ngFor="let categoria of categoriasL">{{categoria.CatNombre}}</li> -->
+
+
+                        <select >
+                            <option *ngFor="let categoria of categorias">{{categoria.CatNombre}}</option>
                           </select>
                     </div>
                     <div class="input-box">
-                        <span class="details">Precio</span>
-                        <input type="file" placeholder="Ingresa el precio del producto" required>
+                        <span class="details">Imagen</span>
+                        <input type="file" multiple value="select" #selectFile 
+                        (change)="onFileSelected($event)"
+                        placeholder="Seleccione la imagen del producto" required>
                     </div>
                 </div>
                 <div class="button">
-                    <input type="submit" value="Register">
+                    <button type="submit">Register</button>
+                    <!-- <input type="submit" value="Register"> -->
                 </div>
             </form>
         </div>

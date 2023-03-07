@@ -6,11 +6,12 @@ import { LoginRegisComponent } from './login-regis/login-regis.component';
 import { RegistrarComponent } from './registrar/registrar.component';
 import { PrincipalComponent } from './principal/principal.component';
 import { FooterComponent } from './footer/footer.component';
-import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ServisLoginResgisService } from './service/servisLoginResgis.service';
 import { HeadersComponent } from './headers/headers.component';
 import { ProductosComponent } from './productos/productos.component';
+import { CategoriaComponent } from './categoria/categoria/categoria.component';
+import { FormsModule } from '@angular/forms';
 import { VerproductoComponent } from './verproducto/verproducto.component';
 //temporal eliminar ALERTAS
 
@@ -24,6 +25,7 @@ import { VerproductoComponent } from './verproducto/verproducto.component';
     FooterComponent,
     HeadersComponent,
     ProductosComponent,
+    CategoriaComponent,
     VerproductoComponent
   ],
   imports: [
