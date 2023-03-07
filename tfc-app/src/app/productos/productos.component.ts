@@ -18,16 +18,16 @@ import { HttpErrorResponse } from '@angular/common/http';
 
 export class ProductosComponent implements OnInit {
 
-  public producto: Producto = new Producto();
+  // public producto: Producto = new Producto();
 
-  // producto: Producto={
-  //   prodNombre: '',
-  //   prodPrecio: 0,
-  //   prodDescripcion: '',
-  //   prodIdCategoria: 0,
-  //   prodId: 0,
-  //   prodImages: []
-  // } 
+  producto: Producto={
+    prodNombre: '',
+    prodPrecio: 0,
+    prodDescripcion: '',
+    prodIdCategoria: 0,
+    prodId: 0,
+    prodImages: []
+  } 
 
   constructor(private categoriaService: CategoriaService,
     private productoService: ProductoService,
@@ -53,7 +53,7 @@ export class ProductosComponent implements OnInit {
   // public create(): void {
 
   //   console.log("click")
-    
+
   //   this.productoService.create(this.producto).subscribe(producto => {
 
   //     this.router.navigate(['/Productos'])
@@ -71,52 +71,61 @@ export class ProductosComponent implements OnInit {
 
   public create(): void {
 
-    const productFormData=  this.prepareFormData(this.producto);
-    
+    const productFormData = this.prepareFormData(this.producto);
+
     this.productoService.createPH(productFormData).subscribe(producto => {
 
       this.router.navigate(['/Productos'])
-    },
-    (error: HttpErrorResponse)=>{
-        console.log(error)
-    }
+
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: `Producto ${producto.prodNombre} guardado con exito`,
+        showConfirmButton: false,
+        timer: 1500
+      })
+  },
+    (error: HttpErrorResponse) => {
+  console.log(error)
+}
     );
   }
 
-  prepareFormData(producto: Producto): FormData{
-    const formData = new FormData();
+prepareFormData(producto: Producto): FormData{
+  const formData = new FormData();
 
+  formData.append(
+    'product',
+    new Blob([JSON.stringify(producto)], { type: 'application/json' })
+  );
+
+  console.log(producto.prodImages.length)
+  for (var i = 0; i < producto.prodImages.length; i++) {
     formData.append(
-      'product',
-      new Blob([JSON.stringify(producto)],{type:'application/json'})
+      'imageFile',
+      producto.prodImages[i].file,
+      producto.prodImages[i].file.name
     );
-
-    for(var i=0; i<producto.prodImages.length; i ++){
-      formData.append(
-        'imageFile',
-        producto.prodImages[i].file,
-        producto.prodImages[i].file.name
-      );
-    }
-    return formData;
   }
+  return formData;
+}
 
 
-  onFileSelected(event) {
-    if (event.target.files) {
-      const file = event.target.file[0];
+onFileSelected(event:any) {
+  if (event.target.files) {
+    const file = event.target.file[0];
 
-      const fileHandle: FileHandle = {
-        file: file,
-        url: this.sanitizer.bypassSecurityTrustUrl(
-          window.URL.createObjectURL(file)
-        )
-      }
-
-      this.producto.prodImages.push(fileHandle);
-
-
+    const fileHandle: FileHandle = {
+      file: file,
+      url: this.sanitizer.bypassSecurityTrustUrl(
+        window.URL.createObjectURL(file)
+      )
     }
+
+    this.producto.prodImages.push(fileHandle);
+
+
   }
+}
 
 }
