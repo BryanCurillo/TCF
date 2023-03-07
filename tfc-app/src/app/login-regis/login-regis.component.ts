@@ -88,6 +88,7 @@ export class LoginRegisComponent {
 
     }else{
       Swal.fire('Registro','RELLENE LOS DATOS','warning');
+      
     }
   }
 
