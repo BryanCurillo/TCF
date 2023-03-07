@@ -1,0 +1,141 @@
+
+.layout {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+
+  justify-content: center;
+}
+
+.layout2 {
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: 1fr;
+    gap: 8px;
+    justify-content: center;
+  }
+
+  section.layout3 {
+    height: 120px;
+}
+
+.der {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.der {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.boton {
+    top: auto;
+}
+
+p.text-body {
+    margin-right: 30%;
+    text-align: justify;
+
+}
+
+p.text-title {
+    margin-top: 40px;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+
+  /* IMAGEN DEL PRODUCTO */
+
+  .card {
+    width: 320px;
+    height: 400px;
+    background: rgb(213, 213, 213);
+    transition: all 300ms;
+    margin-bottom: 40px;
+    margin-top: 40px;
+    margin-right: auto;
+    margin-left: auto;
+   }
+   
+   .card:hover {
+    opacity: 0.8;
+    transform: scale(1.10);
+   }
+
+   img{
+
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+   }
+
+  /* IMAGEN DEL PRODUCTO FIN */
+
+  /* BOTON COMPRAR */
+
+  button {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    background: #183153;
+    font-family: "Montserrat", sans-serif;
+    box-shadow: 0px 6px 24px 0px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    border: none;
+   }
+   
+   button:after {
+    content: " ";
+    width: 0%;
+    height: 100%;
+    background: #FFD401;
+    position: absolute;
+    transition: all 0.4s ease-in-out;
+    right: 0;
+   }
+   
+   button:hover::after {
+    right: auto;
+    left: 0;
+    width: 100%;
+   }
+   
+   button span {
+    text-align: center;
+    text-decoration: none;
+    width: 100%;
+    padding: 18px 25px;
+    color: #fff;
+    font-size: 1.125em;
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    z-index: 20;
+    transition: all 0.3s ease-in-out;
+   }
+   
+   button:hover span {
+    color: #183153;
+    animation: scaleUp 0.3s ease-in-out;
+   }
+   
+   @keyframes scaleUp {
+    0% {
+     transform: scale(1);
+    }
+   
+    50% {
+     transform: scale(0.95);
+    }
+   
+    100% {
+     transform: scale(1);
+    }
+   }
+   
+
+  /* BOTON COMPRAR FIN */

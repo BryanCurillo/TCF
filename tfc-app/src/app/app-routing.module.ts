@@ -14,7 +14,7 @@ const routes: Routes = [{ path: '', redirectTo: '/login', pathMatch: 'full' },
 { path: 'principal', component: PrincipalComponent },
 { path: 'registrar', component: RegistrarComponent },
 { path: 'header', component: HeadersComponent },
-{ path: 'ProductoAbierto', component: VerproductoComponent },
+{ path: 'verproducto', component: VerproductoComponent },
 { path: 'producto', component: ProductosComponent }
 
 
