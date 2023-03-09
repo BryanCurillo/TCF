@@ -13,6 +13,12 @@ import { ProductosComponent } from './productos/productos.component';
 import { CategoriaComponent } from './categoria/categoria/categoria.component';
 import { FormsModule } from '@angular/forms';
 import { VerproductoComponent } from './verproducto/verproducto.component';
+import { UploadFilesComponent } from './uploadFiles/upload-files/upload-files.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatButtonModule} from '@angular/material/button';
+import {MatCardModule} from '@angular/material/card';
+import {MatIconModule} from '@angular/material/icon';
 //temporal eliminar ALERTAS
 
 
@@ -26,13 +32,21 @@ import { VerproductoComponent } from './verproducto/verproducto.component';
     HeadersComponent,
     ProductosComponent,
     CategoriaComponent,
-    VerproductoComponent
+    VerproductoComponent,
+    UploadFilesComponent,
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    BrowserAnimationsModule,
+    MatProgressBarModule,
+    MatButtonModule,
+    MatCardModule,
+    MatIconModule,
+    
     //TEMPORAL eliminar ALERTAS
   ],
   providers: [ServisLoginResgisService],

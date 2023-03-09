@@ -1,11 +1,13 @@
-import { FileHandle } from "./file-handle.model";
+import { Categoria } from "./categoria";
 
 export class Producto{
     prodId:number=0;
     prodNombre:string='';
     prodPrecio:number=0;
     prodDescripcion:string='';
-    prodIdCategoria:number=0;
-    prodImages: FileHandle[]
+    fileName:string='';
+    prodIdCategoria:Categoria;
+    // fila:File;
+
 }
 

@@ -12,46 +12,71 @@
 <body>
     <div class="container">
         <h1>DATOS PERSONALES</h1>
+
+
+
         <div class="content">
             <!-- ngNativeValidate -->
-            <form  (ngSubmit)="create()">
+            <form (ngSubmit)="create()" enctype="multipart/form-data" ngNativeValidate >
                 <div class="user-details">
                     <div class="input-box">
                         <span class="details">Nombre</span>
-                        <input type="text" placeholder="Ingresa el nombre del producto" [(ngModel)]="producto.prodNombre" name="prodNombre" required>
+                        <input type="text" placeholder="Ingresa el nombre del producto"
+                            [(ngModel)]="producto.prodNombre" name="prodNombre" required>
                     </div>
                     <div class="input-box">
                         <span class="details">Precio</span>
-                        <input type="number" placeholder="Ingresa el precio del producto" [(ngModel)]="producto.prodPrecio" name="prodPrecio" required>
+                        <input type="number" placeholder="Ingresa el precio del producto"
+                            [(ngModel)]="producto.prodPrecio" name="prodPrecio" required >
                     </div>
                     <div class="input-box">
                         <span class="details">descripcion</span>
-                        <textarea  name="notas" rows=3 cols=20 
-                        placeholder="Ingresa la descripcion" [(ngModel)]="producto.prodDescripcion" name="prodDescripcion"></textarea>
+                        <textarea name="notas" rows=3 cols=20 placeholder="Ingresa la descripcion"
+                            [(ngModel)]="producto.prodDescripcion" name="prodDescripcion"></textarea>
                     </div>
                     <div class="input-box">
                         <span class="details">Categoria</span>
-                       
+
                         <!-- <li *ngFor="let categoria of categoriasL">{{categoria.CatNombre}}</li> -->
 
 
-                        <select >
+                        <select>
+                            <option value=0>Seleccione una opcion</option>
                             <option *ngFor="let categoria of categorias">{{categoria.catNombre}}</option>
-                          </select>
+                        </select>
                     </div>
                     <div class="input-box">
                         <span class="details">Imagen</span>
-                        <input type="file" multiple value="select" #selectFile 
-                        (change)="onFileSelected($event)"
-                        placeholder="Seleccione la imagen del producto" required>
+                        <fieldset>
+                            <div class="form-group">
+                                <div>
+                                    <input type="file" (change)="createFile($any($event.target).files)" name="files"
+                                        multiple class="form-control" />
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <div *ngIf="fileStatus.status==='progress'">
+                            <div class="progress">
+                                <div [style.width.%]="fileStatus.percent"
+                                    class="progress-bar progress-bar-animated bg-info" role="progressbar"
+                                    aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+                                    {{ fileStatus.requestType }} {{ fileStatus.percent }}
+                                </div>
+                            </div>
+                        </div>
                     </div>
+
                 </div>
                 <div class="button">
-                    <button type="submit">Register</button>
-                    <!-- <input type="submit" value="Register"> -->
+                    <!-- <button type="submit">Register</button> -->
+                    <input type="submit" value="Register" >
                 </div>
             </form>
         </div>
+
+
+
 
     </div>
     <div class="card">

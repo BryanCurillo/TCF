@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { Producto } from '../modelo/producto';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { UploadFilesService } from './upload-files.service';
 
 
 
@@ -14,7 +15,7 @@ export class ProductoService {
 
   private URLPOST: string = 'http://localhost:8080/api/ProductoNew';
 
-  private URLPOSTPhoto: string = 'http://localhost:8080/api/ProductoPH';
+  private urlFile:string='http://localhost:8080/api/upload';
 
   private httpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' })
 
@@ -23,12 +24,11 @@ export class ProductoService {
 
   }
 
+  // public create(producto: Producto): Observable<Producto> {
+  //   return this.http.post<Producto>(this.URLPOST, producto, {headers: this.httpHeaders})
+  // }
 
   public create(producto: Producto): Observable<Producto> {
     return this.http.post<Producto>(this.URLPOST, producto, {headers: this.httpHeaders})
-  }
-
-  createPH(producto: FormData): Observable<Producto> {
-    return this.http.post<Producto>(this.URLPOSTPhoto, producto, {headers: this.httpHeaders})
   }
 }

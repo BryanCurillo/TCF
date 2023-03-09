@@ -5,9 +5,11 @@ import { CategoriaService } from 'src/app/service/categoria.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductoService } from '../service/producto.service';
 import Swal from 'sweetalert2';
-import { FileHandle } from '../modelo/file-handle.model';
-import { DomSanitizer } from '@angular/platform-browser';
-import { HttpErrorResponse } from '@angular/common/http';
+import { UploadFilesService } from 'src/app/service/upload-files.service';
+import { FileUpload } from 'src/app/modelo/fileUpload';
+import { HttpErrorResponse, HttpEvent, HttpEventType } from '@angular/common/http';
+import { saveAs } from 'file-saver';
+// import { FileService } from './file.service';
 
 
 @Component({
@@ -18,22 +20,16 @@ import { HttpErrorResponse } from '@angular/common/http';
 
 export class ProductosComponent implements OnInit {
 
-  // public producto: Producto = new Producto();
+  public producto: Producto = new Producto();
+  public fileUpload: FileUpload = new FileUpload();
+  filenames: string[] = [];
+  fileStatus = { status: '', requestType: '', percent: 0 };
 
-  producto: Producto={
-    prodNombre: '',
-    prodPrecio: 0,
-    prodDescripcion: '',
-    prodIdCategoria: 0,
-    prodId: 0,
-    prodImages: []
-  } 
 
   constructor(private categoriaService: CategoriaService,
     private productoService: ProductoService,
-    private sanitizer: DomSanitizer,
-    private router: Router,
-    private activatedRoute: ActivatedRoute) { }
+    private uploadFileService: UploadFilesService,
+    private router: Router) { }
 
   ngOnInit(): void {
 
@@ -49,33 +45,36 @@ export class ProductosComponent implements OnInit {
       categorias => this.categorias = categorias);
   }
 
+  public files: File[]
 
-  // public create(): void {
 
-  //   console.log("click")
 
-  //   this.productoService.create(this.producto).subscribe(producto => {
+  createFile(files: File[]): void {
+    const formData = new FormData();
+    for (const file of files) {
+      formData.append('files', file, file.name);
 
-  //     this.router.navigate(['/Productos'])
-
-  //     Swal.fire({
-  //       position: 'center',
-  //       icon: 'success',
-  //       title: `Producto ${producto.prodNombre} guardado con exito`,
-  //       showConfirmButton: false,
-  //       timer: 1500
-  //     })
-  //   })
-  // }
-
+      this.producto.fileName = file.name;
+      console.log(this.producto.fileName);
+    }
+    this.uploadFileService.upload(formData).subscribe(
+      event => {
+        console.log(event);
+        this.resportProgress(event);
+      },
+      (error: HttpErrorResponse) => {
+        console.log(error);
+      }
+    );
+  }
 
   public create(): void {
+    this.categoria.catId = 1;
+    this.categoria.catNombre = 'Hogar';
 
-    const productFormData = this.prepareFormData(this.producto);
+    this.producto.prodIdCategoria = this.categoria;
 
-    this.productoService.createPH(productFormData).subscribe(producto => {
-
-      this.router.navigate(['/Productos'])
+    this.productoService.create(this.producto).subscribe(producto => {
 
       Swal.fire({
         position: 'center',
@@ -84,48 +83,47 @@ export class ProductosComponent implements OnInit {
         showConfirmButton: false,
         timer: 1500
       })
-  },
-    (error: HttpErrorResponse) => {
-  console.log(error)
-}
-    );
+    })
   }
 
-prepareFormData(producto: Producto): FormData{
-  const formData = new FormData();
+  private resportProgress(httpEvent: HttpEvent<string[] | Blob>): void {
+    switch (httpEvent.type) {
+      case HttpEventType.UploadProgress:
+        this.updateStatus(httpEvent.loaded, httpEvent.total!, 'Uploading... ');
+        break;
+      // case HttpEventType.DownloadProgress:
+      //   this.updateStatus(httpEvent.loaded, httpEvent.total!, 'Downloading... ');
+      //   break;
+      case HttpEventType.ResponseHeader:
+        console.log('Header returned', httpEvent);
+        break;
+      case HttpEventType.Response:
+        if (httpEvent.body instanceof Array) {
+          this.fileStatus.status = 'done';
+          for (const filename of httpEvent.body) {
+            this.filenames.unshift(filename);
+          }
+        } else {
+          saveAs(new File([httpEvent.body!], httpEvent.headers.get('File-Name')!,
+            { type: `${httpEvent.headers.get('Content-Type')};charset=utf-8` }));
+          // saveAs(new Blob([httpEvent.body!], 
+          //   { type: `${httpEvent.headers.get('Content-Type')};charset=utf-8`}),
+          //    httpEvent.headers.get('File-Name'));
+        }
+        this.fileStatus.status = 'done';
+        break;
+      default:
+        console.log(httpEvent);
+        break;
 
-  formData.append(
-    'product',
-    new Blob([JSON.stringify(producto)], { type: 'application/json' })
-  );
-
-  console.log(producto.prodImages.length)
-  for (var i = 0; i < producto.prodImages.length; i++) {
-    formData.append(
-      'imageFile',
-      producto.prodImages[i].file,
-      producto.prodImages[i].file.name
-    );
-  }
-  return formData;
-}
-
-
-onFileSelected(event:any) {
-  if (event.target.files) {
-    const file = event.target.file[0];
-
-    const fileHandle: FileHandle = {
-      file: file,
-      url: this.sanitizer.bypassSecurityTrustUrl(
-        window.URL.createObjectURL(file)
-      )
     }
-
-    this.producto.prodImages.push(fileHandle);
-
-
   }
-}
 
+  private updateStatus(loaded: number, total: number, requestType: string): void {
+    this.fileStatus.status = 'progress';
+    this.fileStatus.requestType = requestType;
+    this.fileStatus.percent = Math.round(100 * loaded / total);
+  }
+
+  
 }
