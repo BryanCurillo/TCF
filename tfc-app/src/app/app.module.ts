@@ -14,6 +14,7 @@ import { CategoriaComponent } from './categoria/categoria/categoria.component';
 import { FormsModule } from '@angular/forms';
 import { VerproductoComponent } from './verproducto/verproducto.component';
 import { UploadFilesComponent } from './uploadFiles/upload-files/upload-files.component';
+import { InicioComponent } from './inicio/inicio.component';
 // import { UploadFilesComponent } from './uploadFiles/upload-files/upload-files.component';
 // import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // import {MatProgressBarModule} from '@angular/material/progress-bar';
@@ -35,6 +36,7 @@ import { UploadFilesComponent } from './uploadFiles/upload-files/upload-files.co
     CategoriaComponent,
     VerproductoComponent,
     UploadFilesComponent,
+    InicioComponent,
     
   ],
   imports: [

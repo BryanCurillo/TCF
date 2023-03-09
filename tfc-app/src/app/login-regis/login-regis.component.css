@@ -4,7 +4,6 @@
  
     font-family: sans-serif;
   
-
 }
 
 .containerNB{
@@ -211,6 +210,7 @@ form.sign-up-form{
     /* avtiva para seleccionar texto o botones */
     pointer-events: all;
     padding: 3rem 17% 2rem 12%;
+    background: linear-gradient(135deg, #71b7e6, #9b59b6);
 }
 .right-panel{
     /* desactiva los btn o seleccionar texto*/

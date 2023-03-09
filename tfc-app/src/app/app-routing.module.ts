@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HeadersComponent } from './headers/headers.component';
+import { InicioComponent } from './inicio/inicio.component';
 import { LoginRegisComponent } from './login-regis/login-regis.component';
 import { PrincipalComponent } from './principal/principal.component';
 import { ProductosComponent } from './productos/productos.component';
@@ -15,7 +16,9 @@ const routes: Routes = [{ path: '', redirectTo: '/login', pathMatch: 'full' },
 { path: 'registrar', component: RegistrarComponent },
 { path: 'header', component: HeadersComponent },
 { path: 'verproducto', component: VerproductoComponent },
-{ path: 'producto', component: ProductosComponent }
+{ path: 'producto', component: ProductosComponent },
+{ path: 'inicio', component: InicioComponent }
+
 
 
 
