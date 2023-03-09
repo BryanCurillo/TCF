@@ -22,7 +22,8 @@ export class ProductosComponent implements OnInit {
 
   public producto: Producto = new Producto();
   public categoriaFK: Categoria = new Categoria()
-  seleccionados: Categoria=new Categoria;
+  seleccionados: Categoria = new Categoria;
+  imageSrc: string = '';
 
   public fileUpload: FileUpload = new FileUpload();
   filenames: string[] = [];
@@ -61,6 +62,22 @@ export class ProductosComponent implements OnInit {
       this.producto.fileName = file.name;
 
       console.log(this.producto.fileName);
+
+      ////////////////////////////////////////////////////////
+      const reader = new FileReader();
+
+      if(files && files.length) {
+        const [file] = files;
+        reader.readAsDataURL(file);
+       
+        reader.onload = () => {
+      
+          this.imageSrc = reader.result as string;
+      
+        };
+
+    }
+
     }
     this.uploadFileService.upload(formData).subscribe(
       event => {
@@ -75,12 +92,12 @@ export class ProductosComponent implements OnInit {
 
   public create(): void {
 
-    this.categoriaFK.catNombre=this.seleccionados.catNombre;
-    
+    this.categoriaFK.catNombre = this.seleccionados.catNombre;
+
     for (let i = 0; i < this.categorias.length; i++) {
-      if( this.categoriaFK.catNombre === this.categorias[i].catNombre){
-        this.categoriaFK.catId=i+1;
-        if( this.categoriaFK.catId === 0){
+      if (this.categoriaFK.catNombre === this.categorias[i].catNombre) {
+        this.categoriaFK.catId = i + 1;
+        if (this.categoriaFK.catId === 0) {
           // Swal.fire({
           //   position: 'center',
           //   icon: 'success',
@@ -91,7 +108,7 @@ export class ProductosComponent implements OnInit {
         }
       }
     }
-      
+
 
     this.producto.prodIdCategoria = this.categoriaFK.catId;
 

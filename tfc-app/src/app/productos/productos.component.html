@@ -9,7 +9,7 @@
 
         <div class="content">
             <!-- ngNativeValidate -->
-            <form (ngSubmit)="create()" enctype="multipart/form-data" ngNativeValidate >
+            <form (ngSubmit)="create()" enctype="multipart/form-data" ngNativeValidate id="myForm" name="myForm">
                 <div class="user-details">
                     <div class="input-box">
                         <span class="details">Nombre</span>
@@ -32,10 +32,6 @@
                             <option value="0" disabled selected>Seleccione una opcion</option>
                             <option *ngFor="let categoria of categorias" [ngValue]="categoria">{{categoria.catNombre}}</option>
                         </select>
-
-                        <p>
-                            {{seleccionados?.catNombre}}
-                        </p>
                     </div>
                     <div class="input-box">
                         <span class="details">Imagen</span>
@@ -44,7 +40,9 @@
                                 <div>
                                     <input type="file" (change)="createFile($any($event.target).files)" name="files"
                                         multiple class="form-control" />
+                                        <img class="imgPreview" [src]="imageSrc">
                                 </div>
+                                
                             </div>
                         </fieldset>
 
