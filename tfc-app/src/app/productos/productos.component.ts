@@ -74,7 +74,9 @@ export class ProductosComponent implements OnInit {
   }
 
   public create(): void {
+
     this.categoriaFK.catNombre=this.seleccionados.catNombre;
+    
     for (let i = 0; i < this.categorias.length; i++) {
       if( this.categoriaFK.catNombre === this.categorias[i].catNombre){
         this.categoriaFK.catId=i+1;
@@ -91,12 +93,7 @@ export class ProductosComponent implements OnInit {
     }
       
 
-    this.producto.categoria = this.categoriaFK;
-
-    // console.log("aaaa=." + this.producto.prodIdCategoria.catId);
-    // console.log("aaaa=." + this.producto.prodIdCategoria.catNombre);
-    // console.log(this.categoriaFK.catNombre);
-    console.log("////////////////////////");
+    this.producto.prodIdCategoria = this.categoriaFK.catId;
 
     this.productoService.create(this.producto).subscribe(producto => {
 
