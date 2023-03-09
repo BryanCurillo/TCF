@@ -21,6 +21,8 @@ import { saveAs } from 'file-saver';
 export class ProductosComponent implements OnInit {
 
   public producto: Producto = new Producto();
+  public categoriaFK: Categoria = new Categoria()
+
   public fileUpload: FileUpload = new FileUpload();
   filenames: string[] = [];
   fileStatus = { status: '', requestType: '', percent: 0 };
@@ -36,7 +38,7 @@ export class ProductosComponent implements OnInit {
     this.cargarCategorias()
   }
 
-  public categoria: Categoria = new Categoria()
+  
 
   categorias: Categoria[] = [];
 
@@ -69,10 +71,10 @@ export class ProductosComponent implements OnInit {
   }
 
   public create(): void {
-    this.categoria.catId = 1;
-    this.categoria.catNombre = 'Hogar';
+    console.log(this.categoriaFK.catNombre);
+    console.log("////////////////////////");
 
-    this.producto.prodIdCategoria = this.categoria;
+    this.producto.prodIdCategoria = this.categoriaFK;
 
     this.productoService.create(this.producto).subscribe(producto => {
 
@@ -125,5 +127,5 @@ export class ProductosComponent implements OnInit {
     this.fileStatus.percent = Math.round(100 * loaded / total);
   }
 
-  
+
 }

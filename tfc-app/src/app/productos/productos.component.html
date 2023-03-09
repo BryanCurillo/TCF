@@ -36,13 +36,9 @@
                     </div>
                     <div class="input-box">
                         <span class="details">Categoria</span>
-
-                        <!-- <li *ngFor="let categoria of categoriasL">{{categoria.CatNombre}}</li> -->
-
-
                         <select>
                             <option value=0>Seleccione una opcion</option>
-                            <option *ngFor="let categoria of categorias">{{categoria.catNombre}}</option>
+                            <option *ngFor="let categoria of categorias" value={{categoria.catId}}  [(ngModel)]="categoriaFK.catNombre" name="catNombre">{{categoria.catNombre}}</option>
                         </select>
                     </div>
                     <div class="input-box">
