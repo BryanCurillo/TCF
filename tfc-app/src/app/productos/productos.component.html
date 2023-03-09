@@ -24,14 +24,18 @@
                     <div class="input-box">
                         <span class="details">descripcion</span>
                         <textarea name="notas" rows=3 cols=20 placeholder="Ingresa la descripcion"
-                            [(ngModel)]="producto.prodDescripcion" name="prodDescripcion"></textarea>
+                            [(ngModel)]="producto.prodDescripcion" name="prodDescripcion" required> </textarea>
                     </div>
                     <div class="input-box">
                         <span class="details">Categoria</span>
-                        <select>
-                            <option value=0>Seleccione una opcion</option>
-                            <option *ngFor="let categoria of categorias" value={{categoria.catId}}  [(ngModel)]="categoriaFK.catNombre" name="catNombre">{{categoria.catNombre}}</option>
+                        <select name="miselect" [(ngModel)]="seleccionados" required>
+                            <option value="0" disabled selected>Seleccione una opcion</option>
+                            <option *ngFor="let categoria of categorias" [ngValue]="categoria">{{categoria.catNombre}}</option>
                         </select>
+
+                        <p>
+                            {{seleccionados?.catNombre}}
+                        </p>
                     </div>
                     <div class="input-box">
                         <span class="details">Imagen</span>

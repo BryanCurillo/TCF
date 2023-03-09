@@ -22,6 +22,7 @@ export class ProductosComponent implements OnInit {
 
   public producto: Producto = new Producto();
   public categoriaFK: Categoria = new Categoria()
+  seleccionados: Categoria=new Categoria;
 
   public fileUpload: FileUpload = new FileUpload();
   filenames: string[] = [];
@@ -38,7 +39,7 @@ export class ProductosComponent implements OnInit {
     this.cargarCategorias()
   }
 
-  
+
 
   categorias: Categoria[] = [];
 
@@ -46,6 +47,7 @@ export class ProductosComponent implements OnInit {
     this.categoriaService.getCategorias().subscribe(
       categorias => this.categorias = categorias);
   }
+
 
   public files: File[]
 
@@ -57,6 +59,7 @@ export class ProductosComponent implements OnInit {
       formData.append('files', file, file.name);
 
       this.producto.fileName = file.name;
+
       console.log(this.producto.fileName);
     }
     this.uploadFileService.upload(formData).subscribe(
@@ -71,10 +74,29 @@ export class ProductosComponent implements OnInit {
   }
 
   public create(): void {
-    console.log(this.categoriaFK.catNombre);
-    console.log("////////////////////////");
+    this.categoriaFK.catNombre=this.seleccionados.catNombre;
+    for (let i = 0; i < this.categorias.length; i++) {
+      if( this.categoriaFK.catNombre === this.categorias[i].catNombre){
+        this.categoriaFK.catId=i+1;
+        if( this.categoriaFK.catId === 0){
+          // Swal.fire({
+          //   position: 'center',
+          //   icon: 'success',
+          //   title: `Seleccione la categoria`,
+          //   showConfirmButton: false,
+          //   timer: 1500
+          // })
+        }
+      }
+    }
+      
 
-    this.producto.prodIdCategoria = this.categoriaFK;
+    this.producto.categoria = this.categoriaFK;
+
+    // console.log("aaaa=." + this.producto.prodIdCategoria.catId);
+    // console.log("aaaa=." + this.producto.prodIdCategoria.catNombre);
+    // console.log(this.categoriaFK.catNombre);
+    console.log("////////////////////////");
 
     this.productoService.create(this.producto).subscribe(producto => {
 
