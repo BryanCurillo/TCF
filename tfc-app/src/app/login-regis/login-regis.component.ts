@@ -102,7 +102,11 @@ export class LoginRegisComponent {
         if (data!= null) {
           this.modeloUsuario=data;
 
+          localStorage.setItem("useriD",modelUsu.usuId.toString());
           localStorage.setItem("user",modelUsu.usuNombreUsuario.toString());
+          localStorage.setItem("user",modelUsu.usuNombreUsuario.toString());
+
+          alert(localStorage.getItem)
         
           Swal.fire('LOGIN','USUARIO ENCONTRADO','success');
             //mandar a la siguiente pagina
