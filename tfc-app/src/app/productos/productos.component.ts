@@ -111,8 +111,6 @@ export class ProductosComponent implements OnInit {
   }
 
   public create(): void {
-
-    alert("create=   "+this.usuarioFK.usuId+"    "+this.usuarioFK.usuNombreUsuario+"     fk= "+this.usuarioFK.usuCalificacion)
     this.categoriaFK.catNombre = this.seleccionados.catNombre;
 
     for (let i = 0; i < this.categorias.length; i++) {
@@ -138,11 +136,6 @@ export class ProductosComponent implements OnInit {
         })
       })
     })
-
-    // this.publicacionNew.pubIdProducto = iDdprod;
-    // alert("1=   "+iDdprod)
-
-
   }
 
   private resportProgress(httpEvent: HttpEvent<string[] | Blob>): void {

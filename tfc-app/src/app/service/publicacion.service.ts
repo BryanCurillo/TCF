@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { Publicacion } from '../modelo/publicacion';
 
 @Injectable({
@@ -19,4 +19,10 @@ export class PublicacionService {
     alert("si pase service");
     return this.http.post<Publicacion>(this.url, publicacion, {headers: this.httpHeaders})
   }
+  getPublicaciones(): Observable<Publicacion[]> {
+    alert("LISTA PUBLI")
+    return this.http.get(this.url).pipe(
+      map(response => response as Publicacion[]));
+  }
+  
 }
