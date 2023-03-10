@@ -6,7 +6,8 @@ export class Producto{
     prodPrecio:number=0;
     prodDescripcion:string='';
     fileName:string='';
-    prodIdCategoria:Categoria;
+    prodIdCategoria:number=0;
+    // categoria:Categoria;
     // fila:File;
 
 }

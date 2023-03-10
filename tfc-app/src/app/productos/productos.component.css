@@ -7,6 +7,10 @@
     font-family: 'Poppins', sans-serif;
 }
 
+.imgPreview{
+    height: 120px;
+}
+
 textarea {
     height: 100px;
     width: 100%;
