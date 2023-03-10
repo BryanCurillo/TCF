@@ -21,7 +21,8 @@
 
         <h1 data-text="Productos "></h1>
         <section class="layout">
-            <div *ngFor="let publicacion of publicaciones">
+            <div>
+                <!-- *ngFor="let publicacion of publicaciones" -->
                 <div class="card">
                     <div class="card-img">
                         <img src="assets/img/vodka.png" class="img2">
@@ -34,7 +35,7 @@
                     <div class="card-footer">
                         <span class="text-title">$19.50</span>
                         <div class="card-button">
-                            <button class="c-button c-button--gooey"> Ver Producto
+                            <button class="c-button c-button--gooey" routerLink="/verproducto"> Ver Producto
                                 <div class="c-button__blobs">
                                     <div></div>
                                     <div></div>

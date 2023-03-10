@@ -22,7 +22,7 @@ export class PrincipalComponent implements OnInit{
 
     this.publicacionService.getPublicaciones().subscribe(
       publicaciones => this.publicaciones = publicaciones);
-      alert(this.publicaciones.length)
+      // alert(this.publicaciones.length)
       
   }
 
