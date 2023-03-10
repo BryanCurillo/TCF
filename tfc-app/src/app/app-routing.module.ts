@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HeadersComponent } from './headers/headers.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { LoginRegisComponent } from './login-regis/login-regis.component';
+import { NosotrosComponent } from './nosotros/nosotros.component';
 import { PrincipalComponent } from './principal/principal.component';
 import { ProductosComponent } from './productos/productos.component';
 import { RegistrarComponent } from './registrar/registrar.component';
@@ -19,6 +20,7 @@ const routes: Routes = [{ path: '', redirectTo: '/login', pathMatch: 'full' },
 { path: 'verproducto', component: VerproductoComponent },
 { path: 'producto', component: ProductosComponent },
 { path: 'inicio', component: InicioComponent },
+{ path: 'nosotros', component: NosotrosComponent },
 { path: 'trueque', component: TruequeComponent }
 
 

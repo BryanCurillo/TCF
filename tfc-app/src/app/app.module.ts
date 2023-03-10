@@ -16,6 +16,7 @@ import { VerproductoComponent } from './verproducto/verproducto.component';
 import { UploadFilesComponent } from './uploadFiles/upload-files/upload-files.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { TruequeComponent } from './trueque/trueque.component';
+import { NosotrosComponent } from './nosotros/nosotros.component';
 // import { UploadFilesComponent } from './uploadFiles/upload-files/upload-files.component';
 // import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // import {MatProgressBarModule} from '@angular/material/progress-bar';
@@ -39,6 +40,7 @@ import { TruequeComponent } from './trueque/trueque.component';
     UploadFilesComponent,
     InicioComponent,
     TruequeComponent,
+    NosotrosComponent,
     
   ],
   imports: [
