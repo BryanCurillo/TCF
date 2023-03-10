@@ -24,9 +24,6 @@ export class ProductoService {
 
   }
 
-  // public create(producto: Producto): Observable<Producto> {
-  //   return this.http.post<Producto>(this.URLPOST, producto, {headers: this.httpHeaders})
-  // }
 
   public create(producto: Producto): Observable<Producto> {
     return this.http.post<Producto>(this.URLPOST, producto, {headers: this.httpHeaders})

@@ -102,12 +102,10 @@ export class LoginRegisComponent {
         if (data!= null) {
           this.modeloUsuario=data;
 
-          localStorage.setItem("useriD",modelUsu.usuId.toString());
-          localStorage.setItem("user",modelUsu.usuNombreUsuario.toString());
-          localStorage.setItem("user",modelUsu.usuNombreUsuario.toString());
-
-          alert(localStorage.getItem)
-        
+          localStorage.setItem("userId",this.modeloUsuario.usuId.toString());
+          localStorage.setItem("userName",this.modeloUsuario.usuNombreUsuario.toString());
+          
+        alert("principal= "+this.modeloUsuario.usuId)
           Swal.fire('LOGIN','USUARIO ENCONTRADO','success');
             //mandar a la siguiente pagina
           this.router.navigate(["principal"]);

@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Producto } from '../modelo/producto';
 import { Categoria } from 'src/app/modelo/categoria';
+import { Publicacion } from 'src/app/modelo/publicacion';
 import { CategoriaService } from 'src/app/service/categoria.service';
+import { PublicacionService } from 'src/app/service/publicacion.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductoService } from '../service/producto.service';
 import Swal from 'sweetalert2';
@@ -9,6 +11,7 @@ import { UploadFilesService } from 'src/app/service/upload-files.service';
 import { FileUpload } from 'src/app/modelo/fileUpload';
 import { HttpErrorResponse, HttpEvent, HttpEventType } from '@angular/common/http';
 import { saveAs } from 'file-saver';
+import { usuario } from '../modelo/usuario';
 // import { FileService } from './file.service';
 
 
@@ -20,25 +23,42 @@ import { saveAs } from 'file-saver';
 
 export class ProductosComponent implements OnInit {
 
+  public usuarioFK: usuario = new usuario();
   public producto: Producto = new Producto();
   public categoriaFK: Categoria = new Categoria()
+  public publicacionNew: Publicacion = new Publicacion();
+
+
   seleccionados: Categoria = new Categoria;
   imageSrc: string = '';
 
   public fileUpload: FileUpload = new FileUpload();
   filenames: string[] = [];
   fileStatus = { status: '', requestType: '', percent: 0 };
-
+  userId: string;
+  userName: string;
 
   constructor(private categoriaService: CategoriaService,
     private productoService: ProductoService,
+    private publicacionService: PublicacionService,
     private uploadFileService: UploadFilesService,
     private router: Router) { }
 
   ngOnInit(): void {
 
-    this.cargarCategorias()
+    this.cargarCategorias();
+    this.recuperarUSU();
   }
+
+  recuperarUSU() {
+    this.userId = String(localStorage.getItem("userId"))
+    this.userName = String(localStorage.getItem("userName"))
+
+    this.usuarioFK.usuId=parseInt(String(localStorage.getItem("userId")));
+    this.usuarioFK.usuNombreUsuario=String(localStorage.getItem("userName"));
+
+  }
+
 
 
 
@@ -66,17 +86,17 @@ export class ProductosComponent implements OnInit {
       ////////////////////////////////////////////////////////
       const reader = new FileReader();
 
-      if(files && files.length) {
+      if (files && files.length) {
         const [file] = files;
         reader.readAsDataURL(file);
-       
+
         reader.onload = () => {
-      
+
           this.imageSrc = reader.result as string;
-      
+
         };
 
-    }
+      }
 
     }
     this.uploadFileService.upload(formData).subscribe(
@@ -92,36 +112,36 @@ export class ProductosComponent implements OnInit {
 
   public create(): void {
 
+    alert(this.usuarioFK.usuId+"    "+this.usuarioFK.usuNombreUsuario)
     this.categoriaFK.catNombre = this.seleccionados.catNombre;
 
     for (let i = 0; i < this.categorias.length; i++) {
       if (this.categoriaFK.catNombre === this.categorias[i].catNombre) {
         this.categoriaFK.catId = i + 1;
-        if (this.categoriaFK.catId === 0) {
-          // Swal.fire({
-          //   position: 'center',
-          //   icon: 'success',
-          //   title: `Seleccione la categoria`,
-          //   showConfirmButton: false,
-          //   timer: 1500
-          // })
-        }
       }
     }
 
-
     this.producto.prodIdCategoria = this.categoriaFK.catId;
 
-    this.productoService.create(this.producto).subscribe(producto => {
+    this.productoService.create(this.producto).subscribe(productoNew => {
+      this.publicacionNew.pubIdProducto = productoNew.prodId;
+      this.publicacionNew.pubIdVendedor = this.usuarioFK;
 
-      Swal.fire({
-        position: 'center',
-        icon: 'success',
-        title: `Producto ${producto.prodNombre} guardado con exito`,
-        showConfirmButton: false,
-        timer: 1500
+      this.publicacionService.create(this.publicacionNew).subscribe(publicacionN => {
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: `Producto ${this.producto.prodNombre} guardado con exito`,
+          showConfirmButton: false,
+          timer: 1500
+        })
       })
     })
+
+    // this.publicacionNew.pubIdProducto = iDdprod;
+    // alert("1=   "+iDdprod)
+
+
   }
 
   private resportProgress(httpEvent: HttpEvent<string[] | Blob>): void {

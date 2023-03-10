@@ -2,7 +2,7 @@
 
 <body>
     <div class="container">
-        <h1>DATOS PERSONALES</h1>
+        <h1>DATOS DEL PRODUCTO</h1>
 
 
 
@@ -11,7 +11,7 @@
             <form (ngSubmit)="create()" enctype="multipart/form-data" ngNativeValidate id="myForm" name="myForm">
                 <div class="user-details">
                     <div class="input-box">
-                        <span class="details">Nombre</span>
+                        <span class="details">Titulo de Publicacion</span>
                         <input type="text" placeholder="Ingresa el nombre del producto"
                             [(ngModel)]="producto.prodNombre" name="prodNombre" required>
                     </div>
@@ -32,6 +32,11 @@
                             <option *ngFor="let categoria of categorias" [ngValue]="categoria">{{categoria.catNombre}}
                             </option>
                         </select>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Descripcion de la venta</span>
+                        <textarea name="notas" rows=3 cols=20 placeholder="Ingresa la descripcion"
+                            [(ngModel)]="publicacionNew.pubDescripcion" name="pubDescripcion" required> </textarea>
                     </div>
                 </div>
 
@@ -59,7 +64,7 @@
                 </div>
                 <div class="button">
                     <!-- <button type="submit">Register</button> -->
-                    <input type="submit" value="Registrar Cliente">
+                    <input type="submit" value="Publicar Producto">
                 </div>
             </form>
         </div>
