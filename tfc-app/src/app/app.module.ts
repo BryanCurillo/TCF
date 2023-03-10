@@ -15,6 +15,7 @@ import { FormsModule } from '@angular/forms';
 import { VerproductoComponent } from './verproducto/verproducto.component';
 import { UploadFilesComponent } from './uploadFiles/upload-files/upload-files.component';
 import { InicioComponent } from './inicio/inicio.component';
+import { TruequeComponent } from './trueque/trueque.component';
 // import { UploadFilesComponent } from './uploadFiles/upload-files/upload-files.component';
 // import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // import {MatProgressBarModule} from '@angular/material/progress-bar';
@@ -37,6 +38,7 @@ import { InicioComponent } from './inicio/inicio.component';
     VerproductoComponent,
     UploadFilesComponent,
     InicioComponent,
+    TruequeComponent,
     
   ],
   imports: [
