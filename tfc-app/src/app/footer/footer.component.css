@@ -15,7 +15,7 @@ body {
 	box-sizing: border-box;
 }
 
-.container {
+.container2 {
 	max-width: 1170px;
 	margin: auto;
 }
@@ -162,15 +162,16 @@ ul {
 	cursor: pointer;
 	opacity: 0;
 	transition: all .3s ease-in;
+	margin-bottom: 10px;
 }
 
 /*Text*/
-.title {
+.title2 {
 	font-size: 1.5em;
 	font-weight: 500;
 }
 
-.subtitle {
+.subtitle2 {
 	letter-spacing: 1px;
 	font-size: 0.9em;
 }

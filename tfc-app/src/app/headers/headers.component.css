@@ -434,7 +434,3 @@ button:hover::after,
 button:hover::before {
     width: 100%;
 }
-
-@media (max-width: 500){
-
-}

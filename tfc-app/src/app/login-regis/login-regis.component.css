@@ -23,9 +23,7 @@
     height: 100%;
     background: linear-gradient(135deg, #9b59b6, #71b7e6);
     /* altura del fondo ciruculo azul*/
-    top: 0.5%;
     right: 50%;
-   
     z-index: 6;
     transition:1.8s ease-in-out ;
     border-bottom: 20px solid #32557f;
@@ -210,7 +208,6 @@ form.sign-up-form{
     /* avtiva para seleccionar texto o botones */
     pointer-events: all;
     padding: 3rem 17% 2rem 12%;
-    background: linear-gradient(135deg, #71b7e6, #9b59b6);
 }
 .right-panel{
     /* desactiva los btn o seleccionar texto*/
