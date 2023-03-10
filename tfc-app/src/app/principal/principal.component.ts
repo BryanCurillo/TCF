@@ -8,8 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class PrincipalComponent implements OnInit{
 
   ngOnInit(): void {
-    let user=String(localStorage.getItem("useriD"));
-    alert(user);
+    
   }
 
   
