@@ -16,7 +16,7 @@ export class PublicacionService {
 
 
   public create(publicacion: Publicacion): Observable<Publicacion> {
-    // alert("si pase service");
+    alert("si pase service");
     return this.http.post<Publicacion>(this.url, publicacion, {headers: this.httpHeaders})
   }
 }

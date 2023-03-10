@@ -112,7 +112,7 @@ export class ProductosComponent implements OnInit {
 
   public create(): void {
 
-    alert(this.usuarioFK.usuId+"    "+this.usuarioFK.usuNombreUsuario)
+    alert("create=   "+this.usuarioFK.usuId+"    "+this.usuarioFK.usuNombreUsuario+"     fk= "+this.usuarioFK.usuCalificacion)
     this.categoriaFK.catNombre = this.seleccionados.catNombre;
 
     for (let i = 0; i < this.categorias.length; i++) {
@@ -124,7 +124,8 @@ export class ProductosComponent implements OnInit {
     this.producto.prodIdCategoria = this.categoriaFK.catId;
 
     this.productoService.create(this.producto).subscribe(productoNew => {
-      this.publicacionNew.pubIdProducto = productoNew.prodId;
+      
+      this.publicacionNew.pubIdProducto = productoNew;
       this.publicacionNew.pubIdVendedor = this.usuarioFK;
 
       this.publicacionService.create(this.publicacionNew).subscribe(publicacionN => {
