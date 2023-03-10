@@ -15,7 +15,7 @@ export class TruequeComponent implements OnInit{
   mostrarnumero(){
 
 
-    Swal.fire('Registro','Contacto del Vendedor','success');
+    Swal.fire('Contacto del Vendedor','0981101464','success');
 
   }
 
