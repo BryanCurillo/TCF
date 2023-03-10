@@ -127,6 +127,7 @@ export class ProductosComponent implements OnInit {
       this.publicacionNew.pubIdVendedor = parseInt(this.userId);
 
       this.publicacionService.create(this.publicacionNew).subscribe(publicacionN => {
+        this.router.navigate(['/principal'])
         Swal.fire({
           position: 'center',
           icon: 'success',
@@ -134,6 +135,7 @@ export class ProductosComponent implements OnInit {
           showConfirmButton: false,
           timer: 1500
         })
+        
       })
     })
   }
