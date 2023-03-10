@@ -101,6 +101,8 @@ export class LoginRegisComponent {
         //comparar si se encontro un usuario o no
         if (data!= null) {
           this.modeloUsuario=data;
+
+          localStorage.setItem("user",modelUsu.usuNombreUsuario.toString());
         
           Swal.fire('LOGIN','USUARIO ENCONTRADO','success');
             //mandar a la siguiente pagina
