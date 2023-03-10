@@ -99,10 +99,12 @@ constructor(private router:Router, private service:ServisLoginResgisService){}
         //registar usuario
         this.service.createPersona(this.modeloPersona).subscribe(data=>{
           this.modeloUsuario.usuPerCedula= data.perId;
+          this.modeloUsuario.usuContraUsuario=this.contra;
+          this.modeloUsuario.usuPerId=data;
           this.service.createUsuario(this.modeloUsuario).subscribe(data=>{
             
             Swal.fire('REGISTRO','USUARIO CREADO EXITOSAMENTE','success');
-            
+            this.router.navigate(["login"]);
           })
 
         })
