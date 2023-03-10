@@ -124,7 +124,7 @@ export class ProductosComponent implements OnInit {
     this.productoService.create(this.producto).subscribe(productoNew => {
       
       this.publicacionNew.pubIdProducto = productoNew;
-      this.publicacionNew.pubIdVendedor = this.usuarioFK;
+      this.publicacionNew.pubIdVendedor = parseInt(this.userId);
 
       this.publicacionService.create(this.publicacionNew).subscribe(publicacionN => {
         Swal.fire({
