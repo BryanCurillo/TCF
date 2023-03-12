@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AdministrarComponent } from './administrador/administrar/administrar.component';
+import { HadearAdminComponent } from './administrador/hadear-admin/hadear-admin.component';
+import { UsuariosComponent } from './administrador/usuarios/usuarios.component';
 import { HeadersComponent } from './headers/headers.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { FormComponent } from './lista-clientes/form.component';
@@ -14,7 +17,7 @@ import { VerproductoComponent } from './verproducto/verproducto.component';
 
 
 
-const routes: Routes = [{ path: '', redirectTo: '/login', pathMatch: 'full' },
+const routes: Routes = [/*{ path: '', redirectTo: '/adHeader', pathMatch: 'full' }*/{ path: '', redirectTo: '/login', pathMatch: 'full' },
 { path: 'login', component: LoginRegisComponent },
 { path: 'principal', component: PrincipalComponent },
 { path: 'registrar', component: RegistrarComponent },
@@ -26,12 +29,14 @@ const routes: Routes = [{ path: '', redirectTo: '/login', pathMatch: 'full' },
 { path: 'admclientes', component: ListaClientesComponent },
 { path: 'trueque', component: TruequeComponent },
 { path: 'admclientes/form', component: FormComponent },
-{ path: 'admclientes/form/:id', component: FormComponent }
+{ path: 'admclientes/form/:id', component: FormComponent },
+//rutas para el administrador
 
-
-
-
-
+  { path: 'adHeader', component:  HadearAdminComponent , children: [
+    { path: 'adAdministrar', component:  AdministrarComponent  },
+    { path: 'adUsuarios', component:  UsuariosComponent  },
+    ]
+  },
 
 ];
 

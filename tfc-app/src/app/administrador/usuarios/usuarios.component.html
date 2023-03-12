@@ -1,0 +1,43 @@
+
+<table class="table table-bordered border-primary ">
+    <thead class="table-dark">
+        <tr>
+            <th>ID</th>
+            <th>Usuario</th>
+            <th>Nombre Apellido Cedula</th>
+            <th>Activos</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor ="let usuario of usuariosAct">
+            <td>{{usuario.usuId}}</td>
+            <td>{{usuario.usuNombreUsuario}}</td>
+            <td>{{usuario.usuContraUsuario}}</td>
+            
+            <td>
+                <button (click)="desactivarUsuario()" class="btn-warning">Suspender</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<table class="table table-bordered border-primary">
+    <thead class="table-dark">
+        <tr>
+            <th>ID</th>
+            <th>Usuario</th>
+            <th>Nombre Apellido Cedula</th>
+            <th>Suspendidos</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor ="let usuario of usuariosInc">
+            <td>{{usuario.usuId}}</td>
+            <td>{{usuario.usuNombreUsuario}}</td>
+            <td>{{usuario.usuContraUsuario}}</td>
+            
+            <td>
+                <button (click)="desactivarUsuario()" class="btn-warning">Reactivar</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

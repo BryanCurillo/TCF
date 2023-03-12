@@ -19,6 +19,11 @@ import { TruequeComponent } from './trueque/trueque.component';
 import { NosotrosComponent } from './nosotros/nosotros.component';
 import { ListaClientesComponent } from './lista-clientes/lista-clientes.component';
 import { FormComponent } from './lista-clientes/form.component';
+import { AdministracionService } from './service/administracion.service';
+import { AdministrarComponent } from './administrador/administrar/administrar.component';
+import { HadearAdminComponent } from './administrador/hadear-admin/hadear-admin.component';
+import { CategoriasComponent } from './administrador/categorias/categorias.component';
+import { UsuariosComponent } from './administrador/usuarios/usuarios.component';
 // import { UploadFilesComponent } from './uploadFiles/upload-files/upload-files.component';
 // import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // import {MatProgressBarModule} from '@angular/material/progress-bar';
@@ -44,6 +49,10 @@ import { FormComponent } from './lista-clientes/form.component';
     NosotrosComponent,
     ListaClientesComponent,
     FormComponent,
+    AdministrarComponent,
+    HadearAdminComponent,
+    CategoriasComponent,
+    UsuariosComponent
     
   ],
   imports: [
@@ -59,7 +68,7 @@ import { FormComponent } from './lista-clientes/form.component';
     
     //TEMPORAL eliminar ALERTAS
   ],
-  providers: [ServisLoginResgisService, ListaClientesComponent],
+  providers: [ServisLoginResgisService, ListaClientesComponent,AdministracionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
