@@ -79,7 +79,7 @@ export class ProductosComponent implements OnInit {
     for (const file of files) {
       formData.append('files', file, file.name);
 
-      this.producto.fileName = file.name;
+      this.producto.fileName = 'http://localhost:8080/api/files/'+file.name;
 
       console.log(this.producto.fileName);
 

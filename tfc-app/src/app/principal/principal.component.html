@@ -3,7 +3,7 @@
 
 <app-headers></app-headers>
 
-<div class="box"> 
+<div class="box">
 
     <div class="content">
 
@@ -21,19 +21,19 @@
 
         <h1 data-text="Productos "></h1>
         <section class="layout">
-            <div *ngFor="let publicacion of publicaciones"  >
+            <div *ngFor="let publicacion of publicaciones">
                 <!--  -->
+
                 <div class="card">
                     <div class="card-img">
-                        <img src="assets/img/vodka.png" class="img2">
+                        <img src={{publicacion.pubIdProducto.fileName}} class="img2">
                     </div>
                     <div class="card-info">
-                        <p class="text-title">VODKA ABSOLUTE</p>
-                        <p class="text-body">Es el vodka tradicional de la compañía, lanzado en 1979, sus ingredientes
-                            principales son agua y trigo de invierno. El agua proviene </p>
+                        <p class="text-title">{{publicacion.pubIdProducto.prodNombre}}</p>
+                        <p class="text-body">{{publicacion.pubDescripcion}}</p>
                     </div>
                     <div class="card-footer">
-                        <span class="text-title">$19.50</span>
+                        <span class="text-title">{{publicacion.pubIdProducto.prodPrecio}}</span>
                         <div class="card-button">
                             <button class="c-button c-button--gooey" routerLink="/verproducto"> Ver Producto
                                 <div class="c-button__blobs">
@@ -59,12 +59,13 @@
                     </div>
                 </div>
             </div>
-            
+
         </section>
     </div>
 
 </body>
 <app-footer></app-footer>
+
 </html>
 
 
