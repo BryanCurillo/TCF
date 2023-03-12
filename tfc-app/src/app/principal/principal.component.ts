@@ -36,14 +36,16 @@ export class PrincipalComponent implements OnInit {
 
   }
 
-  cargarProductos(id:number): void {
+  cargarProductos(id:number): Producto {
 
     this.activatedRoute.params.subscribe(params => {
 
       if (id) {
-        this.productoService.getProductoId(id).subscribe((publicacion) => this.producto = publicacion)
+        this.productoService.getProductoId(id).subscribe((producto) => this.producto = producto)
       }
     })
+
+    return this.producto;
   }
 
 }
