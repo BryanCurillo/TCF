@@ -1,0 +1,57 @@
+<div class=" card bg-dark text-white">
+    <div class=" card-header">{{titulo}}</div>
+    <div class="card-body">
+
+        <form ngNativeValidate (ngSubmit)="create()">
+
+            <div class="form-group row">
+                <label for="" class="col-form-label col-sm-2"></label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" [(ngModel)]="personas.perNombre" name="nombre" required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="" class="col-form-label col-sm-2"></label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" [(ngModel)]="personas.perApellido" name="nombre" required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="" class="col-form-label col-sm-2"></label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" [(ngModel)]="personas.perCedula" name="nombre" required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="" class="col-form-label col-sm-2"></label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" [(ngModel)]="personas.perCorreo" name="nombre" required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="" class="col-form-label col-sm-2"></label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" [(ngModel)]="personas.perDireccion" name="nombre" required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="" class="col-form-label col-sm-2"></label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" [(ngModel)]="personas.perSexo" name="nombre" required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="" class="col-form-label col-sm-2"></label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" [(ngModel)]="personas.perTelefono" name="nombre" required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-6">
+                    <button class="btn btn-primary" role="button">CREAR</button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</div>

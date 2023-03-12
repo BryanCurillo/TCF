@@ -1,0 +1,41 @@
+<app-headers></app-headers>
+
+<html>
+
+<body>
+
+    <button class="btn btn-rounded btn-primary" type="button" [routerLink]="['/admclientes/form']">Crear
+        Cliente</button>
+
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>NOMBRE</th>
+                <th>APELLIDO</th>
+                <th>CEDULA</th>
+                <th>CORREO</th>
+                <th>DIRECCION</th>
+                <th>SEXO</th>
+                <th>TELEFONO</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor= "let personas of personas">
+                <td>{{personas.perId}}</td>
+                <td>{{personas.perNombre}}</td>
+                <td>{{personas.perApellido}}</td>
+                <td>{{personas.perCedula}}</td>
+                <td>{{personas.perCorreo}}</td>
+                <td>{{personas.perDireccion}}</td>
+                <td>{{personas.perSexo}}</td>
+                <td>{{personas.perTelefono}}</td>
+
+                <button type="button" name="button" [routerLink]="['/admclientes/form',personas.perId]"class="btn btn-primary">EDITAR</button>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>

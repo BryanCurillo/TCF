@@ -1,13 +1,13 @@
 export class persona {
 
-    perId:number;
-    perApellido:string;
-    perCedula:string;
-    perCorreo:string;
-    perDireccion:string;
-    perNombre:string;
-    perSexo:string;
-    perTelefono:string;
+    perId:number = 0;
+    perApellido:string = "";
+    perCedula:string = "";
+    perCorreo:string = "";
+    perDireccion:string = "";
+    perNombre:string = "";
+    perSexo:string = "";
+    perTelefono:string = "";
 
     
   constructor(per_id?: number, per_apellido?: string, per_cedula?: string, per_correo?: string, per_direccion?: string, per_nombre?: string, per_sexo?: string, per_telefono?: string) {

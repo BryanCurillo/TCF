@@ -17,6 +17,8 @@ import { UploadFilesComponent } from './uploadFiles/upload-files/upload-files.co
 import { InicioComponent } from './inicio/inicio.component';
 import { TruequeComponent } from './trueque/trueque.component';
 import { NosotrosComponent } from './nosotros/nosotros.component';
+import { ListaClientesComponent } from './lista-clientes/lista-clientes.component';
+import { FormComponent } from './lista-clientes/form.component';
 // import { UploadFilesComponent } from './uploadFiles/upload-files/upload-files.component';
 // import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // import {MatProgressBarModule} from '@angular/material/progress-bar';
@@ -24,7 +26,6 @@ import { NosotrosComponent } from './nosotros/nosotros.component';
 // import {MatCardModule} from '@angular/material/card';
 // import {MatIconModule} from '@angular/material/icon';
 //temporal eliminar ALERTAS
-
 
 @NgModule({
   declarations: [
@@ -41,6 +42,8 @@ import { NosotrosComponent } from './nosotros/nosotros.component';
     InicioComponent,
     TruequeComponent,
     NosotrosComponent,
+    ListaClientesComponent,
+    FormComponent,
     
   ],
   imports: [
@@ -56,7 +59,7 @@ import { NosotrosComponent } from './nosotros/nosotros.component';
     
     //TEMPORAL eliminar ALERTAS
   ],
-  providers: [ServisLoginResgisService],
+  providers: [ServisLoginResgisService, ListaClientesComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

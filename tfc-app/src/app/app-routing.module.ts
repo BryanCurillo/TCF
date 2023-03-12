@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HeadersComponent } from './headers/headers.component';
 import { InicioComponent } from './inicio/inicio.component';
+import { FormComponent } from './lista-clientes/form.component';
+import { ListaClientesComponent } from './lista-clientes/lista-clientes.component';
 import { LoginRegisComponent } from './login-regis/login-regis.component';
 import { NosotrosComponent } from './nosotros/nosotros.component';
 import { PrincipalComponent } from './principal/principal.component';
@@ -21,7 +23,11 @@ const routes: Routes = [{ path: '', redirectTo: '/login', pathMatch: 'full' },
 { path: 'producto', component: ProductosComponent },
 { path: 'inicio', component: InicioComponent },
 { path: 'nosotros', component: NosotrosComponent },
-{ path: 'trueque', component: TruequeComponent }
+{ path: 'admclientes', component: ListaClientesComponent },
+{ path: 'trueque', component: TruequeComponent },
+{ path: 'admclientes/form', component: FormComponent },
+{ path: 'admclientes/form/:id', component: FormComponent }
+
 
 
 
