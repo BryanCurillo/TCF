@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdministrarComponent } from './administrador/administrar/administrar.component';
+import { AdproductosComponent } from './administrador/adproductos/adproductos.component';
 import { HadearAdminComponent } from './administrador/hadear-admin/hadear-admin.component';
 import { UsuariosComponent } from './administrador/usuarios/usuarios.component';
 import { HeadersComponent } from './headers/headers.component';
@@ -35,6 +36,7 @@ const routes: Routes = [/*{ path: '', redirectTo: '/adHeader', pathMatch: 'full'
   { path: 'adHeader', component:  HadearAdminComponent , children: [
     { path: 'adAdministrar', component:  AdministrarComponent  },
     { path: 'adUsuarios', component:  UsuariosComponent  },
+    { path: 'adProductos', component:  AdproductosComponent  }
     ]
   },
 

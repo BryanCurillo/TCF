@@ -101,6 +101,7 @@ constructor(private router:Router, private service:ServisLoginResgisService){}
           this.modeloUsuario.usuPerCedula= data.perId;
           this.modeloUsuario.usuContraUsuario=this.contra;
           this.modeloUsuario.usuPerId=data;
+          this.modeloUsuario.usuEstado=true;
           this.service.createUsuario(this.modeloUsuario).subscribe(data=>{
             
             Swal.fire('REGISTRO','USUARIO CREADO EXITOSAMENTE','success');

@@ -18,4 +18,8 @@ export class AdministracionService {
   getUsuarioInc():Observable<usuario[]>{
     return this.http.get<usuario[]>(this.url+"/UsuariosInc");
   }
+
+  getUpdateEstado(usu:usuario):Observable<number>{
+    return this.http.get<number>(this.url+"/UsuariosEst/"+usu.usuId+"/"+usu.usuEstado);
+  }
 }

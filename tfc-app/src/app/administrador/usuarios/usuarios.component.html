@@ -15,7 +15,7 @@
             <td>{{usuario.usuContraUsuario}}</td>
             
             <td>
-                <button (click)="desactivarUsuario()" class="btn-warning">Suspender</button>
+                <button (click)="desactivarUsuario(usuario)" class=" btn btn-warning">Suspender</button>
             </td>
         </tr>
     </tbody>
@@ -36,7 +36,7 @@
             <td>{{usuario.usuContraUsuario}}</td>
             
             <td>
-                <button (click)="desactivarUsuario()" class="btn-warning">Reactivar</button>
+                <button (click)="activarUsuario(usuario)" class="btn btn-success">Reactivar</button>
             </td>
         </tr>
     </tbody>

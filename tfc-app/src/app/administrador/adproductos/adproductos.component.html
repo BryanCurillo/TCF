@@ -1,0 +1,19 @@
+<div class="jumbotron">
+    <div class="container text-center">
+      <h1>Publicaciones</h1>      
+    </div>
+  </div>
+  
+<div class="row row-cols-1 row-cols-md-3 g-4 contenedor">
+  <div class="card mx-1" style="width: 14rem;" *ngFor="let publicacion of publicaciones ">
+    <img src={{publicacion.pubIdProducto.fileName}}  class="card-img-top" alt="...">
+    <div class="card-body">
+      <p class="card-title"><b>TItulo publicación:</b> {{publicacion.pubIdProducto.prodNombre}}</p>
+      <p class="card-text"><b>Descripción:</b> {{publicacion.pubDescripcion}}</p>
+      <p class="card-text"><b>Precio:</b> {{publicacion.pubIdProducto.prodPrecio}}$</p>
+    </div>
+  </div>
+
+</div>
+
+

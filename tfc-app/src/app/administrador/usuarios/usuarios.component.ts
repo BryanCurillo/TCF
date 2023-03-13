@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { usuario } from 'src/app/modelo/usuario';
 import { AdministracionService } from 'src/app/service/administracion.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-usuarios',
@@ -24,8 +25,34 @@ export class UsuariosComponent implements OnInit{
     
   }
 
-  desactivarUsuario(){
+  desactivarUsuario(usu:usuario){
+    usu.usuEstado=false;
+    this.service.getUpdateEstado(usu).subscribe(data=>{
 
+      if(data==1){
+        Swal.fire('Administración','USUARIO DESABILITADO','info'); 
+        setTimeout(function() {
+          // Recargar la página
+          location.reload();
+        }, 2500);
+      }
+     
+    });
+  }
+
+  activarUsuario(usu:usuario){
+    usu.usuEstado=true;
+    this.service.getUpdateEstado(usu).subscribe(data=>{
+
+      if(data==1){
+        Swal.fire('Administración','USUARIO Habilitado','success'); 
+        setTimeout(function() {
+          // Recargar la página
+          location.reload();
+        }, 2500);
+      }
+     
+    });
   }
   
 
