@@ -25,6 +25,8 @@ import { HadearAdminComponent } from './administrador/hadear-admin/hadear-admin.
 import { CategoriasComponent } from './administrador/categorias/categorias.component';
 import { UsuariosComponent } from './administrador/usuarios/usuarios.component';
 import { AdproductosComponent } from './administrador/adproductos/adproductos.component';
+import { MisproductosComponent } from './misproductos/misproductos.component';
+import { PrincipaltruequeComponent } from './principaltrueque/principaltrueque.component';
 // import { UploadFilesComponent } from './uploadFiles/upload-files/upload-files.component';
 // import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // import {MatProgressBarModule} from '@angular/material/progress-bar';
@@ -55,6 +57,8 @@ import { AdproductosComponent } from './administrador/adproductos/adproductos.co
     CategoriasComponent,
     UsuariosComponent,
     AdproductosComponent,
+    MisproductosComponent,
+    PrincipaltruequeComponent,
     
   ],
   imports: [

@@ -32,5 +32,9 @@ export class ProductoService {
   getProductoId(id:number):Observable<Producto>{
     return this.http.get<Producto>(`${this.urlEndPoint}/${id}`);
   }
+
+  deleteCliente(id:number):Observable<Producto>{
+    return this.http.delete<Producto>(`${this.urlEndPoint}/${id}`);
+  }
   
 }

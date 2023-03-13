@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<app-headers></app-headers>
+
+<div class="card" style=" margin-top: 30px; ">
+
+
+    <div class="card-body">
+
+
+
+        <h5 class="card-title;" style="text-align: center;">
+            <img src="https://cdn-icons-png.flaticon.com/512/1605/1605350.png" class="card-img-top" alt="..."
+                style="height: 40px; width: 40px;">
+            Lista de Clientes
+        </h5>
+
+        <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+        <div class="my-2 text-left">
+            <button class="btn btn-rounded btn-primary" type="button" [routerLink]="['/producto']"> Agregar
+                Cliente</button>
+        </div>
+
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Producto</th>
+                    <th>Precio</th>
+                    <th>Tipo de Comercio</th>
+                </tr>
+            </thead>
+            <tbody class="table-group-divider">
+                <ng-container *ngFor="let publicacion of publicaciones">
+                    <ng-container let id of idUsu>
+                        <tr *ngIf="publicacion.pubIdVendedor==idUsu">
+
+                            <td>{{publicacion.pubId}}</td>
+                            <td>{{publicacion.pubIdProducto.prodNombre}}</td>
+                            <td>{{publicacion.pubIdProducto.prodPrecio}}</td>
+                            <td>{{publicacion.pubTipo}}</td> -->
+                            <td>
+                            <button type="button" name="button" [routerLink]="['/producto',publicacion.pubIdVendedor]"
+                                class="btn btn-primary">EDITAR</button>
+                        <!-- </td>
+                             <td>
+                            <button type="button" name="button" (click)="eliminarCliente(publicacion.pubIdVendedor)"
+                                class="btn btn-danger">ELIMINAR</button>
+                        </td> -->
+
+                        </tr>
+                    </ng-container>
+                </ng-container>
+            </tbody>
+        </table>
+
+
+    </div>
+</div>
+<app-footer></app-footer>
+
+</html>

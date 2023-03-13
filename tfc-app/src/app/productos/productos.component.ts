@@ -30,6 +30,7 @@ export class ProductosComponent implements OnInit {
 
 
   seleccionados: Categoria = new Categoria;
+  seleComercio: string;
   imageSrc: string = '';
 
   public fileUpload: FileUpload = new FileUpload();
@@ -60,7 +61,7 @@ export class ProductosComponent implements OnInit {
   }
 
 
-
+  comercios: String[] = ['Trueke','Venta'];
 
   categorias: Categoria[] = [];
 
@@ -125,6 +126,7 @@ export class ProductosComponent implements OnInit {
       
       this.publicacionNew.pubIdProducto = productoNew;
       this.publicacionNew.pubIdVendedor = parseInt(this.userId);
+      this.publicacionNew.pubTipo=this.seleComercio;
 
       this.publicacionService.create(this.publicacionNew).subscribe(publicacionN => {
         this.router.navigate(['/principal'])

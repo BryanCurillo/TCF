@@ -18,7 +18,7 @@
                     <div class="input-box">
                         <span class="details">Precio</span>
                         <input type="number" placeholder="Ingresa el precio del producto"
-                            [(ngModel)]="producto.prodPrecio" name="prodPrecio" required>
+                            [(ngModel)]="producto.prodPrecio" name="prodPrecio" step="0.01" required>
                     </div>
                     <div class="input-box">
                         <span class="details">descripcion</span>
@@ -33,10 +33,19 @@
                             </option>
                         </select>
                     </div>
+                    
                     <div class="input-box">
                         <span class="details">Descripcion de la venta</span>
                         <textarea name="notas" rows=3 cols=20 placeholder="Ingresa la descripcion"
                             [(ngModel)]="publicacionNew.pubDescripcion" name="pubDescripcion" required> </textarea>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Tipo de Comercio</span>
+                        <select name="miselect" [(ngModel)]="seleComercio" required>
+                            <option value="" hidden selected>Seleccione una opcion</option>
+                            <option *ngFor="let comercio of comercios" [ngValue]="comercio">{{comercio}}
+                            </option>
+                        </select>
                     </div>
                 </div>
 
