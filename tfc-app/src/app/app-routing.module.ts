@@ -12,6 +12,7 @@ import { LoginRegisComponent } from './login-regis/login-regis.component';
 import { MisproductosComponent } from './misproductos/misproductos.component';
 import { NosotrosComponent } from './nosotros/nosotros.component';
 import { PrincipalComponent } from './principal/principal.component';
+import { PrincipaltruequeComponent } from './principaltrueque/principaltrueque.component';
 import { ProductosComponent } from './productos/productos.component';
 import { RegistrarComponent } from './registrar/registrar.component';
 import { TruequeComponent } from './trueque/trueque.component';
@@ -31,8 +32,7 @@ const routes: Routes = [/*{ path: '', redirectTo: '/adHeader', pathMatch: 'full'
 { path: 'admclientes', component: ListaClientesComponent },
 { path: 'trueque', component: TruequeComponent },
 { path: 'misproductos', component: MisproductosComponent },
-{ path: 'admclientes/form', component: FormComponent },
-{ path: 'admclientes/form/:id', component: FormComponent },
+{ path: 'principalt', component: PrincipaltruequeComponent },
 
 //rutas para el administrador
 

@@ -26,6 +26,7 @@ import { CategoriasComponent } from './administrador/categorias/categorias.compo
 import { UsuariosComponent } from './administrador/usuarios/usuarios.component';
 import { AdproductosComponent } from './administrador/adproductos/adproductos.component';
 import { MisproductosComponent } from './misproductos/misproductos.component';
+import { PrincipaltruequeComponent } from './principaltrueque/principaltrueque.component';
 // import { UploadFilesComponent } from './uploadFiles/upload-files/upload-files.component';
 // import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // import {MatProgressBarModule} from '@angular/material/progress-bar';
@@ -57,6 +58,7 @@ import { MisproductosComponent } from './misproductos/misproductos.component';
     UsuariosComponent,
     AdproductosComponent,
     MisproductosComponent,
+    PrincipaltruequeComponent,
     
   ],
   imports: [
