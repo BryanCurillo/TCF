@@ -9,6 +9,7 @@ import { InicioComponent } from './inicio/inicio.component';
 import { FormComponent } from './lista-clientes/form.component';
 import { ListaClientesComponent } from './lista-clientes/lista-clientes.component';
 import { LoginRegisComponent } from './login-regis/login-regis.component';
+import { MisproductosComponent } from './misproductos/misproductos.component';
 import { NosotrosComponent } from './nosotros/nosotros.component';
 import { PrincipalComponent } from './principal/principal.component';
 import { ProductosComponent } from './productos/productos.component';
@@ -29,8 +30,10 @@ const routes: Routes = [/*{ path: '', redirectTo: '/adHeader', pathMatch: 'full'
 { path: 'nosotros', component: NosotrosComponent },
 { path: 'admclientes', component: ListaClientesComponent },
 { path: 'trueque', component: TruequeComponent },
+{ path: 'misproductos', component: MisproductosComponent },
 { path: 'admclientes/form', component: FormComponent },
 { path: 'admclientes/form/:id', component: FormComponent },
+
 //rutas para el administrador
 
   { path: 'adHeader', component:  HadearAdminComponent , children: [
