@@ -304,74 +304,75 @@ body {
 }
 
 /* TARJETA */
-
 .card {
-    width: 230px;
-    height: 100%;
-    border-radius: 20px;
-    background: #f5f5f5;
+    --bg: #f7f7f8;
+    --hover-bg: #24262b;
+    --hover-text: #f7f7f8;
+    text-align: center;
+    background: var(--bg);
+    padding: 1.5em;
+    padding-block: 1.8em;
+    border-radius: 5px;
     position: relative;
-    padding: 1.8rem;
-    border: 2px solid #c3c6ce;
-    transition: 0.5s ease-out;
-    overflow: visible;
+    overflow: hidden;
+    transition: .3s cubic-bezier(.6, .4, 0, 1), transform .15s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    width: 80%;
+    height: 400px;
     margin-left: auto;
     margin-right: auto;
-    align-items: center;
+    border-style: solid;
 }
 
-.card-details {
-    color: black;
-    height: 100%;
-    gap: .5em;
-    display: grid;
-    place-content: center;
+.card__body {
+    color: #464853;
+    line-height: 1.5em;
+    font-size: 15px;
+    text-align: justify;
 }
 
-.card-button {
-    transform: translate(-50%, 125%);
-    width: 60%;
-    border-radius: 1rem;
-    border: none;
-    background-color: #008bf8;
-    color: #fff;
-    font-size: 1rem;
-    padding: .5rem 1rem;
+.card> :not(button) {
+    transition: .3s cubic-bezier(.6, .4, 0, 1);
+}
+
+.card>strong {
+    display: block;
+    font-size: 1.4rem;
+    letter-spacing: -.035em;
+}
+
+.card button {
     position: absolute;
-    left: 50%;
-    bottom: 0;
-    opacity: 0;
-    transition: 0.3s ease-out;
-}
-
-.text-body {
-    color: rgb(134, 134, 134);
-}
-
-/*Text*/
-.text-title {
-    font-size: 1.5em;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--hover-text);
+    border-radius: 5px;
     font-weight: bold;
+    top: 100%;
+    transition: all .3s cubic-bezier(.6, .4, 0, 1);
 }
 
-/*Hover*/
+.card:hover button {
+    top: 0;
+    font-size: 30px;
+    background-color: #24262b;
+}
+
 .card:hover {
-    border-color: #008bf8;
-    box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.25);
+    background: var(--hover-bg);
 }
 
-.card:hover .card-button {
-    transform: translate(-50%, 50%);
-    opacity: 1;
-}
-
-.card-img {
-    width: auto;
-}
-
-img.img2 {
-    width: 200px;
-    max-width: 200px;
+.card:hover>div,
+.card:hover>strong {
+    opacity: 0;
 }
 
 /* TARJETA FIN */

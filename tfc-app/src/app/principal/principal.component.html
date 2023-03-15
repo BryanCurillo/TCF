@@ -18,47 +18,29 @@
 <body>
 
     <div class="container">
-
         <h1 data-text="Productos "></h1>
         <section class="layout">
             <ng-container *ngFor="let publicacion of publicaciones">
                 <div *ngIf="publicacion.pubTipo=='Venta'">
-<!-- 
                     <div class="card">
-                        <div class="card-img">
-                            <img src={{publicacion.pubIdProducto.fileName}} class="img2">
+                        <div class="icon">
+                            <img src={{publicacion.pubIdProducto.fileName}} width="100px">
                         </div>
-                        <div class="card-info">
-                            <p class="text-title">{{publicacion.pubIdProducto.prodNombre}}</p>
-                            <p class="text-body">{{publicacion.pubDescripcion}}</p>
+                        <strong>{{publicacion.pubIdProducto.prodNombre}}
+                        </strong>
+                        <div class="card__body">
+                            {{publicacion.pubDescripcion}}
                         </div>
-                        <div class="card-footer">
-                            <span class="text-title">{{publicacion.pubIdProducto.prodPrecio}}</span>
-                            <div class="card-button">
-                                <button class="c-button c-button--gooey" routerLink="/verproducto"> Ver Producto
-                                    <div class="c-button__blobs">
-                                        <div></div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                </button>
-                                <svg style="display: block; height: 0; width: 0;" version="1.1"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <defs>
-                                        <filter id="goo">
-                                            <feGaussianBlur result="blur" stdDeviation="10" in="SourceGraphic">
-                                            </feGaussianBlur>
-                                            <feColorMatrix result="goo"
-                                                values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" mode="matrix"
-                                                in="blur"></feColorMatrix>
-                                            <feBlend in2="goo" in="SourceGraphic"></feBlend>
-                                        </filter>
-                                    </defs>
-                                </svg>
-                            </div>
+                        <div class="card__body">
+                            Precio $:{{publicacion.pubIdProducto.prodPrecio}}
+                            
                         </div>
-                    </div> -->
+                        
+                        <button type="button" name="button" (click)="verProducto(publicacion.pubId)" >Ver Producto</button>
+                        
+                    </div>
                 </div>
+
             </ng-container>
 
         </section>

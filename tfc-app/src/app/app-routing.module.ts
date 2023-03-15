@@ -4,6 +4,7 @@ import { AdministrarComponent } from './administrador/administrar/administrar.co
 import { AdproductosComponent } from './administrador/adproductos/adproductos.component';
 import { HadearAdminComponent } from './administrador/hadear-admin/hadear-admin.component';
 import { UsuariosComponent } from './administrador/usuarios/usuarios.component';
+import { FacturaComponent } from './factura/factura.component';
 import { HeadersComponent } from './headers/headers.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { FormComponent } from './lista-clientes/form.component';
@@ -25,7 +26,7 @@ const routes: Routes = [/*{ path: '', redirectTo: '/adHeader', pathMatch: 'full'
 { path: 'principal', component: PrincipalComponent },
 { path: 'registrar', component: RegistrarComponent },
 { path: 'header', component: HeadersComponent },
-{ path: 'verproducto', component: VerproductoComponent },
+{ path: 'verproducto/form', component: VerproductoComponent },
 { path: 'producto', component: ProductosComponent },
 { path: 'inicio', component: InicioComponent },
 { path: 'nosotros', component: NosotrosComponent },
@@ -33,6 +34,8 @@ const routes: Routes = [/*{ path: '', redirectTo: '/adHeader', pathMatch: 'full'
 { path: 'trueque', component: TruequeComponent },
 { path: 'misproductos', component: MisproductosComponent },
 { path: 'principalt', component: PrincipaltruequeComponent },
+{ path: 'factura', component: FacturaComponent },
+
 
 //rutas para el administrador
 

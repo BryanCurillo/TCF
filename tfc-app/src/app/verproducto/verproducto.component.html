@@ -4,47 +4,27 @@
 
 <body>
 
+
+  <div *ngIf="publicacion">
     <section class="layout">
-        <div class="izq">
-
-            <div class="card">
-
-                <img src="assets/img/vodka.png" alt="">
-            </div>\
-
+      <div class="izq"> 
+        <div class="container">
+          <div class="card">
+            <img src={{publicacion.pubIdProducto.fileName}} class="card-img-top" width="30px" alt="...">          </div>
         </div>
-        <div class="der">
-            <section class="layout2">
-                <div class="Titulo">
+      </div>
+      
+      <div class="der">
 
-                    <p class="text-title">VODKA ABSOLUTE</p>
-
-                    <p class="text-body">Atrevido, original, creativo. Absolut Vodka se presentó por primera vez en
-                        Nueva York en 1979. Nuestra botella transparente sin etiqueta, inspirada en los envases de
-                        medicamentos del siglo XVIII, destacó entre las botellas altas y ostentosas de la competencia.
-                        Después de todo, estábamos en Nueva York y eran los años setenta. Para distinguirte de los
-                        demás, tenías que ser diferente.</p>
-
-                        <p class="text-body">$19,80</p>
-
-                </div>
-                <div>
-                    <div class="boton">
-    
-                        <button class="comprar">
-                            <span>COMPRAR</span>
-                        </button>
-                    </div>
-    
-                </div>
-
-            </section>
-
+        <div class="card-body">
+          <p class="card-title">{{publicacion.pubIdProducto.prodNombre}}</p>
+          <p class="card-text"><b>Descripción: </b>{{publicacion.pubDescripcion}}</p>
+          <p class="card-text"><b>Precio:</b> {{publicacion.pubIdProducto.prodPrecio}}$</p>
         </div>
+      </div>
     </section>
-
+  </div>
 </body>
-
 <app-footer></app-footer>
 
 </html>

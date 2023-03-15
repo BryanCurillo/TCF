@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Producto } from '../modelo/producto';
 import { Publicacion } from '../modelo/publicacion';
 import { ProductoService } from '../service/producto.service';
@@ -16,9 +16,11 @@ export class PrincipalComponent implements OnInit {
   publicaciones: Publicacion[] = [];
   producto: Producto= new Producto;
 
+  idProducto:number=0;
+
   constructor(private publicacionService: PublicacionService,
     private productoService: ProductoService,
-    private activatedRoute: ActivatedRoute) { }
+    private activatedRoute: ActivatedRoute,private router:Router) { }
 
   ngOnInit(): void {
     this.cargarPublicaciones()
@@ -48,4 +50,8 @@ export class PrincipalComponent implements OnInit {
     return this.producto;
   }
 
+  verProducto(id:number){
+    localStorage.setItem("productoId",id.toString());
+      this.router.navigate(["verproducto/form"]);
+  }
 }
