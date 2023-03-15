@@ -44,63 +44,33 @@ p.card-text {
 }
 
 .card {
-  cursor: default;
-  width: 100%;
-  height: 100%;
-  position: relative;
-  z-index: 2;
+  box-sizing: border-box;
+  width: 300px;
+  height: 380px;
+  background: rgba(217, 217, 217, 0.58);
+  border: 1px solid white;
+  box-shadow: 12px 17px 51px rgba(0, 0, 0, 0.22);
+  backdrop-filter: blur(6px);
+  border-radius: 17px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.5s;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 34px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  color: #212121;
-  background-color: rgba(255, 255, 255, 0.074);
-  border: 1px solid rgba(255, 255, 255, 0.222);
-  -webkit-backdrop-filter: blur(20px);
-  backdrop-filter: blur(20px);
-  border-radius: 10px;
-  transition: all ease .3s;
+  user-select: none;
+  font-weight: bolder;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.container::after,
-.container::before {
-  width: 100px;
-  height: 100px;
-  content: '';
-  position: absolute;
-  border-radius: 50%;
-  transition: .5s linear;
+.card:hover {
+  border: 1px solid black;
+  transform: scale(1.05);
 }
 
-.container::after {
-  top: -20px;
-  left: -20px;
-  background-color: #000000;
-  animation: animFirst 5s linear infinite;
-}
-
-.container::before {
-  background-color: #000000;
-  top: 85%;
-  left: 80%;
-  animation: animSecond 5s linear infinite;
-  animation-delay: 3s;
-}
-
-.container:hover {
-  box-shadow: 0px 0px 10px #71b7e6
-}
-
-.container:hover::after {
-  left: 80px;
-  transform: scale(1.2);
-}
-
-.container:hover::before {
-  left: -10px;
-  transform: scale(1.2);
+.card:active {
+  transform: scale(0.95) rotateZ(1.7deg);
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
