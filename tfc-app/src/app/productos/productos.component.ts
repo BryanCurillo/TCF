@@ -12,6 +12,8 @@ import { FileUpload } from 'src/app/modelo/fileUpload';
 import { HttpErrorResponse, HttpEvent, HttpEventType } from '@angular/common/http';
 import { saveAs } from 'file-saver';
 import { usuario } from '../modelo/usuario';
+import * as FileSaver from 'file-saver';
+import { FileModel } from '../modelo/fileModel';
 // import { FileService } from './file.service';
 
 
@@ -27,60 +29,84 @@ export class ProductosComponent implements OnInit {
   public producto: Producto = new Producto();
   public categoriaFK: Categoria = new Categoria()
   public publicacionNew: Publicacion = new Publicacion();
+  public files: File[]
+  public fileUpload: FileUpload = new FileUpload();
 
 
   seleccionados: Categoria = new Categoria;
   seleComercio: string;
-  imageSrc: string = '';
+  seleCate: string = 'Hogar';
+  public imageSrc: string = '';
+  filesRecuperado: File[];
 
-  public fileUpload: FileUpload = new FileUpload();
   filenames: string[] = [];
   fileStatus = { status: '', requestType: '', percent: 0 };
   userId: string;
   userName: string;
+  urlImg: string;
+  imgRec: Blob;
 
+  fileModels: FileModel[];
+  categorias: Categoria[] = [];
+  comercios: String[] = ['Seleccione una opcion','Trueke', 'Venta'];
+  categoriaSELEC: Categoria = new Categoria()
   constructor(private categoriaService: CategoriaService,
     private productoService: ProductoService,
     private publicacionService: PublicacionService,
     private uploadFileService: UploadFilesService,
+    private activatedRoute: ActivatedRoute,
     private router: Router) { }
 
   ngOnInit(): void {
-
     this.cargarCategorias();
     this.recuperarUSU();
+    this.cargarPublicacion();
   }
 
   recuperarUSU() {
     this.userId = String(localStorage.getItem("userId"))
     this.userName = String(localStorage.getItem("userName"))
 
-    this.usuarioFK.usuId=parseInt(String(localStorage.getItem("userId")));
-    this.usuarioFK.usuNombreUsuario=String(localStorage.getItem("userName"));
+    this.usuarioFK.usuId = parseInt(String(localStorage.getItem("userId")));
+    this.usuarioFK.usuNombreUsuario = String(localStorage.getItem("userName"));
 
   }
 
-
-  comercios: String[] = ['Trueke','Venta'];
-
-  categorias: Categoria[] = [];
+  selectCate: string = 'Seleccione una categoria';
 
   public cargarCategorias(): void {
+
+    let categoriaSELEC: Categoria = new Categoria()
+    categoriaSELEC.catId = 0;
+    categoriaSELEC.catNombre = 'Seleccione una categoria';
+    this.categorias.push(categoriaSELEC);
+
     this.categoriaService.getCategorias().subscribe(
-      categorias => this.categorias = categorias);
+      categorias => {
+        for (let categoria of categorias) {
+          this.categorias.push(categoria)
+        }
+      }
+    );
   }
 
-
-  public files: File[]
-
-
+  public cargarFotos(filename:string){
+    this.uploadFileService.getFiles().subscribe(files => {
+      for (let fileModel of files) {
+        if(filename===fileModel.name){
+          this.imageSrc=fileModel.url
+        }
+      }
+    }
+    );
+  }
 
   createFile(files: File[]): void {
     const formData = new FormData();
     for (const file of files) {
       formData.append('files', file, file.name);
 
-      this.producto.fileName = 'http://localhost:8080/api/files/'+file.name;
+      this.producto.fileName = file.name;
 
       console.log(this.producto.fileName);
 
@@ -94,6 +120,7 @@ export class ProductosComponent implements OnInit {
         reader.onload = () => {
 
           this.imageSrc = reader.result as string;
+          // alert(this.imageSrc)
 
         };
 
@@ -116,17 +143,22 @@ export class ProductosComponent implements OnInit {
 
     for (let i = 0; i < this.categorias.length; i++) {
       if (this.categoriaFK.catNombre === this.categorias[i].catNombre) {
-        this.categoriaFK.catId = i + 1;
+        this.categoriaFK.catId = i;
+      } else {
+        if (this.categoriaSELEC.catNombre === this.categorias[i].catNombre) {
+          this.categoriaFK.catId = i;
+        }
+
       }
     }
 
     this.producto.prodIdCategoria = this.categoriaFK.catId;
 
     this.productoService.create(this.producto).subscribe(productoNew => {
-      
+
       this.publicacionNew.pubIdProducto = productoNew;
       this.publicacionNew.pubIdVendedor = parseInt(this.userId);
-      this.publicacionNew.pubTipo=this.seleComercio;
+      this.publicacionNew.pubTipo = this.seleComercio;
 
       this.publicacionService.create(this.publicacionNew).subscribe(publicacionN => {
         this.router.navigate(['/principal'])
@@ -137,10 +169,29 @@ export class ProductosComponent implements OnInit {
           showConfirmButton: false,
           timer: 1500
         })
-        
+
       })
     })
+
   }
+
+  cargarPublicacion(): void {
+
+    this.activatedRoute.params.subscribe(params => {
+      let id = params['id']
+
+
+
+      if (id) {
+        this.publicacionService.getPublicacionId(id).subscribe((publicacion) => {
+          this.publicacionNew = publicacion,
+            this.producto = this.publicacionNew.pubIdProducto
+            this.cargarFotos(this.producto.fileName);
+        })
+      }
+    })
+  }
+
 
   private resportProgress(httpEvent: HttpEvent<string[] | Blob>): void {
     switch (httpEvent.type) {
@@ -183,3 +234,72 @@ export class ProductosComponent implements OnInit {
 
 
 }
+  // imagenUrl: string;
+  // nombreImagen:string;
+  // obtenerImagen(name:string){
+
+  //   this.uploadFileService.getImagen(name)
+  //   .subscribe(data => {
+  //     const reader = new FileReader();
+  //     reader.readAsDataURL(data);
+  //     reader.onloadend = () => {
+  //       this.imagenUrl = reader.result as string;
+  //     };
+  //   });
+  // }
+
+  
+  // cargarFoto(filename: string): string {
+
+  //   let url: string = '';
+
+  //   this.uploadFileService.getFileName(filename).subscribe((file) => {
+  //     this.filesRecuperado = file
+
+
+
+  //     const reader = new FileReader();
+
+  //     if (this.filesRecuperado && this.filesRecuperado.length) {
+  //       const [file] = this.filesRecuperado;
+  //       reader.readAsDataURL(file);
+
+  //       reader.onload = () => {
+
+  //         this.imageSrc = reader.result as string;
+  //         alert(this.imageSrc)
+
+  //       };
+
+  //     }
+
+  //   })
+  //   return url;
+  // }
+
+  
+
+  // cargarImg(filename: string) {
+
+  //   this.uploadFileService.getFileUrl(filename).subscribe(url => {
+  //     this.imageUrl = url;
+  //     alert("1" + url)
+  //   });
+
+  // }
+
+  
+  // downloadFile(filename: string) {
+  //   this.uploadFileService.getFile(filename).subscribe((res: any) => {
+  //     const url = window.URL.createObjectURL(res);
+  //     const a = document.createElement('a');
+  //     document.body.appendChild(a);
+  //     a.setAttribute('style', 'display: none');
+  //     a.href = url;
+  //     // a.download = filename;
+  //     // a.click();
+  //     window.URL.revokeObjectURL(url);
+  //     a.remove();
+  //     alert(url)
+  //   });
+  // }

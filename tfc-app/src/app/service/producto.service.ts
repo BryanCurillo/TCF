@@ -29,11 +29,16 @@ export class ProductoService {
     return this.http.post<Producto>(this.URLPOST, producto, {headers: this.httpHeaders})
   }
 
+  // getProductos(): Observable<Producto[]> {
+  //   return this.http.get(this.urlEndPoint).pipe(
+  //     map(response => response as Producto[]));
+  // }
+
   getProductoId(id:number):Observable<Producto>{
     return this.http.get<Producto>(`${this.urlEndPoint}/${id}`);
   }
 
-  deleteCliente(id:number):Observable<Producto>{
+  deleteProducto(id:number):Observable<Producto>{
     return this.http.delete<Producto>(`${this.urlEndPoint}/${id}`);
   }
   

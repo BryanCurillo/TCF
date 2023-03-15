@@ -9,16 +9,15 @@
 
 
 
-        <h5 class="card-title;" style="text-align: center;">
-            <img src="https://cdn-icons-png.flaticon.com/512/1605/1605350.png" class="card-img-top" alt="..."
+        <h1 class="card-title;" style="text-align: center;">
+            <img src="https://cdn-icons-png.flaticon.com/512/743/743007.png" class="card-img-top" alt="..."
                 style="height: 40px; width: 40px;">
-            Lista de Clientes
-        </h5>
+            Mis Ventas
+        </h1>
 
         <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
         <div class="my-2 text-left">
-            <button class="btn btn-rounded btn-primary" type="button" [routerLink]="['/producto']"> Agregar
-                Cliente</button>
+            <button class="btn btn-rounded btn-primary" type="button" [routerLink]="['/producto']"> Agregar</button>
         </div>
 
         <table class="table table-bordered table-striped">
@@ -27,28 +26,97 @@
                     <th>Id</th>
                     <th>Producto</th>
                     <th>Precio</th>
+                    <th>Categoria</th>
                     <th>Tipo de Comercio</th>
                 </tr>
             </thead>
             <tbody class="table-group-divider">
                 <ng-container *ngFor="let publicacion of publicaciones">
                     <ng-container let id of idUsu>
-                        <tr *ngIf="publicacion.pubIdVendedor==idUsu">
+                        <ng-container *ngIf="publicacion.pubIdVendedor==idUsu">
+                            <tr *ngIf="publicacion.pubTipo=='Venta'">
 
-                            <td>{{publicacion.pubId}}</td>
-                            <td>{{publicacion.pubIdProducto.prodNombre}}</td>
-                            <td>{{publicacion.pubIdProducto.prodPrecio}}</td>
-                            <td>{{publicacion.pubTipo}}</td> -->
-                            <td>
-                            <button type="button" name="button" [routerLink]="['/producto',publicacion.pubIdVendedor]"
-                                class="btn btn-primary">EDITAR</button>
-                        <!-- </td>
-                             <td>
-                            <button type="button" name="button" (click)="eliminarCliente(publicacion.pubIdVendedor)"
-                                class="btn btn-danger">ELIMINAR</button>
-                        </td> -->
+                                <td>{{publicacion.pubId}}</td>
+                                <td>{{publicacion.pubIdProducto.prodNombre}}</td>
+                                <td>{{publicacion.pubIdProducto.prodPrecio}}</td>
+                                <ng-container *ngFor="let categoria of categorias">
+                                    <td *ngIf="categoria.catId==publicacion.pubIdProducto.prodIdCategoria">{{categoria.catNombre}}</td>
+                                </ng-container>
+                                <td>{{publicacion.pubTipo}}</td>
+                                <td>
+                                    <button type="button" name="button" [routerLink]="['/producto',publicacion.pubId]"
+                                        class="btn btn-primary">EDITAR</button>
+                                </td>
+                                <td>
+                                    <button type="button" name="button" (click)="eliminarPublicacion(publicacion)"
+                                        class="btn btn-danger">ELIMINAR</button>
+                                </td>
 
-                        </tr>
+
+                            </tr>
+                        </ng-container>
+                    </ng-container>
+                </ng-container>
+            </tbody>
+        </table>
+
+
+    </div>
+</div>
+
+<div class="card" style=" margin-top: 30px; ">
+
+
+    <div class="card-body">
+
+
+
+        <h1 class="card-title;" style="text-align: center;">
+            <img src="https://cdn-icons-png.flaticon.com/512/2048/2048923.png" class="card-img-top" alt="..."
+                style="height: 40px; width: 40px;">
+            Mis Truekes
+        </h1>
+
+        <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+        <div class="my-2 text-left">
+            <button class="btn btn-rounded btn-primary" type="button" [routerLink]="['/producto']"> Agregar</button>
+        </div>
+
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Producto</th>
+                    <th>Precio</th>
+                    <th>Categoria</th>
+                    <th>Tipo de Comercio</th>
+                </tr>
+            </thead>
+            <tbody class="table-group-divider">
+                <ng-container *ngFor="let publicacion of publicaciones">
+                    <ng-container let id of idUsu>
+                        <ng-container *ngIf="publicacion.pubIdVendedor==idUsu">
+                            <tr *ngIf="publicacion.pubTipo=='Trueke'">
+
+                                <td>{{publicacion.pubId}}</td>
+                                <td>{{publicacion.pubIdProducto.prodNombre}}</td>
+                                <td>{{publicacion.pubIdProducto.prodPrecio}}</td>
+                                <ng-container *ngFor="let categoria of categorias">
+                                    <td *ngIf="categoria.catId==publicacion.pubIdProducto.prodIdCategoria">{{categoria.catNombre}}</td>
+                                </ng-container>
+                                <td>{{publicacion.pubTipo}}</td>
+                                <td>
+                                    <button type="button" name="button" [routerLink]="['/producto',publicacion.pubId]"
+                                        class="btn btn-primary">EDITAR</button>
+                                </td>
+                                <td>
+                                    <button type="button" name="button" (click)="eliminarPublicacion(publicacion)"
+                                        class="btn btn-danger">ELIMINAR</button>
+                                </td>
+
+
+                            </tr>
+                        </ng-container>
                     </ng-container>
                 </ng-container>
             </tbody>
