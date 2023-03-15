@@ -25,9 +25,12 @@ export class PublicacionService {
       map(response => response as Publicacion[]));
   }
 
-  getPublicacion(id: number):Observable<Publicacion>{
-
+  getPublicacionId(id:number):Observable<Publicacion>{
     return this.http.get<Publicacion>(`${this.url}/${id}`);
+  }
+  
+  deletePublicacion(id:number):Observable<Publicacion>{
+    return this.http.delete<Publicacion>(`${this.url}/${id}`);
   }
   
 }

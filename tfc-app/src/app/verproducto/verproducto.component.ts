@@ -1,10 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { FileModel } from '../modelo/fileModel';
 import { Producto } from '../modelo/producto';
 import { Publicacion } from '../modelo/publicacion';
 import { ProductoService } from '../service/producto.service';
 import { PublicacionService } from '../service/publicacion.service';
+import { UploadFilesService } from '../service/upload-files.service';
 import { VerproductoService } from './verproducto.service';
+
+
 
 
 @Component({
@@ -13,15 +17,22 @@ import { VerproductoService } from './verproducto.service';
   styleUrls: ['./verproducto.component.css']
 })
 export class VerproductoComponent implements OnInit {
+
+
+  fileModels: FileModel[];
+  public imageSrc: string = '';
+
+  private uploadFileService: UploadFilesService
+
   constructor(private verproductoserv: VerproductoService) { }
 
 
-  publicacion: Publicacion| undefined;
-  
-  
-  
-  
-  IdProducto: String="";
+  publicacion: Publicacion | undefined;
+
+
+
+
+  IdProducto: String = "";
 
   ngOnInit(): void {
     this.recuperarId();
@@ -31,20 +42,36 @@ export class VerproductoComponent implements OnInit {
 
 
 
-  cargarPublicacion(id:number){
-    this.verproductoserv.getPublicacion(id).subscribe(data=>{
+  cargarPublicacion(id: number) {
+    this.verproductoserv.getPublicacion(id).subscribe(data => {
 
-      this.publicacion=data
-
-
+      this.publicacion = data;
+      alert(this.publicacion.pubIdProducto.fileName)
+      this.cargarFotos(this.publicacion.pubIdProducto.fileName)
+      
     });
   }
 
-  recuperarId(){
-    this.IdProducto =String (localStorage.getItem("productoId"));
+  recuperarId() {
+    this.IdProducto = String(localStorage.getItem("productoId"));
 
   }
-  
+
+
+  public cargarFotos(filename: string) {
+    this.uploadFileService.getFiles().subscribe(files => {
+      alert(files.length)
+      for (let fileModel of files) {
+        if (filename === fileModel.name) {
+          this.imageSrc = fileModel.url
+
+          alert(this.imageSrc)
+        }
+      }
+    }
+    );
+  }
+
 }
 
 

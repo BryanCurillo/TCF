@@ -28,6 +28,7 @@ const routes: Routes = [/*{ path: '', redirectTo: '/adHeader', pathMatch: 'full'
 { path: 'header', component: HeadersComponent },
 { path: 'verproducto/form', component: VerproductoComponent },
 { path: 'producto', component: ProductosComponent },
+{ path: 'producto/:id', component: ProductosComponent },
 { path: 'inicio', component: InicioComponent },
 { path: 'nosotros', component: NosotrosComponent },
 { path: 'admclientes', component: ListaClientesComponent },
