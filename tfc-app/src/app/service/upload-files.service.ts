@@ -19,19 +19,6 @@ export class UploadFilesService {
 
   private httpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' })
 
-
-  //Metodo que envia los archivos al endpoint /upload 
-  // upload(file: File): Observable<HttpEvent<any>>{
-  //   const formData: FormData = new FormData();
-  //   formData.append('files', file);
-
-  //   const req = new HttpRequest('POST', `${this.baseUrl}/upload`, formData, {
-  //     reportProgress: true,
-  //     responseType: 'json'
-  //   });
-  //   return this.http.request(req);
-  // }
-
   upload(formData: FormData): Observable<HttpEvent<string[]>> {
     return this.http.post<string[]>(`${this.baseUrl}/upload2`, formData, {
       reportProgress: true,
@@ -40,20 +27,9 @@ export class UploadFilesService {
   }
 
   getFiles(): Observable<FileModel[]> {
+
     return this.http.get<FileModel[]>(`${this.baseUrl}/files`);
   }
-
-  // getFile(filename: string): Observable<Blob> {
-  //   const httpOptions = {
-  //     headers: new HttpHeaders({
-  //       'Content-Type': 'application/json'
-  //     }),
-  //     responseType: 'blob' as 'json' // Indica que la respuesta es un archivo
-  //   };
-
-  //   return this.http.get<Blob>(`${this.baseUrl}/files/${filename}`, httpOptions);
-  // }
-
 
   downloadFile(filename: string) {
     return this.http.get(`${this.baseUrl}/files/${filename}`, { responseType: 'blob' });
@@ -89,11 +65,6 @@ export class UploadFilesService {
   }
   
 
-  //Metodo para Obtener los archivos
-  // getFiles() {
-  //   return this.http.get(`${this.baseUrl}/files`);
-  // }
-
   //Metodo para borrar los archivos
   deleteFile(filename: string) {
     return this.http.get(`${this.baseUrl}/delete/${filename}`);
@@ -101,3 +72,34 @@ export class UploadFilesService {
 
 
 }
+
+  //Metodo que envia los archivos al endpoint /upload 
+  // upload(file: File): Observable<HttpEvent<any>>{
+  //   const formData: FormData = new FormData();
+  //   formData.append('files', file);
+
+  //   const req = new HttpRequest('POST', `${this.baseUrl}/upload`, formData, {
+  //     reportProgress: true,
+  //     responseType: 'json'
+  //   });
+  //   return this.http.request(req);
+  // }
+
+  
+  //Metodo para Obtener los archivos
+  // getFiles() {
+  //   return this.http.get(`${this.baseUrl}/files`);
+  // }
+
+  
+  // getFile(filename: string): Observable<Blob> {
+  //   const httpOptions = {
+  //     headers: new HttpHeaders({
+  //       'Content-Type': 'application/json'
+  //     }),
+  //     responseType: 'blob' as 'json' // Indica que la respuesta es un archivo
+  //   };
+
+  //   return this.http.get<Blob>(`${this.baseUrl}/files/${filename}`, httpOptions);
+  // }
+

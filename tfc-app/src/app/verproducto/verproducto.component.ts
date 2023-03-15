@@ -22,21 +22,16 @@ export class VerproductoComponent implements OnInit {
   fileModels: FileModel[];
   public imageSrc: string = '';
 
-  private uploadFileService: UploadFilesService
-
-  constructor(private verproductoserv: VerproductoService) { }
+  constructor(private verproductoserv: VerproductoService,
+    private uploadFileService: UploadFilesService) { }
 
 
   publicacion: Publicacion | undefined;
 
-
-
-
   IdProducto: String = "";
 
   ngOnInit(): void {
-    this.recuperarId();
-
+    this.recuperarId()
     this.cargarPublicacion(Number(this.IdProducto));
   }
 
@@ -46,7 +41,6 @@ export class VerproductoComponent implements OnInit {
     this.verproductoserv.getPublicacion(id).subscribe(data => {
 
       this.publicacion = data;
-      alert(this.publicacion.pubIdProducto.fileName)
       this.cargarFotos(this.publicacion.pubIdProducto.fileName)
       
     });
@@ -58,14 +52,11 @@ export class VerproductoComponent implements OnInit {
   }
 
 
-  public cargarFotos(filename: string) {
+  public cargarFotos(filename:string){
     this.uploadFileService.getFiles().subscribe(files => {
-      alert(files.length)
       for (let fileModel of files) {
-        if (filename === fileModel.name) {
-          this.imageSrc = fileModel.url
-
-          alert(this.imageSrc)
+        if(filename===fileModel.name){
+          this.imageSrc=fileModel.url
         }
       }
     }

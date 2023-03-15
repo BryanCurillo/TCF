@@ -164,7 +164,10 @@ body {
     background: #000;
     position: relative;
 }
-
+     
+img.img2{
+    width: 200px;
+}
 .box .content img {
     -webkit-transition: all 500ms;
     -moz-transition: all 500ms;
