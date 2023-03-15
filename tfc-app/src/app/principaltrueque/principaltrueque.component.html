@@ -19,17 +19,16 @@
 
     <div class="container">
 
-        <h1 data-text="Productos "></h1>
-        <section class="layout">
+        <h1 data-text="Productos de Trueque"></h1>
+        <!-- <section class="layout">
             <ng-container *ngFor="let publicacion of publicaciones">
                 <div *ngIf="publicacion.pubTipo=='Venta'">
+                  -->
 <!-- 
                     <div class="card">
-                        <ng-container *ngFor="let fileModel of fileModels">
-                            <div class="card-img" *ngIf="fileModel.name==publicacion.pubIdProducto.fileName">
-                                <img [src]="fileModel.url" class="img2">
-                            </div>
-                        </ng-container>
+                        <div class="card-img">
+                            <img src={{publicacion.pubIdProducto.fileName}} class="img2">
+                        </div>
                         <div class="card-info">
                             <p class="text-title">{{publicacion.pubIdProducto.prodNombre}}</p>
                             <p class="text-body">{{publicacion.pubDescripcion}}</p>
@@ -59,11 +58,11 @@
                                 </svg>
                             </div>
                         </div>
-                    </div> -->
+                    </div>
                 </div>
             </ng-container>
 
-        </section>
+        </section> -->
     </div>
 
 </body>
