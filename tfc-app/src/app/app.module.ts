@@ -27,6 +27,7 @@ import { UsuariosComponent } from './administrador/usuarios/usuarios.component';
 import { AdproductosComponent } from './administrador/adproductos/adproductos.component';
 import { MisproductosComponent } from './misproductos/misproductos.component';
 import { PrincipaltruequeComponent } from './principaltrueque/principaltrueque.component';
+import { ProductoOfertaComponent } from './producto-oferta/producto-oferta.component';
 // import { UploadFilesComponent } from './uploadFiles/upload-files/upload-files.component';
 // import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // import {MatProgressBarModule} from '@angular/material/progress-bar';
@@ -59,6 +60,7 @@ import { PrincipaltruequeComponent } from './principaltrueque/principaltrueque.c
     AdproductosComponent,
     MisproductosComponent,
     PrincipaltruequeComponent,
+    ProductoOfertaComponent,
     
   ],
   imports: [
