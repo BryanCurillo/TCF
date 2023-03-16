@@ -1,0 +1,109 @@
+<app-headers>
+</app-headers>
+<div>
+</div>
+
+<body>
+    <div class="container">
+        <h1>DATOS PERSONALES</h1>
+        <div class="content">
+            <form action="#">
+                <div class="user-details">
+                    <div class="input-box">
+                        <span class="details">Nombre</span>
+                        <input type="text" [(ngModel)]="modeloPersona.perNombre" name="a1"
+                            placeholder="Enter your name">
+                        <label *ngIf="boolAlertNom" class="lblAlert">Nombre vacío</label>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Apellido</span>
+                        <input type="text" [(ngModel)]="modeloPersona.perApellido" name="a2"
+                            placeholder="Enter your username">
+                        <label *ngIf="boolAlertApell" class="lblAlert">Apellido vacío</label>
+
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Direccion</span>
+                        <input type="text" [(ngModel)]="modeloPersona.perDireccion" name="a3"
+                            placeholder="Enter your number">
+                        <label *ngIf="boolAlertDirc" class="lblAlert">Descripción vacía</label>
+                    </div>
+                    <div class="input-box">
+
+                        <input type="radio" name="gender" id="dot-1" [(ngModel)]="modeloPersona.perSexo" value="Hombre"
+                            checked>
+                        <input type="radio" name="gender" id="dot-2" [(ngModel)]="modeloPersona.perSexo" value="Mujer">
+                        <span class="details">Genero</span>
+                        <div class="category">
+                            <label for="dot-1">
+                                <span class="dot one"></span>
+                                <span class="gender">Hombre</span>
+                            </label>
+                            <label for="dot-2">
+                                <span class="dot two"></span>
+                                <span class="gender">Mujer</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Telefono</span>
+                        <input type="text" placeholder="Enter your number" [(ngModel)]="modeloPersona.perTelefono"
+                            name="a6">
+                        <label *ngIf="boolAlertTel" class="lblAlert">Telefono vacio</label>
+                    </div>
+                    
+                </div>
+
+                <h1>DATOS DE USUARIO</h1>
+                <div class="user-details">
+                    <div class="input-box">
+                        <span class="details">Nombre de Usuario</span>
+                        <input type="text" [(ngModel)]="modeloUsuario.usuNombreUsuario" name="a" disabled="true"
+                            placeholder="Enter your name" class="check">
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Cedula</span>
+                        <input type="text" [(ngModel)]="modeloPersona.perCedula" name="c" disabled="true"
+                            placeholder="Enter your email" class="check">
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Correo Electronico</span>
+                        <input type="text" [(ngModel)]="modeloPersona.perCorreo" name="b" disabled="true"
+                            placeholder="Enter your username" class="check">
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Contraseña</span>
+                        <input type="password" placeholder="Enter your username" [(ngModel)]="contra" name="a7">
+                        <label *ngIf="boolAlertCon" class="lblAlert">Contraseña vacía</label>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Repetir Contraseña</span>
+                        <input type="password" placeholder="Enter your username" [(ngModel)]="contra2" name="a8">
+                        <label *ngIf="boolAlertRepCon" class="lblAlert">Contraseña vacía</label>
+                        <label *ngIf="boolAlertContraIgual" class="lblAlertError">Las contrasenas no coinciden</label>
+                    </div>
+                    
+                </div>
+
+                <div class="button">
+                    <input type="submit" (click)="verificarDatos()" value="Modificar">
+                    <input type="submit" (click)="eliminarUsuario()" value="Eliminar">
+                    
+                </div>
+               
+            
+
+            </form>
+        </div>
+
+    </div>
+    <div class="card">
+        <h2>MODIFICAR USUARIO</h2>
+        
+    </div>
+
+
+
+</body>
+<app-footer></app-footer>
+

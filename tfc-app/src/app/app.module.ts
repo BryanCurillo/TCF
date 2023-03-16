@@ -30,6 +30,7 @@ import { PrincipaltruequeComponent } from './principaltrueque/principaltrueque.c
 import { FacturaComponent } from './factura/factura.component';
 import { ProductoOfertaComponent } from './producto-oferta/producto-oferta.component';
 import { VertruequeComponent } from './vertrueque/vertrueque.component';
+import { ModificarusuarioComponent } from './modificarusuario/modificarusuario.component';
 // import { UploadFilesComponent } from './uploadFiles/upload-files/upload-files.component';
 // import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // import {MatProgressBarModule} from '@angular/material/progress-bar';
@@ -65,6 +66,8 @@ import { VertruequeComponent } from './vertrueque/vertrueque.component';
     FacturaComponent,
     ProductoOfertaComponent,
     VertruequeComponent,
+  ModificarusuarioComponent,
+
     
   ],
   imports: [

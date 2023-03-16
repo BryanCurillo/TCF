@@ -19,16 +19,6 @@ export class AdministrarComponent implements OnInit{
     //setInterval(() => this.moverImagen(), 10);
   }
 
-  moverImagen() {
-    // Incrementar la posición en X
-    this.posX++;
-    // Establecer la nueva posición
-    this.miImagen.nativeElement.style.transform = `translateX(${this.posX}px)`;
-    if(this.screenWidth==this.posX){
-      this.posX=-80;
-
-    }
-  }
 
 
 }

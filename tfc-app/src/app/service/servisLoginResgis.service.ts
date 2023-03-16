@@ -42,4 +42,18 @@ export class ServisLoginResgisService {
   createUsuario(usus:usuario):Observable<usuario>{
     return this.http.post<usuario>(this.url+"/Usuario",usus);
   }
+
+    //recuperar usuario por id
+    getUserId(usus:usuario):Observable<usuario>{
+      return this.http.get<usuario>(this.url+"/Usuario/"+usus.usuId);
+    }
+  
+    //actulizar usuario y persona 
+    updatePersona(per:persona):Observable<persona>{
+      return this.http.put<persona>(this.url+"/personaUpdate/"+per.perId,per);
+    }
+  
+    updateUsuario(usus:usuario):Observable<usuario>{
+      return this.http.put<usuario>(this.url+"/Usuario/"+usus.usuId,usus);
+    }
 }

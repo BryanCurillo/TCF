@@ -1,8 +1,14 @@
 export class Categoria{
     catId:number;
 	catNombre:String;
+    catEstado:boolean;
 
-    constructor(public id?:number, public nombre?:string) {
+    constructor( id?:string, nombre?:string, estado?:boolean) {
+
+        this.catNombre=id||"";
+        this.catNombre=nombre||"";
+        this.catEstado=estado||false;
+
     }
 
 }

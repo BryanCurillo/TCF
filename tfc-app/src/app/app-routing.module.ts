@@ -19,7 +19,12 @@ import { RegistrarComponent } from './registrar/registrar.component';
 import { TruequeComponent } from './trueque/trueque.component';
 import { VerproductoComponent } from './verproducto/verproducto.component';
 import { ProductoOfertaComponent } from './producto-oferta/producto-oferta.component';
+<<<<<<< HEAD
 import { VertruequeComponent } from './vertrueque/vertrueque.component';
+=======
+import { CategoriasComponent } from './administrador/categorias/categorias.component';
+import { ModificarusuarioComponent } from './modificarusuario/modificarusuario.component';
+>>>>>>> cd2a55e9a7e8d904d80cb8c590098285806e5fb7
 
 
 
@@ -40,6 +45,7 @@ const routes: Routes = [/*{ path: '', redirectTo: '/adHeader', pathMatch: 'full'
 { path: 'productOferta', component: ProductoOfertaComponent },
 { path: 'principalt', component: PrincipaltruequeComponent },
 { path: 'factura', component: FacturaComponent },
+{ path: 'updaUser', component: ModificarusuarioComponent },
 
 
 //rutas para el administrador
@@ -47,7 +53,8 @@ const routes: Routes = [/*{ path: '', redirectTo: '/adHeader', pathMatch: 'full'
   { path: 'adHeader', component:  HadearAdminComponent , children: [
     { path: 'adAdministrar', component:  AdministrarComponent  },
     { path: 'adUsuarios', component:  UsuariosComponent  },
-    { path: 'adProductos', component:  AdproductosComponent  }
+    { path: 'adProductos', component:  AdproductosComponent  },
+    { path: 'adCategoria', component:  CategoriasComponent  }
     ]
   },
 
