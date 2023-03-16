@@ -3,11 +3,13 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import * as saveAs from 'file-saver';
 import Swal from 'sweetalert2';
-import { Categoria } from '../modelo/categoria';
+import { Oferta } from '../modelo/oferta';
 import { ProductoOferta } from '../modelo/productoOferta';
+import { Publicacion } from '../modelo/publicacion';
 import { usuario } from '../modelo/usuario';
-import { CategoriaService } from '../service/categoria.service';
+import { OfertaService } from '../service/oferta.service';
 import { ProductoOfertaService } from '../service/producto-oferta.service';
+import { PublicacionService } from '../service/publicacion.service';
 import { ServisLoginResgisService } from '../service/servisLoginResgis.service';
 import { UploadFilesService } from '../service/upload-files.service';
 
@@ -16,78 +18,93 @@ import { UploadFilesService } from '../service/upload-files.service';
   templateUrl: './producto-oferta.component.html',
   styleUrls: ['./producto-oferta.component.css']
 })
-export class ProductoOfertaComponent implements OnInit{
+export class ProductoOfertaComponent implements OnInit {
 
-  categorias: Categoria[] = [];
   filenames: string[] = [];
   fileStatus = { status: '', requestType: '', percent: 0 };
 
 
-  selectCate: string = 'Seleccione una categoria';
-  userId: string;
+  userId: number;
+  IdPublicacion: number = 0;
   userName: string;
+  publicacionJSON: string = '';
   public imageSrc: string = '';
 
   public usuarioFK: usuario = new usuario();
+  public oferta: Oferta = new Oferta();
+  public publicacion: Publicacion = new Publicacion();
   public productoOferta: ProductoOferta = new ProductoOferta();
 
 
   ngOnInit(): void {
     this.recuperarUSU();
+    this.recuperarPublicacion()
   }
 
-  constructor(private productoOfertaService:ProductoOfertaService,
-    private categoriaService: CategoriaService,
+  constructor(private productoOfertaService: ProductoOfertaService,
+    private publicacionService: PublicacionService,
     private activatedRoute: ActivatedRoute,
+    private ofertaService: OfertaService,
     private uploadFileService: UploadFilesService,
-    private usuarioService:ServisLoginResgisService,
+    private usuarioService: ServisLoginResgisService,
     private router: Router
-    ){}
+  ) { }
 
 
 
-    recuperarUSU() {
-      this.userId = String(localStorage.getItem("userId"))
-      this.userName = String(localStorage.getItem("userName"))
-  
-      // this.usuarioFK.usuId = parseInt(String(localStorage.getItem("userId")));
-      // this.usuarioFK.usuNombreUsuario = String(localStorage.getItem("userName"));
+  recuperarUSU() {
+    this.userId = parseInt(String(localStorage.getItem("userId")))
+    this.userName = String(localStorage.getItem("userName"))
+    // alert("userID= " + this.userId)
+    // this.usuarioFK.usuId = parseInt(String(localStorage.getItem("userId")));
+    // this.usuarioFK.usuNombreUsuario = String(localStorage.getItem("userName"));
 
 
-      this.usuarioService.getUsuarioId(parseInt(this.userId)).subscribe((usuario) => {
-        this.usuarioFK = usuario,
-          alert(usuario.usuPerCedula)
-      })
-  
-    }
+    this.usuarioService.obtenerUsuario(this.userId).subscribe((usuario: usuario) => {
+      this.usuarioFK = usuario;
+    });
 
 
-//     // Obtener la cadena de texto del local storage
-// var usuarioJSON = localStorage.getItem("usuarioObj");
+  }
 
-// // Convertir la cadena de texto a un objeto
-// var usuario = JSON.parse(usuarioJSON);
-  public create():void{
-    
-    this.productoOfertaService.create(this.productoOferta).subscribe(productoOfertaNew=>{
+  recuperarPublicacion() {
+    this.IdPublicacion = parseInt(String(localStorage.getItem("publicacionId")));
+    this.publicacionService.getPublicacionId(this.IdPublicacion).subscribe(data => {
+
+      this.publicacion = data;
+    });
+  }
 
 
+  // // Convertir la cadena de texto a un objeto
+  // var usuario = JSON.parse(usuarioJSON);
+  public create(): void {
+
+    this.productoOfertaService.create(this.productoOferta).subscribe(productoOfertaNew => {
+      alert("PRODUCTO OFER= " + productoOfertaNew.poNombre)
+      this.oferta.poIdOferta = productoOfertaNew;
+      this.oferta.ofeEstado = false;
+      this.oferta.ofeIdOfertante = this.usuarioFK;
+      this.oferta.poIdPublicacion = this.IdPublicacion;
 
 
-      this.router.navigate(['/vertrueque'])
-      Swal.fire({
-        position: 'center',
-        icon: 'success',
-        title: `Producto ${this.productoOferta.poNombre} guardado con exito`,
-        showConfirmButton: false,
-        timer: 1500
+      this.ofertaService.create(this.oferta).subscribe(ofertaNew => {
+        this.router.navigate(['/vertrueque'])
+        alert("OFERTA= " + ofertaNew.ofeEstado)
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: `Oferta enviada con exito`,
+          showConfirmButton: false,
+          timer: 1500
+        })
+        
       })
     })
-
   }
-  
-  
-  
+
+
+
 
 
 
@@ -141,9 +158,9 @@ export class ProductoOfertaComponent implements OnInit{
         console.log(error);
       }
     );
-  } 
+  }
 
-  
+
   private resportProgress(httpEvent: HttpEvent<string[] | Blob>): void {
     switch (httpEvent.type) {
       case HttpEventType.UploadProgress:

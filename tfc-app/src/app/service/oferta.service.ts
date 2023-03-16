@@ -1,0 +1,35 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Oferta } from '../modelo/oferta';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class OfertaService {
+
+  private url :string='http://localhost:8080/api/Oferta';
+
+  private httpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' })
+
+  constructor(private http: HttpClient) { }
+
+  public create(oferta: Oferta): Observable<Oferta> {
+    return this.http.post<Oferta>(this.url,oferta,{headers:this.httpHeaders})
+  }
+
+  // getCategorias(): Observable<Oferta[]> {
+
+  //   // return this.http.get<Categoria[]>(this.urlEndPoint);
+  //   return this.http.get(this.url).pipe(
+  //     map(response => response as Oferta[]));
+  // }
+
+  getProductoOfeId(id:number):Observable<Oferta>{
+    return this.http.get<Oferta>(`${this.url}/${id}`);
+  }
+
+  deleteProductoOfe(id:number):Observable<Oferta>{
+    return this.http.delete<Oferta>(`${this.url}/${id}`);
+  }
+}

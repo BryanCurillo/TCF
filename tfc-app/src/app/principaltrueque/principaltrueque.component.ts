@@ -54,7 +54,7 @@ export class PrincipaltruequeComponent implements OnInit {
 
   }
   verProducto(id: number) {
-    localStorage.setItem("productoId", id.toString());
+    localStorage.setItem("publicacionId", id.toString());
     this.router.navigate(["vertrueque"]);
   }
 
@@ -65,7 +65,7 @@ export class PrincipaltruequeComponent implements OnInit {
     categoriaSELEC.catNombre = 'Seleccione una categoria';
     this.categorias.push(categoriaSELEC);
 
-    this.categoriaService.getCategorias().subscribe(
+    this.categoriaService.getCate(true).subscribe(
       categorias => {
         for (let categoria of categorias) {
           this.categorias.push(categoria)
