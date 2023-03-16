@@ -14,7 +14,6 @@ import { VertruequeService } from './vertrueque.service';
   templateUrl: './vertrueque.component.html',
   styleUrls: ['./vertrueque.component.css']
 })
-
 export class VertruequeComponent implements OnInit {
 
 
@@ -41,13 +40,13 @@ export class VertruequeComponent implements OnInit {
 
       this.publicacion = data;
       this.cargarFotos(this.publicacion.pubIdProducto.fileName)
-      var productoJSON = JSON.stringify(this.publicacion);
-      localStorage.setItem("producto", productoJSON);
+      // var publicacionJSON = JSON.stringify(this.publicacion);
+      // localStorage.setItem("publicacion", publicacionJSON);
     });
   }
 
   recuperarId() {
-    this.IdProducto = String(localStorage.getItem("productoId"));
+    this.IdProducto = String(localStorage.getItem("publicacionId"));
 
   }
 

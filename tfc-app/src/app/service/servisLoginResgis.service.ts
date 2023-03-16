@@ -57,8 +57,8 @@ export class ServisLoginResgisService {
       return this.http.put<usuario>(this.url+"/Usuario/"+usus.usuId,usus);
     }
 
-
-    getUsuarioId(id:number):Observable<usuario>{
+    obtenerUsuario(id: number): Observable<usuario> {
+      // alert(`${this.url}/Usuario/${id}`)
       return this.http.get<usuario>(`${this.url}/Usuario/${id}`);
     }
 }

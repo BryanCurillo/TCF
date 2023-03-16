@@ -7,5 +7,5 @@ export class Oferta{
 	ofeEstado: boolean;
 	ofeId: number=0;
 	ofeIdOfertante: usuario;
-	poIdPublicacion: Publicacion; 
+	poIdPublicacion: number=0; 
 }
