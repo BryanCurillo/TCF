@@ -168,6 +168,10 @@ button.oferta {
     border-radius: 5px;
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
     background: #24262b;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+
 }
 
 button.oferta,
@@ -185,16 +189,16 @@ button.oferta .text {
 
 button.oferta .icon2 {
     position: absolute;
-    transform: translateX(110px);
-    height: 40px;
-    width: 40px;
+    transform: translateX(100px);
+    height: 1px;
+    width: 1px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 button.oferta svg {
-    width: 50px;
+    width: 35px;
     fill: #24262b;
 }
 
@@ -207,7 +211,7 @@ button.oferta:hover .text {
 }
 
 button.oferta:hover .icon2 {
-    width: 150px;
+    width: 135px;
     border-left: none;
     transform: translateX(0);
 }
@@ -228,15 +232,19 @@ button.oferta:active .icon2 svg {
 h1 {
     font-size: 30px;
     color: #fff;
+    font-family: 'Josefin Sans', sans-serif;
     text-transform: uppercase;
     font-weight: 300;
     text-align: center;
     margin-bottom: 15px;
+    margin-top: 30px;
+    font-weight: bold;
 }
 
 table {
-    width: 90%;
+    width: 100%;
     table-layout: fixed;
+
 }
 
 .tbl-header {
@@ -273,18 +281,18 @@ td {
 /* demo styles */
 
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700);
-
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
 
 /* follow me template */
 
 section.\32 {
     background: linear-gradient(to right, #25c481, #25b7c4);
     font-family: 'Josefin Sans', sans-serif;
-    margin-left: 20px;
-    margin-right: 20px;
+    margin-left: auto;
+    margin-right: auto;
     border-radius: 5px;
     margin-bottom: 20px;
-    width: 70%;
+    width: 90%;
 }
 /* for custom scrollbar for webkit browser*/
 
