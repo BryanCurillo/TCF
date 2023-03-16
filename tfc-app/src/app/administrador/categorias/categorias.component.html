@@ -1,1 +1,120 @@
-<p>categorias works!</p>
+<div>
+  <h1>Edicion de categorias</h1>
+</div>
+
+<div class="container my-3">
+
+  <div class="row">
+
+    <div class="container my-3">
+
+      <!-- col-sm-12 pequeno ocupara las 12columnas-->
+      <!--col-md-4 mediano 4 col-lg-4 largo 4 extraLargo 8 columnas-->
+
+      <div class="row">
+        <!--tiene que sumar doce las colunmas-->
+        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 py-6 bg-white">
+
+          <h2>Agregar categoria</h2>
+          <form action="">
+            <div class="mb-3">
+              <!-- cambio los nombres de los elemtentos que estan con ...S -->
+              <label for="nombre" class="form-label">Categoria nueva</label>
+              <input type="text" class="form-control" id="nombre" placeholder="" placeholder=""[(ngModel)]="nombreCatCrear" name="b">
+            </div>
+
+            <div class="">
+              <button class="btn btn-success" (click)="crearCat()">Guardar</button>
+
+            </div>
+
+          </form>
+
+        </div>
+
+        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 py-6 bg-white">
+          <h2>Modificar categoria</h2>
+          <form action="">
+            <div class="mb-3">
+              <!-- cambio los nombres de los elemtentos que estan con ...S -->
+              <input type="text" class="form-control" id="nombre" placeholder=""[(ngModel)]="nombreCatNew" name="a">
+            </div>
+
+            <span class="details">Categoria</span>
+            <select name="miselect" [(ngModel)]="modeloCategoriaEdit">
+            
+              <option *ngFor="let categoria of categoriasAct" [ngValue]="categoria">{{categoria.catNombre}}
+              </option>
+            </select>
+
+            <div class="">
+              <button class="btn btn-warning" (click)="actualizarCat()">Modificar</button>
+            </div>
+
+          </form>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="row">
+
+    <div class="container my-3">
+
+      <!-- col-sm-12 pequeno ocupara las 12columnas-->
+      <!--col-md-4 mediano 4 col-lg-4 largo 4 extraLargo 8 columnas-->
+
+      <div class="row">
+        <!--tiene que sumar doce las colunmas-->
+        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 py-6 bg-white">
+
+          <h2>Categorias habilitadas</h2>
+          <form action="">
+        
+            <span class="details">Categoria</span>
+            <select name="miselect" [(ngModel)]="modeloCategoriaHab">
+            
+              <option *ngFor="let categoria of categoriasAct" [ngValue]="categoria">{{categoria.catNombre}}
+              </option>
+            </select>
+
+            <div class="">
+              <button class="btn btn-danger" (click)="desabilitarCat()">Desabilitar</button>
+            </div>
+
+          </form>
+
+        </div>
+
+        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 py-6 bg-white">
+          <h2>Categorias desabilitadas</h2>
+          <form action="">
+          
+
+            <span class="details">Categoria</span>
+            <select name="miselect" [(ngModel)]="modeloCategoriaDes">
+            
+              <option *ngFor="let categoria of categoriasDes" [ngValue]="categoria">{{categoria.catNombre}}
+              </option>
+            </select>
+
+            <div class="">
+              <button class="btn btn-success" (click)="habilitarCat()">Habilitar</button>
+            </div>
+
+          </form>
+        </div>
+
+      </div>
+    </div>
+
+
+  </div>
+
+
+
+
+</div>

@@ -81,7 +81,7 @@ export class ProductosComponent implements OnInit {
     categoriaSELEC.catNombre = 'Seleccione una categoria';
     this.categorias.push(categoriaSELEC);
 
-    this.categoriaService.getCategorias().subscribe(
+    this.categoriaService.getCate(true).subscribe(
       categorias => {
         for (let categoria of categorias) {
           this.categorias.push(categoria)

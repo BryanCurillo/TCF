@@ -19,6 +19,7 @@ import { RegistrarComponent } from './registrar/registrar.component';
 import { TruequeComponent } from './trueque/trueque.component';
 import { VerproductoComponent } from './verproducto/verproducto.component';
 import { ProductoOfertaComponent } from './producto-oferta/producto-oferta.component';
+import { CategoriasComponent } from './administrador/categorias/categorias.component';
 
 
 
@@ -45,7 +46,8 @@ const routes: Routes = [/*{ path: '', redirectTo: '/adHeader', pathMatch: 'full'
   { path: 'adHeader', component:  HadearAdminComponent , children: [
     { path: 'adAdministrar', component:  AdministrarComponent  },
     { path: 'adUsuarios', component:  UsuariosComponent  },
-    { path: 'adProductos', component:  AdproductosComponent  }
+    { path: 'adProductos', component:  AdproductosComponent  },
+    { path: 'adCategoria', component:  CategoriasComponent  }
     ]
   },
 
