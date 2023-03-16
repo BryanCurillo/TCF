@@ -15,7 +15,7 @@ import { UploadFilesService } from '../service/upload-files.service';
   styleUrls: ['./principal.component.css']
 })
 export class PrincipalComponent implements OnInit {
-  
+
   categoriaSELEC: Categoria = new Categoria()
   seleccionados: Categoria = new Categoria;
   public publicacion: Publicacion = new Publicacion();
@@ -51,15 +51,54 @@ export class PrincipalComponent implements OnInit {
   }
 
   cargarPublicaciones(): void {
-    this.publicacionService.getPublicaciones().subscribe(
-      publicaciones => {
-        this.publicaciones = publicaciones
+    this.categoriaFK.catNombre = this.seleccionados.catNombre;
+
+    for (let i = 0; i < this.categorias.length; i++) {
+      if (this.categoriaFK.catNombre === this.categorias[i].catNombre) {
+        this.categoriaFK.catId = this.categorias[i].catId;
+        // alert(this.categoriaFK.catId)
       }
-    );
+      {
+        if (this.categoriaSELEC.catNombre === this.categorias[i].catNombre) {
+          this.categoriaFK.catId = this.categorias[i].catId;
+          // alert(this.categoriaFK.catId)
+        }
+      }
+    }
+    //FILTRO
+    if (this.categoriaFK.catId > 0) {
+      
+      this.publicacionService.getPublicaciones().subscribe(
+        publicaciones => {
+          this.publicaciones.length=0;;
+          // alert("2= "+this.publicaciones.length)
+          for (let publicacion of publicaciones) {
+            if (publicacion.pubIdProducto.prodIdCategoria === this.categoriaFK.catId) {
+              this.publicaciones.push(publicacion)
+            }
+          }
+          // this.publicaciones = publicaciones
+        }
+      );
+    } else {
+      this.publicacionService.getPublicaciones().subscribe(
+        publicaciones => {
+          this.publicaciones = publicaciones
+        }
+      );
+    }
+
 
   }
 
-  
+  public filtrarCategoria(): void {
+    // alert("hola")
+
+
+
+  }
+
+
   verProducto(id: number) {
     localStorage.setItem("productoId", id.toString());
     this.router.navigate(["verproducto"]);
@@ -77,7 +116,7 @@ export class PrincipalComponent implements OnInit {
     let categoriaSELEC: Categoria = new Categoria()
     categoriaSELEC.catId = 0;
     categoriaSELEC.catNombre = 'TODOS';
-    
+
     this.categorias.push(categoriaSELEC);
 
     this.categoriaService.getCate(true).subscribe(
@@ -90,23 +129,6 @@ export class PrincipalComponent implements OnInit {
   }
 
 
-  public filtrarCategoria():void{
 
-    this.categoriaFK.catNombre = this.seleccionados.catNombre;
-
-    for (let i = 0; i < this.categorias.length; i++) {
-      if (this.categoriaFK.catNombre === this.categorias[i].catNombre) {
-        this.categoriaFK.catId = i;
-      } else {
-        if (this.categoriaSELEC.catNombre === this.categorias[i].catNombre) {
-          this.categoriaFK.catId = i;
-        }
-
-      }
-    }
-    for(let publicaacion of this.publicaciones){
-      
-    }
-  }
 
 }
