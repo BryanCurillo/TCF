@@ -2,6 +2,7 @@ import { HttpErrorResponse, HttpEvent, HttpEventType } from '@angular/common/htt
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import * as saveAs from 'file-saver';
+import Swal from 'sweetalert2';
 import { Categoria } from '../modelo/categoria';
 import { ProductoOferta } from '../modelo/productoOferta';
 import { usuario } from '../modelo/usuario';
@@ -55,7 +56,14 @@ export class ProductoOfertaComponent implements OnInit{
   public create():void{
     
     this.productoOfertaService.create(this.productoOferta).subscribe(productoOfertaNew=>{
-      
+      this.router.navigate(['/vertrueque'])
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: `Producto ${this.productoOferta.poNombre} guardado con exito`,
+        showConfirmButton: false,
+        timer: 1500
+      })
     })
 
   }

@@ -54,10 +54,19 @@ export class PrincipalComponent implements OnInit {
     );
 
   }
+
+  
   verProducto(id: number) {
     localStorage.setItem("productoId", id.toString());
     this.router.navigate(["verproducto"]);
   }
+
+  // verProducto(publicacion: Publicacion) {
+  //   var productoJSON = JSON.stringify(publicacion);
+  //   localStorage.setItem("producto", productoJSON);
+  //   // localStorage.setItem("productoId", id.toString());
+  //   this.router.navigate(["verproducto"]);
+  // }
 
   public cargarCategorias(): void {
 

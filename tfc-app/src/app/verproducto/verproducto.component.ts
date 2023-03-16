@@ -42,6 +42,7 @@ export class VerproductoComponent implements OnInit {
 
       this.publicacion = data;
       this.cargarFotos(this.publicacion.pubIdProducto.fileName)
+
       
     });
   }
