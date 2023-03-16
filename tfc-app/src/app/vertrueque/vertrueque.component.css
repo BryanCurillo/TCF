@@ -20,6 +20,15 @@ html {
 
 }
 
+.layouttabla {
+    width: 100%;
+    height: 100px;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+
 img.card-img-top {
 
     width: 65%;
@@ -148,6 +157,70 @@ button:active .icon svg {
 }
 
 /* BOTON DE COMPRAR FIN */
+
+button.oferta {
+    width: 145px;
+    height: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
+    background: #24262b;
+}
+
+button.oferta,
+button span {
+    transition: 400ms;
+}
+
+button.oferta .text {
+    transform: translateX(35px);
+    color: white;
+    font-weight: bold;
+    font-family: 'Josefin Sans', sans-serif;
+
+}
+
+button.oferta .icon2 {
+    position: absolute;
+    transform: translateX(110px);
+    height: 40px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button.oferta svg {
+    width: 50px;
+    fill: #24262b;
+}
+
+button.oferta:hover {
+    background: #00FFAB;
+}
+
+button.oferta:hover .text {
+    color: transparent;
+}
+
+button.oferta:hover .icon2 {
+    width: 150px;
+    border-left: none;
+    transform: translateX(0);
+}
+
+button.oferta:focus {
+    outline: none;
+}
+
+button.oferta:active .icon2 svg {
+    transform: scale(0.8);
+}
+
+
 
 /* TABLA DE TRUEQUES */
 

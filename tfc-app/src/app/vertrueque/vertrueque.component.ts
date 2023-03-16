@@ -14,6 +14,7 @@ import { VertruequeService } from './vertrueque.service';
   templateUrl: './vertrueque.component.html',
   styleUrls: ['./vertrueque.component.css']
 })
+
 export class VertruequeComponent implements OnInit {
 
 

@@ -9,7 +9,7 @@ import { Publicacion } from '../modelo/publicacion';
 export class VertruequeService {
 
 
-  private url: string = 'http://localhost:8080/api/Trueque';
+  private url: string = 'http://localhost:8080/api/Publicacion';
   
   private httpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' });
 
