@@ -27,9 +27,9 @@
             <div>
 
                 <div class="input-box">
-                    <select name="miselect" [(ngModel)]="seleccionados" required>
+                    <select name="miselect" [(ngModel)]="seleccionados" required (change)="cargarPublicaciones()" >
                         <!-- <option *ngFor="let categoria of categorias" [ngValue]="categoria" >{{categoria.catNombre}}</option> -->
-                        <option *ngFor="let categoria of categorias" [ngValue]="categoria" [selected]="categoria.catNombre === 'Hogar'">
+                        <option  *ngFor="let categoria of categorias" [ngValue]="categoria" [selected]="categoria.catNombre === 'Hogar'" >
                             {{categoria.catNombre}}
                           </option>
                     </select>
@@ -41,6 +41,7 @@
         <section class="layout">
             <ng-container *ngFor="let publicacion of publicaciones">
                 <div *ngIf="publicacion.pubTipo=='Venta'">
+                    <!-- <p>{{publicacion.pubFecha}}</p> -->
                     <!-- 
                     <div class="card">
                         <ng-container *ngFor="let fileModel of fileModels">
@@ -84,6 +85,8 @@
                         <div class="card-info">
                             <p class="text-title">{{publicacion.pubIdProducto.prodNombre}}</p>
                             <p class="text-body">{{publicacion.pubDescripcion}}</p>
+                            <!-- <p>{{publicacion.pub}}</p> -->
+
                         </div>
                         <div class="card-footer">
                             <span class="text-title2">Precio: {{publicacion.pubIdProducto.prodPrecio}}</span>

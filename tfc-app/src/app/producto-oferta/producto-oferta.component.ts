@@ -81,16 +81,17 @@ export class ProductoOfertaComponent implements OnInit {
   public create(): void {
 
     this.productoOfertaService.create(this.productoOferta).subscribe(productoOfertaNew => {
-      alert("PRODUCTO OFER= " + productoOfertaNew.poNombre)
+      // alert("PRODUCTO OFER= " + productoOfertaNew.poNombre)
       this.oferta.poIdOferta = productoOfertaNew;
       this.oferta.ofeEstado = false;
-      this.oferta.ofeIdOfertante = this.usuarioFK;
-      this.oferta.poIdPublicacion = this.IdPublicacion;
+      alert("publicacion= "+this.IdPublicacion)
+      this.oferta.ofeIdOfertante = this.userId;
+      this.oferta.ofePubId = this.IdPublicacion;
 
 
       this.ofertaService.create(this.oferta).subscribe(ofertaNew => {
         this.router.navigate(['/vertrueque'])
-        alert("OFERTA= " + ofertaNew.ofeEstado)
+        // alert("OFERTA= " + ofertaNew.ofeEstado)
         Swal.fire({
           position: 'center',
           icon: 'success',

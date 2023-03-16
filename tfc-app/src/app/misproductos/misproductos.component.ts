@@ -47,9 +47,6 @@ export class MisproductosComponent {
     );
   }
 
-  
-
-  // eliminarPublicacion(id: number): void {
     eliminarPublicacion(publicacion:Publicacion): void {
 
     this.activatedRoute.params.subscribe(cliente => {
