@@ -15,8 +15,6 @@ export class ProductoService {
 
   private URLPOST: string = 'http://localhost:8080/api/ProductoNew';
 
-  private urlFile:string='http://localhost:8080/api/upload';
-
   private httpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' })
 
 
