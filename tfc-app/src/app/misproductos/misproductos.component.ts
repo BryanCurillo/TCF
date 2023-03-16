@@ -34,14 +34,15 @@ export class MisproductosComponent {
   cargarPublicaciones(): void {
     this.cargarCategorias();
     this.publicacionService.getPublicaciones().subscribe(
-      publicaciones => { this.publicaciones = publicaciones }
+      publicaciones => { this.publicaciones = publicaciones      
+     }
 
     );
   }
 
   cargarCategorias(): void {
 
-    this.categoriaService.getCategorias().subscribe(
+    this.categoriaService.getCate(true).subscribe(
       categorias => {this.categorias =categorias }
     );
   }

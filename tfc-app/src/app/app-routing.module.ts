@@ -19,12 +19,9 @@ import { RegistrarComponent } from './registrar/registrar.component';
 import { TruequeComponent } from './trueque/trueque.component';
 import { VerproductoComponent } from './verproducto/verproducto.component';
 import { ProductoOfertaComponent } from './producto-oferta/producto-oferta.component';
-<<<<<<< HEAD
 import { VertruequeComponent } from './vertrueque/vertrueque.component';
-=======
-import { CategoriasComponent } from './administrador/categorias/categorias.component';
 import { ModificarusuarioComponent } from './modificarusuario/modificarusuario.component';
->>>>>>> cd2a55e9a7e8d904d80cb8c590098285806e5fb7
+import { CategoriasComponent } from './administrador/categorias/categorias.component';
 
 
 
