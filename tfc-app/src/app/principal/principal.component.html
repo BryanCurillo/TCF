@@ -7,7 +7,7 @@
 
     <div class="content">
 
-        <img src="assets/img/banner2.jpg" width="100%" height="100%" alt="Italy / Urban / Street / City">
+        <img src="assets/img/baner3.jpg" width="100%" height="100%" alt="Italy / Urban / Street / City">
 
         <div class="text3">"El futuro no es</div>
         <div class="text4">desechable"</div>
@@ -105,31 +105,3 @@
 <app-footer></app-footer>
 
 </html>
-
-
-
-<script>
-
-    let preveiwContainer = document.querySelector('.products-preview');
-    let previewBox = preveiwContainer.querySelectorAll('.preview');
-
-    document.querySelectorAll('.products-container .product').forEach(product => {
-        product.onclick = () => {
-            preveiwContainer.style.display = 'flex';
-            let name = product.getAttribute('data-name');
-            previewBox.forEach(preview => {
-                let target = preview.getAttribute('data-target');
-                if (name == target) {
-                    preview.classList.add('active');
-                }
-            });
-        };
-    });
-
-    previewBox.forEach(close => {
-        close.querySelector('.fa-times').onclick = () => {
-            close.classList.remove('active');
-            preveiwContainer.style.display = 'none';
-        };
-    });
-</script>

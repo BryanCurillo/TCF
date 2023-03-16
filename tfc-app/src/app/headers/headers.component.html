@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -6,20 +7,30 @@
     <title>Menú Responsive</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
 </head>
+
 <body>
-    <nav>
-        <input type="checkbox" id="check">
-        <label for="check" class="checkbtn">
-            <i class="fas fa-bars"></i>
-        </label>
-        <a routerLink="/principal" class="enlace">
-            <img src="assets/img/lot-removebg-preview.png" alt="" class="logo" width="100%" >
-        </a>
-        <ul>
-            <li><a class="btn" routerLink="/principalt">TRUEQUE</a></li>
-            <li><a class="btn" routerLink="/producto">PRODUCTOS</a></li>
-            <li><a class="btn" routerLink="/misproductos">MIS PRODUCTOS</a></li>
-            <li><a class="btn" routerLink="/registrar">PERFIL</a></li>
-        </ul>
-    </nav>
+    <div>
+        <nav>
+            <input type="checkbox" id="check">
+            <label for="check" class="checkbtn">
+                <i class="fas fa-bars"></i>
+            </label>
+            <a routerLink="/principal" class="enlace">
+                <img src="assets/img/lot-removebg-preview.png" alt="" class="logo" width="100%">
+            </a>
+            <ul>
+                
+                <li><a class="btn" routerLink="/principalt">TRUEQUE</a></li>
+                <li><a class="btn" routerLink="/producto">PRODUCTOS</a></li>
+                <li><a class="btn" routerLink="/misproductos">MIS PRODUCTOS</a></li>
+                <li><a class="btn" routerLink="/registrar">PERFIL</a></li>
+                <li><a class="btn" href="#">
+
+                        <img src="assets/img/salir.png" width="30px">
+                    </a></li>
+
+            </ul>
+        </nav>
+    </div>
+ 
 </body>
