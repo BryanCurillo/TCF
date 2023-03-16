@@ -41,7 +41,8 @@ export class VertruequeComponent implements OnInit {
 
       this.publicacion = data;
       this.cargarFotos(this.publicacion.pubIdProducto.fileName)
-      
+      var productoJSON = JSON.stringify(this.publicacion);
+      localStorage.setItem("producto", productoJSON);
     });
   }
 
