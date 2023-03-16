@@ -1,6 +1,73 @@
 <app-headers></app-headers>
 
+<body>
+    <div class="container">
+        <h1>DATOS DE LA OFERTA</h1>
 
+
+
+        <div class="content">
+            <!-- ngNativeValidate -->
+            <form (ngSubmit)="create()" enctype="multipart/form-data" ngNativeValidate id="myForm" name="myForm">
+                <div class="user-details">
+                    <div class="input-box">
+                        <span class="details">Titulo de la oferta</span>
+                        <input type="text" placeholder="Ingresa el nombre del producto"
+                            [(ngModel)]="productoOferta.poNombre" name="poNombre" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Precio Estimado</span>
+                        <input type="number" placeholder="Ingresa el precio del producto"
+                            [(ngModel)]="productoOferta.poPrecio" name="poPrecio" step="0.01" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Descripcion</span>
+                        <textarea name="notas" rows=3 cols=20 placeholder="Ingresa la descripcion"
+                            [(ngModel)]="productoOferta.poDescripcion" name="poDescripcion" required> </textarea>
+                    </div>
+
+                </div>
+
+                <div class="input-box">
+                    <span class="details">Imagen</span>
+                    <fieldset>
+                        <div class="form-group">
+                            <div>
+                                <input type="file" (change)="createFile($any($event.target).files)" name="files"
+                                    multiple class="form-control" />
+
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <div *ngIf="fileStatus.status==='progress'">
+                        <div class="progress">
+                            <div [style.width.%]="fileStatus.percent" class="progress-bar progress-bar-animated bg-info"
+                                role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+                                {{ fileStatus.requestType }} {{ fileStatus.percent }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="button">
+                    <!-- <button type="submit">Register</button> -->
+                    <input type="submit" value="Publicar Producto">
+                </div>
+            </form>
+        </div>
+
+    </div>
+    <div class="container2">
+        <div class="card">
+            <h2>Previzualisar Imagen</h2>
+        </div>
+        <div class="input-box">
+            <img class="imgPreview" [src]="imageSrc">
+        </div>
+    </div>
+
+
+</body>
 
 
 <app-footer></app-footer>

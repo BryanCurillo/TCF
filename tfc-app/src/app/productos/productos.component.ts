@@ -159,7 +159,7 @@ export class ProductosComponent implements OnInit {
 
       this.publicacionNew.pubIdProducto = productoNew;
       this.publicacionNew.pubIdVendedor = parseInt(this.userId);
-      alert(this.publicacionNew.pubIdVendedor)
+      alert("id ven"+this.publicacionNew.pubIdVendedor)
       this.publicacionNew.pubTipo = this.seleComercio;
 
       this.publicacionService.create(this.publicacionNew).subscribe(publicacionN => {
