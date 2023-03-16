@@ -30,7 +30,7 @@ const routes: Routes = [/*{ path: '', redirectTo: '/adHeader', pathMatch: 'full'
 { path: 'principal', component: PrincipalComponent },
 { path: 'registrar', component: RegistrarComponent },
 { path: 'header', component: HeadersComponent },
-{ path: 'verproducto/form', component: VerproductoComponent },
+{ path: 'verproducto', component: VerproductoComponent },
 { path: 'producto', component: ProductosComponent },
 { path: 'producto/:id', component: ProductosComponent },
 { path: 'vertrueque', component: VertruequeComponent },

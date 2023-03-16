@@ -55,7 +55,7 @@ export class PrincipaltruequeComponent implements OnInit {
   }
   verProducto(id: number) {
     localStorage.setItem("productoId", id.toString());
-    this.router.navigate(["verproducto/form"]);
+    this.router.navigate(["vertrueque"]);
   }
 
   public cargarCategorias(): void {
