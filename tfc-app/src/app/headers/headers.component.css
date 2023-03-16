@@ -117,6 +117,11 @@ section {
     #check:checked~ul {
         left: 0;
     }
+
 }
 
+body{
+
+    height: auto;
+}
 

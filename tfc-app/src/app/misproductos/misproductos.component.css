@@ -8,8 +8,10 @@
 
 table{
     text-align: center;
-    
+
 }
-html, body {
-    height: auto;
+html {
+
+  height: auto;
 }
+
