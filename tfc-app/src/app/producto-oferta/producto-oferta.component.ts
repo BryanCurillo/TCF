@@ -8,6 +8,7 @@ import { ProductoOferta } from '../modelo/productoOferta';
 import { usuario } from '../modelo/usuario';
 import { CategoriaService } from '../service/categoria.service';
 import { ProductoOfertaService } from '../service/producto-oferta.service';
+import { ServisLoginResgisService } from '../service/servisLoginResgis.service';
 import { UploadFilesService } from '../service/upload-files.service';
 
 @Component({
@@ -39,6 +40,7 @@ export class ProductoOfertaComponent implements OnInit{
     private categoriaService: CategoriaService,
     private activatedRoute: ActivatedRoute,
     private uploadFileService: UploadFilesService,
+    private usuarioService:ServisLoginResgisService,
     private router: Router
     ){}
 
@@ -48,14 +50,30 @@ export class ProductoOfertaComponent implements OnInit{
       this.userId = String(localStorage.getItem("userId"))
       this.userName = String(localStorage.getItem("userName"))
   
-      this.usuarioFK.usuId = parseInt(String(localStorage.getItem("userId")));
-      this.usuarioFK.usuNombreUsuario = String(localStorage.getItem("userName"));
+      // this.usuarioFK.usuId = parseInt(String(localStorage.getItem("userId")));
+      // this.usuarioFK.usuNombreUsuario = String(localStorage.getItem("userName"));
+
+
+      this.usuarioService.getUsuarioId(parseInt(this.userId)).subscribe((usuario) => {
+        this.usuarioFK = usuario,
+          alert(usuario.usuPerCedula)
+      })
   
     }
 
+
+//     // Obtener la cadena de texto del local storage
+// var usuarioJSON = localStorage.getItem("usuarioObj");
+
+// // Convertir la cadena de texto a un objeto
+// var usuario = JSON.parse(usuarioJSON);
   public create():void{
     
     this.productoOfertaService.create(this.productoOferta).subscribe(productoOfertaNew=>{
+
+
+
+
       this.router.navigate(['/vertrueque'])
       Swal.fire({
         position: 'center',

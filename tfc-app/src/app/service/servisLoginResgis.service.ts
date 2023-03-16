@@ -56,4 +56,9 @@ export class ServisLoginResgisService {
     updateUsuario(usus:usuario):Observable<usuario>{
       return this.http.put<usuario>(this.url+"/Usuario/"+usus.usuId,usus);
     }
+
+
+    getUsuarioId(id:number):Observable<usuario>{
+      return this.http.get<usuario>(`${this.url}/Usuario/${id}`);
+    }
 }
