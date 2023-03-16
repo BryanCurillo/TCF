@@ -107,7 +107,11 @@ export class LoginRegisComponent {
           
           Swal.fire('LOGIN','USUARIO ENCONTRADO','success');
             //mandar a la siguiente pagina
-          this.router.navigate(["principal"]);
+            if(data.usuNombreUsuario=="admin"){
+              this.router.navigate(["adHeader/adAdministrar"]);
+            }else{
+              this.router.navigate(["principal"]);
+            }
         }else{
       
           Swal.fire('LOGIN','USUARIO O CONTRASEÑA INCORRECTOS','error');

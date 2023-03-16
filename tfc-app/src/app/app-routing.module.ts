@@ -20,6 +20,7 @@ import { TruequeComponent } from './trueque/trueque.component';
 import { VerproductoComponent } from './verproducto/verproducto.component';
 import { ProductoOfertaComponent } from './producto-oferta/producto-oferta.component';
 import { CategoriasComponent } from './administrador/categorias/categorias.component';
+import { ModificarusuarioComponent } from './modificarusuario/modificarusuario.component';
 
 
 
@@ -39,6 +40,7 @@ const routes: Routes = [/*{ path: '', redirectTo: '/adHeader', pathMatch: 'full'
 { path: 'productOferta', component: ProductoOfertaComponent },
 { path: 'principalt', component: PrincipaltruequeComponent },
 { path: 'factura', component: FacturaComponent },
+{ path: 'updaUser', component: ModificarusuarioComponent },
 
 
 //rutas para el administrador

@@ -20,6 +20,6 @@ export class AdministracionService {
   }
 
   getUpdateEstado(usu:usuario):Observable<number>{
-    return this.http.get<number>(this.url+"/UsuariosEst/"+usu.usuId+"/"+usu.usuEstado);
+    return this.http.put<number>(this.url+"/UsuariosEst/"+usu.usuId+"/"+usu.usuEstado,usu);
   }
 }

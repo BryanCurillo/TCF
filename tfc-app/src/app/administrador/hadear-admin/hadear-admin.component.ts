@@ -12,5 +12,12 @@ export class HadearAdminComponent {
 
   }
 
+  cerrarSesion(){
+    //limpio la data 
+    localStorage.removeItem("userId");
+    localStorage.removeItem("userName");
+    // Redirigo a la pagina de login
+    this.router.navigate(["login"]);
 
+  }
 }
