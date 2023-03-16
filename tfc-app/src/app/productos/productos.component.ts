@@ -50,6 +50,7 @@ export class ProductosComponent implements OnInit {
   categorias: Categoria[] = [];
   comercios: String[] = ['Seleccione una opcion','Trueke', 'Venta'];
   categoriaSELEC: Categoria = new Categoria()
+  
   constructor(private categoriaService: CategoriaService,
     private productoService: ProductoService,
     private publicacionService: PublicacionService,

@@ -19,7 +19,25 @@
 
     <div class="container">
 
-        <h1 data-text="Productos "></h1>
+
+        <section class="layout2">
+            <div>
+                <h1 data-text="Productos de Venta"></h1>
+            </div>
+            <div>
+
+                <div class="input-box">
+                    <select name="miselect" [(ngModel)]="seleccionados" required>
+                        <!-- <option *ngFor="let categoria of categorias" [ngValue]="categoria" >{{categoria.catNombre}}</option> -->
+                        <option *ngFor="let categoria of categorias" [ngValue]="categoria" [selected]="categoria.catNombre === 'Hogar'">
+                            {{categoria.catNombre}}
+                          </option>
+                    </select>
+                    <span> Filtro</span>
+                </div>
+            </div>
+          </section>
+
         <section class="layout">
             <ng-container *ngFor="let publicacion of publicaciones">
                 <div *ngIf="publicacion.pubTipo=='Venta'">

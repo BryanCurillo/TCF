@@ -19,6 +19,7 @@ import { RegistrarComponent } from './registrar/registrar.component';
 import { TruequeComponent } from './trueque/trueque.component';
 import { VerproductoComponent } from './verproducto/verproducto.component';
 import { ProductoOfertaComponent } from './producto-oferta/producto-oferta.component';
+import { VertruequeComponent } from './vertrueque/vertrueque.component';
 
 
 
@@ -30,6 +31,7 @@ const routes: Routes = [/*{ path: '', redirectTo: '/adHeader', pathMatch: 'full'
 { path: 'verproducto/form', component: VerproductoComponent },
 { path: 'producto', component: ProductosComponent },
 { path: 'producto/:id', component: ProductosComponent },
+{ path: 'vertrueque', component: VertruequeComponent},
 { path: 'inicio', component: InicioComponent },
 { path: 'nosotros', component: NosotrosComponent },
 { path: 'admclientes', component: ListaClientesComponent },

@@ -1,16 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+
+
 /* TItulo */
+
+.layout {
+    padding-top: 60px;
+    width: 100%;
+    height: 190%;
+    display: grid;
+    grid-template-rows: repeat(1, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+
+}
+
+.layout2 {
+    width: 100%;
+    height: 130px;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+}
+
+.input-box {
+    margin-top: 70px;
+    margin-left: 265px;
+}
+span {
+
+    font-size: 20px;
+    font-family: 'Josefin Sans', sans-serif;
+
+}
+
+select {
+    width: 290px;
+    height: 40px;
+    font-size: 14px;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+option {
+    font-size: 14px;
+    font-family: 'Josefin Sans', sans-serif;
+
+}
 
 h1 {
     position: relative;
     font-size: 3em;
-    letter-spacing: 9px;
+    letter-spacing: 5px;
     font-family: sans-serif;
     display: table;
-    margin-right: auto;
-    margin-left: auto;
+    margin-left: 45px;
     cursor: pointer;
     transition: .6s;
     top: 20px;
+    margin-top: 60px;
+    font-size: 40px;
+    font-family: 'Josefin Sans', sans-serif;
+
 }
 
 h1:before,
@@ -133,7 +183,7 @@ body {
     width: 100%;
     height: 50%;
     border-radius: 4px;
-    background:transparent;
+    background: transparent;
     color: #666;
     text-shadow: 1px 1px 0 #444;
 }
@@ -155,6 +205,15 @@ body {
     position: relative;
 }
 
+img.img2 {
+    width: 170px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
 .box .content img {
     -webkit-transition: all 500ms;
     -moz-transition: all 500ms;
@@ -170,14 +229,14 @@ body {
 }
 
 .box .content:hover .text3 {
-    left: 30%;
+    left: 35%;
     opacity: 1;
     font-size: 100px;
 
 }
 
 .box .content:hover .text4 {
-    left: 32%;
+    left: 37%;
     opacity: 1;
     font-size: 100px;
 
@@ -293,29 +352,29 @@ body {
     margin-right: auto;
 }
 
+/* TARJETA DE PRODUCTO */
 
 .card {
-    width: 90%;
+    width: 350px;
     height: 100%;
-    margin-right: auto;
-    margin-left: auto;
     padding: .8em;
     background: #f5f5f5;
     position: relative;
     overflow: visible;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .card-img {
-    background: #f5f5f5;
-    height: 60%;
+    background-color: #24262b;
+    height: 270px;
     width: 100%;
     border-radius: .5rem;
     transition: .3s ease;
-}
-
-.card-img:hover {
-    background: linear-gradient(135deg, #71b7e6, #9b59b6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .card-info {
@@ -332,141 +391,56 @@ svg {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-top: 10px;
-    border-top: 1px solid rgb(0, 0, 0);
+    border-style: solid;
+    border-radius: 5px;
+    margin-top: auto;
 }
 
-h3.title {
-    padding-top: 20px;
-    margin-bottom: 40px;
-}
-
-@media screen and (max-width: 992px) {
-
-    .layout {
-
-        padding-top: 30px;
-        width: 100%;
-        height: 190%;
-        display: grid;
-        grid-template-rows: repeat(1, 1fr);
-        grid-template-columns: repeat(1, 1fr);
-        gap: 8px;
-    }
-
-}
-
-
+/*Text*/
 .text-title {
     font-weight: 900;
-    font-size: 1.2em;
+    font-size: 18px;
     line-height: 1.5;
-    margin-bottom: 10px;
-    position: static;
+    text-align: center;
+}
+
+.text-title2 {
+    font-weight: 900;
+    font-size: 18px;
+    line-height: 1.5;
+    margin-left: 10px;
 }
 
 .text-body {
-    font-size: 16px;
-    padding-bottom: 10px;
+    font-size: 14px;
     text-align: justify;
 }
 
-.card-button {
-    display: flex;
-    padding: .3em;
-    cursor: pointer;
-    border-radius: 50px;
-    transition: .3s ease-in-out;
-}
 
+/*Hover*/
 .card-img:hover {
     transform: translateY(-25%);
     box-shadow: rgba(226, 196, 63, 0.25) 0px 13px 47px -5px, rgba(180, 71, 71, 0.3) 0px 8px 16px -8px;
 }
 
+/* TARJETA FIn */
 
-img.img2 {
-    width: 40%;
-    margin-left: 30%;
-    margin-right: 30%;
+/* BOTON DE VER DETALLES */
+
+button {
+    background: none;
+    border: none;
+    padding: 15px 15px;
+    border-radius: 10px;
 }
 
-.layout {
-    padding-top: 60px;
-    width: 100%;
-    height: 190%;
-    display: grid;
-    grid-template-rows: repeat(1, 1fr);
-    grid-template-columns: repeat(3, 1fr);
-    gap: 8px;
+button:hover {
+    background: rgba(1, 1, 1, 0.062);
+    transition: 0.5s;
 }
 
-
-/* BOTON PARA VER PRODUCTO */
-
-.c-button {
-    color: #000;
-    font-weight: 700;
-    font-size: 10px;
-    text-decoration: none;
-    padding: 0.9em 1.6em;
-    cursor: pointer;
-    display: inline-block;
-    vertical-align: middle;
-    position: relative;
-    z-index: 1;
+button svg {
+    color: rgb(9, 2, 2);
 }
 
-.c-button--gooey {
-    color: #06c8d9;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    border: 4px solid #24262b;
-    border-radius: 0;
-    position: relative;
-    transition: all 700ms ease;
-}
-
-.c-button--gooey .c-button__blobs {
-    height: 100%;
-    filter: url(#goo);
-    overflow: hidden;
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: -3px;
-    right: -1px;
-    z-index: -1;
-}
-
-.c-button--gooey .c-button__blobs div {
-    background-color: #24262b;
-    width: 34%;
-    height: 100%;
-    border-radius: 100%;
-    position: absolute;
-    transform: scale(1.4) translateY(125%) translateZ(0);
-    transition: all 700ms ease;
-}
-
-.c-button--gooey .c-button__blobs div:nth-child(1) {
-    left: -5%;
-}
-
-.c-button--gooey .c-button__blobs div:nth-child(2) {
-    left: 30%;
-    transition-delay: 60ms;
-}
-
-.c-button--gooey .c-button__blobs div:nth-child(3) {
-    left: 66%;
-    transition-delay: 25ms;
-}
-
-.c-button--gooey:hover {
-    color: #fff;
-}
-
-.c-button--gooey:hover .c-button__blobs div {
-    transform: scale(1.4) translateY(0) translateZ(0);
-}
+/* BOTON DE VER DETALLES FIN */
