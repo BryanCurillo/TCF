@@ -69,7 +69,7 @@ export class PrincipaltruequeComponent implements OnInit {
       
       this.publicacionService.getPublicaciones().subscribe(
         publicaciones => {
-          this.publicaciones.length=0;;
+          this.publicaciones.length=0;
           // alert("2= "+this.publicaciones.length)
           for (let publicacion of publicaciones) {
             if (publicacion.pubIdProducto.prodIdCategoria === this.categoriaFK.catId) {

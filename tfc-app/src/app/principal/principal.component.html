@@ -41,6 +41,7 @@
         <section class="layout">
             <ng-container *ngFor="let publicacion of publicaciones">
                 <div *ngIf="publicacion.pubTipo=='Venta'">
+                    <!-- <p>{{publicacion.pubFecha}}</p> -->
                     <!-- 
                     <div class="card">
                         <ng-container *ngFor="let fileModel of fileModels">
@@ -84,6 +85,8 @@
                         <div class="card-info">
                             <p class="text-title">{{publicacion.pubIdProducto.prodNombre}}</p>
                             <p class="text-body">{{publicacion.pubDescripcion}}</p>
+                            <!-- <p>{{publicacion.pub}}</p> -->
+
                         </div>
                         <div class="card-footer">
                             <span class="text-title2">Precio: {{publicacion.pubIdProducto.prodPrecio}}</span>
