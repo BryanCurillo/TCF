@@ -109,7 +109,7 @@ export class LoginRegisComponent {
           
           Swal.fire('LOGIN','USUARIO ENCONTRADO','success');
             //mandar a la siguiente pagina
-            if(data.usuNombreUsuario=="admin"){
+            if(data.usuRol==true){
               this.router.navigate(["adHeader/adAdministrar"]);
             }else{
               this.router.navigate(["principal"]);

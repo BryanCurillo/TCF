@@ -22,4 +22,9 @@ export class AdministracionService {
   getUpdateEstado(usu:usuario):Observable<number>{
     return this.http.put<number>(this.url+"/UsuariosEst/"+usu.usuId+"/"+usu.usuEstado,usu);
   }
+
+  //activar o desactivar permisos de admistrador usuario
+  putUpdateRol(usu:usuario):Observable<number>{
+    return this.http.put<number>(this.url+"/UsuariosAdm/"+usu.usuId+"/"+usu.usuRol,usu);
+  }
 }

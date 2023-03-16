@@ -40,6 +40,15 @@ export class UsuariosComponent implements OnInit{
     });
   }
 
+  //activar y desactivar permisos de adminstrado al cualquier usuario
+  HabiDesUsuario(usu:usuario){
+    usu.usuRol=!usu.usuRol;
+    this.service.putUpdateRol(usu).subscribe(data=>{
+      Swal.fire('Administración','PERMISOS CAMBIADOS','success'); 
+      
+    });
+  }
+
   activarUsuario(usu:usuario){
     usu.usuEstado=true;
     this.service.getUpdateEstado(usu).subscribe(data=>{

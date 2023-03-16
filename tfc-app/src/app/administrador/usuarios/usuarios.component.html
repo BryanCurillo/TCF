@@ -5,6 +5,7 @@
             <th>ID</th>
             <th>Usuario</th>
             <th>Nombre Apellido Cedula</th>
+            <th>Administrador</th>
             <th>Activos</th>
         </tr>
     </thead>
@@ -13,6 +14,7 @@
             <td>{{usuario.usuId}}</td>
             <td>{{usuario.usuNombreUsuario}}</td>
             <td>{{usuario.usuContraUsuario}}</td>
+            <td>{{usuario.usuRol}} <button (click)="HabiDesUsuario(usuario)" class=" btn btn-warning">Conceder/Retirar</button></td>
             
             <td>
                 <button (click)="desactivarUsuario(usuario)" class=" btn btn-warning">Suspender</button>
@@ -26,6 +28,7 @@
             <th>ID</th>
             <th>Usuario</th>
             <th>Nombre Apellido Cedula</th>
+            <th>Administrador</th>
             <th>Suspendidos</th>
         </tr>
     </thead>
@@ -34,6 +37,7 @@
             <td>{{usuario.usuId}}</td>
             <td>{{usuario.usuNombreUsuario}}</td>
             <td>{{usuario.usuContraUsuario}}</td>
+            <td>{{usuario.usuRol}} <button (click)="HabiDesUsuario(usuario)" class=" btn btn-warning">Conceder/Retirar</button></td>
             
             <td>
                 <button (click)="activarUsuario(usuario)" class="btn btn-success">Reactivar</button>
