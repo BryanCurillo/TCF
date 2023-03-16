@@ -27,9 +27,9 @@
             <div>
 
                 <div class="input-box">
-                    <select name="miselect" [(ngModel)]="seleccionados" required>
+                    <select name="miselect" [(ngModel)]="seleccionados" required (change)="cargarPublicaciones()" >
                         <!-- <option *ngFor="let categoria of categorias" [ngValue]="categoria" >{{categoria.catNombre}}</option> -->
-                        <option *ngFor="let categoria of categorias" [ngValue]="categoria" [selected]="categoria.catNombre === 'Hogar'">
+                        <option  *ngFor="let categoria of categorias" [ngValue]="categoria" [selected]="categoria.catNombre === 'Hogar'" >
                             {{categoria.catNombre}}
                           </option>
                     </select>
