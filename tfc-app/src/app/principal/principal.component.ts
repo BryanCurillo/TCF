@@ -15,7 +15,8 @@ import { UploadFilesService } from '../service/upload-files.service';
   styleUrls: ['./principal.component.css']
 })
 export class PrincipalComponent implements OnInit {
-
+  
+  categoriaSELEC: Categoria = new Categoria()
   seleccionados: Categoria = new Categoria;
   public publicacion: Publicacion = new Publicacion();
   publicaciones: Publicacion[] = [];
@@ -24,6 +25,9 @@ export class PrincipalComponent implements OnInit {
   fileModels: FileModel[];
   idProducto: number = 0;
   categorias: Categoria[] = [];
+
+  public categoriaFK: Categoria = new Categoria()
+
 
   constructor(private publicacionService: PublicacionService,
     private categoriaService: CategoriaService,
@@ -72,7 +76,8 @@ export class PrincipalComponent implements OnInit {
 
     let categoriaSELEC: Categoria = new Categoria()
     categoriaSELEC.catId = 0;
-    categoriaSELEC.catNombre = 'Seleccione una categoria';
+    categoriaSELEC.catNombre = 'TODOS';
+    
     this.categorias.push(categoriaSELEC);
 
     this.categoriaService.getCate(true).subscribe(
@@ -82,6 +87,26 @@ export class PrincipalComponent implements OnInit {
         }
       }
     );
+  }
+
+
+  public filtrarCategoria():void{
+
+    this.categoriaFK.catNombre = this.seleccionados.catNombre;
+
+    for (let i = 0; i < this.categorias.length; i++) {
+      if (this.categoriaFK.catNombre === this.categorias[i].catNombre) {
+        this.categoriaFK.catId = i;
+      } else {
+        if (this.categoriaSELEC.catNombre === this.categorias[i].catNombre) {
+          this.categoriaFK.catId = i;
+        }
+
+      }
+    }
+    for(let publicaacion of this.publicaciones){
+      
+    }
   }
 
 }

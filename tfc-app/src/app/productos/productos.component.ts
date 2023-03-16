@@ -85,6 +85,7 @@ export class ProductosComponent implements OnInit {
     this.categoriaService.getCate(true).subscribe(
       categorias => {
         for (let categoria of categorias) {
+
           this.categorias.push(categoria)
         }
       }
@@ -145,12 +146,14 @@ export class ProductosComponent implements OnInit {
     for (let i = 0; i < this.categorias.length; i++) {
       if (this.categoriaFK.catNombre === this.categorias[i].catNombre) {
         this.categoriaFK.catId = i;
-      } else {
-        if (this.categoriaSELEC.catNombre === this.categorias[i].catNombre) {
-          this.categoriaFK.catId = i;
-        }
+        alert
+      } 
+      //  {
+      //   if (this.categoriaSELEC.catNombre === this.categorias[i].catNombre) {
+      //     this.categoriaFK.catId = i;
+      //   }
 
-      }
+      // }
     }
 
     this.producto.prodIdCategoria = this.categoriaFK.catId;
