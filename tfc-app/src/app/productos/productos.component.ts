@@ -145,15 +145,17 @@ export class ProductosComponent implements OnInit {
 
     for (let i = 0; i < this.categorias.length; i++) {
       if (this.categoriaFK.catNombre === this.categorias[i].catNombre) {
-        this.categoriaFK.catId = i;
-        alert
+        this.categoriaFK.catId = this.categorias[i].catId;
+        alert(this.categoriaFK.catId)
       } 
-      //  {
-      //   if (this.categoriaSELEC.catNombre === this.categorias[i].catNombre) {
-      //     this.categoriaFK.catId = i;
-      //   }
+       {
+        if (this.categoriaSELEC.catNombre === this.categorias[i].catNombre) {
+          this.categoriaFK.catId = this.categorias[i].catId;
+          alert(this.categoriaFK.catId)
 
-      // }
+        }
+      }
+
     }
 
     this.producto.prodIdCategoria = this.categoriaFK.catId;
