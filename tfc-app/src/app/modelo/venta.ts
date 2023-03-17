@@ -2,7 +2,7 @@ import { Publicacion } from "./publicacion";
 import { usuario } from "./usuario";
 
 export class Venta{
-	venIdPublicacion: Publicacion;
+	venIdPublicacion: number=0;
 	venId: number=0;
-	venIdComprador: usuario;
+	venIdComprador: number=0;
 }
