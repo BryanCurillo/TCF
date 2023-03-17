@@ -30,7 +30,7 @@
                         <span class="details">Categoria</span>
                         <select name="miselect" [(ngModel)]="seleccionados" required>
                             <!-- <option *ngFor="let categoria of categorias" [ngValue]="categoria" >{{categoria.catNombre}}</option> -->
-                            <option *ngFor="let categoria of categorias" [ngValue]="categoria" [selected]="categoria.catNombre === 'Hogar'">
+                            <option *ngFor="let categoria of categorias" [ngValue]="categoria" select="Hogar">
                                 {{categoria.catNombre}}
                               </option>
                         </select>

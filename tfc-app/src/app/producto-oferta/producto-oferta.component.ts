@@ -84,7 +84,7 @@ export class ProductoOfertaComponent implements OnInit {
       // alert("PRODUCTO OFER= " + productoOfertaNew.poNombre)
       this.oferta.poIdOferta = productoOfertaNew;
       this.oferta.ofeEstado = false;
-      alert("publicacion= "+this.IdPublicacion)
+      // alert("publicacion= "+this.IdPublicacion)
       this.oferta.ofeIdOfertante = this.userId;
       this.oferta.ofePubId = this.IdPublicacion;
 
@@ -103,26 +103,6 @@ export class ProductoOfertaComponent implements OnInit {
       })
     })
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   createFile(files: File[]): void {
     const formData = new FormData();

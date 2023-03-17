@@ -91,13 +91,6 @@ export class PrincipalComponent implements OnInit {
 
   }
 
-  public filtrarCategoria(): void {
-    // alert("hola")
-
-
-
-  }
-
 
   verProducto(id: number) {
     localStorage.setItem("productoId", id.toString());
