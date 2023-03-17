@@ -14,6 +14,7 @@ import jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable';
 import { Venta } from '../modelo/venta';
 import { usuario } from '../modelo/usuario';
+import { VentaService } from '../service/venta.service';
 
 @Component({
   selector: 'app-misproductos',
@@ -25,25 +26,37 @@ export class MisproductosComponent {
   constructor(private publicacionService: PublicacionService,
     private productoService: ProductoService,
     private categoriaService: CategoriaService,
+    private ventaService: VentaService,
     private activatedRoute: ActivatedRoute,
     private TruequeService: TruequeService) { }
 
   ngOnInit(): void {
     this.cargarPublicaciones()
-
+    this.recuperarUSU()
+    this.cargarTrueke()
   }
+
+  public usuario: usuario = new usuario();
 
   public publicacion: Publicacion = new Publicacion();
   public producto: Producto = new Producto();
+
   publicaciones: Publicacion[] = [];
   categorias: Categoria[] = [];
   idUsu: number = parseInt(String(localStorage.getItem("userId")));
-  trueques: Trueque[] = [];
+  truequesList: Trueque[] = [];
   ventas: Venta[] = [];
   trueque: Trueque;
   Oferta: Oferta;
   Venta: Venta;
- public usuario: usuario = new usuario();
+  userId: number;
+  userName: number;
+
+
+  recuperarUSU() {
+    this.userId = parseInt(String(localStorage.getItem("userId")))
+    this.userName = parseInt(String(localStorage.getItem("userName")))
+  }
 
 
   cargarPublicaciones(): void {
@@ -56,6 +69,31 @@ export class MisproductosComponent {
     );
   }
 
+  // cargarCompras(){
+  //   this.ventaService.getVentas().subscribe(response => {
+  //     for (let tru of response) {
+  //       if (tru.truIdOferta.ofeIdOfertante) {
+  //         this.truequesList.push(tru)
+  //       }
+  //     }
+  //   })  }
+
+  cargarTrueke() {
+    this.TruequeService.getTruekes().subscribe(response => {
+      for (let tru of response) {
+        if (tru.truIdOferta.ofeIdOfertante==this.userId) {
+          this.truequesList.push(tru)
+        }
+      }
+    })
+  }
+
+  obtenerPublicacion(id:number){
+    this.publicacionService.getPublicacionId(id).subscribe(response=>{
+      this.publicacion=response;
+    })
+
+  }
   cargarCategorias(): void {
 
     this.categoriaService.getCate(true).subscribe(
@@ -106,28 +144,29 @@ export class MisproductosComponent {
   generarReporteVenta() {
 
     const doc = new jsPDF({
-      orientation:'portrait',
+      orientation: 'portrait',
       unit: 'px',
-      format:'letter'
+      format: 'letter'
     });
-  
+
     // Encabezado
     const direccionEmpresa = 'REGISTRO DE PRODUCTOS';
-    doc.text(direccionEmpresa, doc.internal.pageSize.width/2,25,{align:'center'} );
+    doc.text(direccionEmpresa, doc.internal.pageSize.width / 2, 25, { align: 'center' });
 
     autoTable(doc, {
-      head: [['ID DE PUBLICACION', 'PRODUCTO','DESCRIPCION DEL PRODUCTO','PRECIO DEL PRODUCTO','TIPO DE COMERCIO']],
-      body: this.publicaciones.map((row) => [row.pubId, row.pubIdProducto.prodNombre, row.pubIdProducto.prodDescripcion, row.pubIdProducto.prodPrecio,row.pubTipo]),
+      head: [['ID DE PUBLICACION', 'PRODUCTO', 'DESCRIPCION DEL PRODUCTO', 'PRECIO DEL PRODUCTO', 'TIPO DE COMERCIO']],
+      body: this.publicaciones.map((row) => [row.pubId, row.pubIdProducto.prodNombre, row.pubIdProducto.prodDescripcion, row.pubIdProducto.prodPrecio, row.pubTipo]),
     });
     // Pie 
     const administrador = 'Truekshop || Cuenca, Ecuador';
     const textDimensions = doc.getTextDimensions(administrador);
     doc.text(administrador, doc.internal.pageSize.width - textDimensions.w - 14, doc.internal.pageSize.height - 10);
-    
-    
+
+
     doc.output('dataurlnewwindow');
     doc.save('productos.pdf');
-  }
+  }
+
 
 }
 

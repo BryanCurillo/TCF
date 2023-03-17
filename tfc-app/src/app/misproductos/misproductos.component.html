@@ -143,7 +143,7 @@
             <img src="https://cdn-icons-png.flaticon.com/512/2048/2048923.png" class="card-img-top" alt="..."
                 style="height: 40px; width: 40px;">
             TRUEKES REALIZADOS
-            </h1>
+        </h1>
 
 
         <table class="table table-bordered table-striped">
@@ -151,29 +151,25 @@
                 <tr>
                     <th>Id Del Trueque</th>
                     <th>Id del Ofertante</th>
+                    <th>Nombre del producto</th>
 
-                    <th>Categoria</th>
+                    <!-- <th>Categoria</th> -->
                 </tr>
             </thead>
             <tbody class="table-group-divider">
-                <ng-container *ngFor="let trueque of trueques">
-                    <ng-container let id of idUsu>
-                                <td>{{trueque.truNumero}}</td>
-                                <td>{{trueque.truIdOferta.ofeIdOfertante}}</td>
-                                <ng-container *ngFor="let categoria of categorias">
-                                    <td *ngIf="categoria.catId==publicacion.pubIdProducto.prodIdCategoria">
-                                        {{categoria.catNombre}}</td>
-                                </ng-container>
-                        </ng-container>
-                    </ng-container>
+                <tr *ngFor="let trueque of truequesList">
+                    <td>{{trueque.truNumero}}</td>
+                    <td>{{trueque.truIdOferta.ofeIdOfertante}}</td>
+                    <td>{{trueque.truIdOferta.poIdOferta.poNombre}}</td>
+
+                </tr>
             </tbody>
         </table>
 
 
     </div>
 </div>
-<button type="button" name="button" (click)="generarReporteVenta()"
-class="btn btn-danger">GENERAR REPORTE</button>
+<button type="button" name="button" (click)="generarReporteVenta()" class="btn btn-danger">GENERAR REPORTE</button>
 <app-footer></app-footer>
 
 </html>
