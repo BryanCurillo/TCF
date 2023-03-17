@@ -27,6 +27,8 @@ export class PrincipalComponent implements OnInit {
   categorias: Categoria[] = [];
 
   public categoriaFK: Categoria = new Categoria()
+  userId: number;
+  userName: number;
 
 
   constructor(private publicacionService: PublicacionService,
@@ -40,7 +42,14 @@ export class PrincipalComponent implements OnInit {
     this.cargarPublicaciones()
     this.cargarFotos()
     this.cargarCategorias()
+    this.recuperarUSU()
 
+  }
+
+  recuperarUSU() {
+    this.userId = parseInt(String(localStorage.getItem("userId")))
+    this.userName = parseInt(String(localStorage.getItem("userName")))
+    // alert("user= "+this.userId)
   }
 
   public cargarFotos() {
