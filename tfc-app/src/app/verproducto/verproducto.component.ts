@@ -89,8 +89,8 @@ export class VerproductoComponent implements OnInit {
         this.ventaNew.venIdComprador=this.userId;
         this.ventaService.create(this.ventaNew).subscribe(venta=>{
           this.ventaId=venta.venId;
-          alert("VENTA EXITOSA  ")
-            // this.router.navigate([`/facTueque/${venta.venId}`])
+          // alert("VENTA EXITOSA  ")
+            this.router.navigate([`/facVenta/${venta.venId}`])
        
         })
       // });

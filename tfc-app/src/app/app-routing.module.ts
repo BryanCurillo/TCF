@@ -35,6 +35,7 @@ const routes: Routes = [/*{ path: '', redirectTo: '/adHeader', pathMatch: 'full'
 { path: 'producto', component: ProductosComponent },
 { path: 'producto/:id', component: ProductosComponent },
 { path: 'facTueque/:id', component: FacturatruequeComponent },
+{ path: 'facVenta/:id', component: FacturaComponent },
 { path: 'vertrueque', component: VertruequeComponent },
 { path: 'inicio', component: InicioComponent },
 { path: 'nosotros', component: NosotrosComponent },

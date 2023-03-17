@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { Venta } from '../modelo/venta';
 
 @Injectable({
@@ -19,6 +19,12 @@ export class VentaService {
     return this.http.post<Venta>(this.url,venta,{headers:this.httpHeaders})
   }
 
+  getVentas(): Observable<Venta[]> {
+
+    return this.http.get(this.url).pipe(
+      map(response => response as Venta[]));
+  }
+  
   getVentaId(id:number):Observable<Venta>{
     return this.http.get<Venta>(`${this.url}/${id}`);
   }

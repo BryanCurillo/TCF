@@ -8,10 +8,10 @@
       <div class="col-10">
         <h1>Nombre del Producto</h1>
         
-        <p>Nombre del Cliente: Daniel Andrade Q.</p>
-        <p>Nombre del Cliente: 13 de Abril</p>
-        <p>Fecha: 14/03/2023</p>
-        <p>Factura: Fac001</p>
+        <p>Nombre del Cliente: {{comprador.usuPerId.perNombre}} {{comprador.usuPerId.perApellido}}</p>
+        <p>Nombre del Vendedor: {{vendedor.usuPerId.perNombre}} {{vendedor.usuPerId.perApellido}}</p>
+        <p>Fecha: {{publicacion.pubFecha}}</p>
+        <p>Factura: {{venta.venId}}</p>
       </div>
       <div class="col-2">
         <img src="assets/img/lot-removebg-preview.png" width="100%" />
@@ -23,18 +23,16 @@
       <table class="table table-borderless factura">
         <thead>
           <tr>
-            <th>Cantidad</th>
             <th>Producto</th>
-            <th>Precio Unitario</th>
             <th>Precio Total</th>
+            <th>Imagen del producto</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>1</td>
-            <td>MChicken Hamburguesa</td>
-            <td>2.75</td>
-            <td>2.75</td>
+            <td>{{publicacion.pubIdProducto.prodNombre}}</td>
+            <td>${{publicacion.pubIdProducto.prodPrecio}}</td>
+            <td><img [src]="imageSrc" alt="" style="width: 100px; height: 100%;"></td>
           </tr>
         </tbody>
         <tfoot>
@@ -42,23 +40,19 @@
             <th></th>
             <th></th>
             <th>Precio Final</th>
-            <th>5.25</th>
+            <td>${{publicacion.pubIdProducto.prodPrecio}}</td>
           </tr>
         </tfoot>
         <tfoot>
           <tr>
             <th></th>
             <th></th>
-            <th>Precio Total</th>
-            <th>2.75</th>
           </tr>
         </tfoot>
         <tfoot>
           <tr>
             <th></th>
             <th></th>
-            <th>Precio del Envio</th>
-            <th>2.50</th>
           </tr>
         </tfoot>
       </table>
