@@ -2,13 +2,13 @@
 
 <div id="app" class="col-11">
 
-    <h2>Recibo de Intercambio de Productos</h2>
+    <h2>Comprobante de Intercambio de Productos</h2>
 
     <div class="row my-3">
       <div class="col-10">        
-        <p>Nombre del Cliente: Daniel Andrade Q.</p>
-        <p>Fecha: 14/03/2023</p>
-        <p>Factura: Fac001</p>
+        <p>Nombre del Cliente: {{usuario.usuPerId.perNombre}} {{usuario.usuPerId.perApellido}}</p>
+        <p>Fecha: {{publicacion.pubFecha}}</p>
+        <p>Codigo: {{trueque.truNumero}}</p>
       </div>
       <div class="col-2">
         <img src="assets/img/lot-removebg-preview.png" width="100%" />
