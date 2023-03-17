@@ -8,6 +8,7 @@
   <div *ngIf="publicacion">
     <section class="layout">
       <div class="izq">
+
         <div class="card">
           <img [src]="imageSrc" class="card-img-top" width="30px" alt="...">
         </div>
@@ -15,6 +16,7 @@
       <div class="der">
         <div class="card-body">
           <p class="card-title">{{publicacion.pubIdProducto.prodNombre}}</p>
+          <p class="card-text"><b>Fecha de publicacion: </b>{{publicacion.pubFecha}}</p>
           <p class="card-text"><b>Descripción: </b>{{publicacion.pubDescripcion}}</p>
           <p class="card-text"><b>Precio:</b> {{publicacion.pubIdProducto.prodPrecio}}$</p>
           <a class="link" href="https://wa.me/593978717957">
@@ -29,28 +31,29 @@
       </div>
     </section>
   </div>
-  
-    <div>
-      <div>
-        <div class="titulo y boton">
-          <h1 class="2">REGISTRO DE OFERTAS</h1>
-          <button class="oferta" routerLink="/productOferta"><span class="text">Agregar</span><span class="icon2"><svg
-                xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512">
-                <title>Pricetag</title>
-                <path
-                  d="M435.25 48h-122.9a14.46 14.46 0 00-10.2 4.2L56.45 297.9a28.85 28.85 0 000 40.7l117 117a28.85 28.85 0 0040.7 0L459.75 210a14.46 14.46 0 004.2-10.2v-123a28.66 28.66 0 00-28.7-28.8z"
-                  fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" />
-                <path d="M384 160a32 32 0 1132-32 32 32 0 01-32 32z" />
-              </svg></span></button>
-        </div>
-      </div>
 
+  <div>
+    <div>
+      <div class="titulo y boton">
+        <h1 class="2">REGISTRO DE OFERTAS</h1>
+        <button class="oferta" routerLink="/productOferta"><span class="text">Agregar</span><span class="icon2"><svg
+              xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512">
+              <title>Pricetag</title>
+              <path
+                d="M435.25 48h-122.9a14.46 14.46 0 00-10.2 4.2L56.45 297.9a28.85 28.85 0 000 40.7l117 117a28.85 28.85 0 0040.7 0L459.75 210a14.46 14.46 0 004.2-10.2v-123a28.66 28.66 0 00-28.7-28.8z"
+                fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" />
+              <path d="M384 160a32 32 0 1132-32 32 32 0 01-32 32z" />
+            </svg></span></button>
+      </div>
     </div>
 
-    <section class="layoutofertas">
-      <ng-container *ngFor="let oferta of ofertas">
+  </div>
+
+  <section class="layoutofertas">
+    <ng-container *ngFor="let oferta of ofertas">
+      <ng-container *ngIf="oferta.ofeEstado==false">
         <div *ngIf="oferta.ofePubId==IdProducto">
-          <div class="card" >
+          <div class="card" (click)="generatTrueke(oferta)">
             <ng-container *ngFor="let fileModel of fileModels">
               <div class="icon" *ngIf="fileModel.name==oferta.poIdOferta.poFoto">
                 <img [src]="fileModel.url" width="40px">
@@ -63,13 +66,14 @@
             </div>
             <strong> ${{oferta.poIdOferta.poPrecio}}
             </strong>
-            <span>Daniel Andrade</span>
 
+            <span>Daniel Andrade</span>
           </div>
         </div>
       </ng-container>
+    </ng-container>
 
-    </section>
+  </section>
 </body>
 <app-footer></app-footer>
 

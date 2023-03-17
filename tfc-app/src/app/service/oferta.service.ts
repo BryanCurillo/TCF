@@ -15,13 +15,7 @@ export class OfertaService {
   constructor(private http: HttpClient) { }
 
   public create(oferta: Oferta): Observable<Oferta> {
-    console.log("///////////////////////////")
-    console.log(oferta.ofeEstado)
-    console.log(oferta.ofeId)
-    console.log(oferta.ofeIdOfertante)
-    console.log(oferta.ofePubId)
-    console.log(oferta.poIdOferta)
-    console.log("///////////////////////////")
+
     return this.http.post<Oferta>(this.url,oferta,{headers:this.httpHeaders})
   }
 

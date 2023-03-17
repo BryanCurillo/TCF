@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { FileModel } from '../modelo/fileModel';
 import { Oferta } from '../modelo/oferta';
 import { Producto } from '../modelo/producto';
 import { Publicacion } from '../modelo/publicacion';
+import { Trueque } from '../modelo/trueque';
 import { OfertaService } from '../service/oferta.service';
 import { ProductoService } from '../service/producto.service';
 import { PublicacionService } from '../service/publicacion.service';
+import { TruequeService } from '../service/trueque.service';
 import { UploadFilesService } from '../service/upload-files.service';
 import { VertruequeService } from './vertrueque.service';
 
@@ -18,16 +20,20 @@ import { VertruequeService } from './vertrueque.service';
 })
 export class VertruequeComponent implements OnInit {
 
+  public truequeNew: Trueque = new Trueque();
 
   fileModels: FileModel[];
   ofertas: Oferta[];
   public imageSrc: string = '';
   userId: number;
+  truekeId: number;
   
   userName: string;
 
   constructor(private verproductotru: VertruequeService,
     private ofertaService:OfertaService,
+    private router: Router,
+    private truequeService:TruequeService,
     private uploadFileService: UploadFilesService) { }
 
 
@@ -79,7 +85,21 @@ export class VertruequeComponent implements OnInit {
   cargarOfertas(){
     this.ofertaService.getOfertas().subscribe(ofertas=>{
       this.ofertas=ofertas;    
-    });
+    }); 
+  }
+
+
+  generatTrueke(oferta:Oferta):void{
+    this.truequeNew.truIdOferta=oferta;
+
+    this.truequeService.create(this.truequeNew).subscribe(trueque=>{
+      this.truekeId=trueque.truNumero;
+      oferta.ofeEstado=true;
+      this.ofertaService.create(oferta).subscribe((ofertaUp)=>{
+
+        this.router.navigate([`/facTueque/${trueque.truNumero}`])
+      })
+    })
   }
 
 }
