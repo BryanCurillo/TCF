@@ -92,8 +92,6 @@ export class VertruequeComponent implements OnInit {
     if(this.publicacion?.pubIdVendedor!=this.userId){
 
       this.router.navigate([`/productOferta`])
-    }else{
-      
     }
 
   }

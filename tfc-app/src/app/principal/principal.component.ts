@@ -80,7 +80,6 @@ export class PrincipalComponent implements OnInit {
       this.publicacionService.getPublicaciones().subscribe(
         publicaciones => {
           this.publicaciones.length=0;;
-          // alert("2= "+this.publicaciones.length)
           for (let publicacion of publicaciones) {
             if (publicacion.pubIdProducto.prodIdCategoria === this.categoriaFK.catId) {
               this.publicaciones.push(publicacion)

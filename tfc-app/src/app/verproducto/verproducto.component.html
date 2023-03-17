@@ -17,7 +17,7 @@
           <p class="card-title">{{publicacion.pubIdProducto.prodNombre}}</p>
           <p class="card-text"><b>Descripción: </b>{{publicacion.pubDescripcion}}</p>
           <p class="card-text"><b>Precio:</b> {{publicacion.pubIdProducto.prodPrecio}}$</p>
-          <button role="button" class="button-name">Comprar Producto</button>
+          <button role="button" class="button-name" (click)="generarVenta(publicacion)">Comprar Producto</button>
 
         </div>
       </div>

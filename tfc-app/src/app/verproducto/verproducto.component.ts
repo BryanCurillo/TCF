@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FileModel } from '../modelo/fileModel';
 import { Producto } from '../modelo/producto';
 import { Publicacion } from '../modelo/publicacion';
+import { Venta } from '../modelo/venta';
 import { ProductoService } from '../service/producto.service';
 import { PublicacionService } from '../service/publicacion.service';
 import { UploadFilesService } from '../service/upload-files.service';
+import { VentaService } from '../service/venta.service';
 import { VerproductoService } from './verproducto.service';
 
 
@@ -18,11 +20,17 @@ import { VerproductoService } from './verproducto.service';
 })
 export class VerproductoComponent implements OnInit {
 
-
+  userId: number;
+  userName: string;
   fileModels: FileModel[];
+  ventaId: number;
   public imageSrc: string = '';
+  public ventaNew: Venta = new Venta();
+
 
   constructor(private verproductoserv: VerproductoService,
+    private ventaService: VentaService,
+    private router: Router,
     private uploadFileService: UploadFilesService) { }
 
 
@@ -31,11 +39,15 @@ export class VerproductoComponent implements OnInit {
   IdProducto: String = "";
 
   ngOnInit(): void {
-    this.recuperarId()
+    this.recuperarId();
+    this.recuperarUSU();
     this.cargarPublicacion(Number(this.IdProducto));
   }
 
-
+  recuperarUSU() {
+    this.userId = parseInt(String(localStorage.getItem("userId")))
+    this.userName = String(localStorage.getItem("userName"))
+  }
 
   cargarPublicacion(id: number) {
     this.verproductoserv.getPublicacion(id).subscribe(data => {
@@ -62,6 +74,24 @@ export class VerproductoComponent implements OnInit {
       }
     }
     );
+  }
+  
+
+  generarVenta(publicacion:Publicacion):void{
+    if(publicacion.pubIdVendedor!=this.userId){
+      this.ventaNew.venIdPublicacion=publicacion;
+      // this.ventaNew.venIdComprador=this.userId;
+      this.ventaService.create(this.ventaNew).subscribe(venta=>{
+        this.ventaId=venta.venId;
+        alert("VENTA EXITOSA  ")
+          // this.router.navigate([`/facTueque/${venta.venId}`])
+     
+      })
+    }
+  }
+
+  obtenerUsuario(){
+    
   }
 
 }
