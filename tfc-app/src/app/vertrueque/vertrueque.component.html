@@ -66,9 +66,12 @@
             </div>
             <strong> ${{oferta.poIdOferta.poPrecio}}
             </strong>
-            <span><button class="full-rounded">
-              <span class="hover me">Aceptar</span>
-              <div class="border full-rounded"></div></button>
+            <span>
+              <ng-container *ngFor="let fileModel of fileModels">
+                <div class="icon2" *ngIf="fileModel.name==oferta.poIdOferta.poFoto">
+                  <img class="2" [src]="fileModel.url" width="700px">
+                </div>
+              </ng-container>
             </span>
           </div>
         </div>

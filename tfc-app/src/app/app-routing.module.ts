@@ -22,6 +22,7 @@ import { ProductoOfertaComponent } from './producto-oferta/producto-oferta.compo
 import { VertruequeComponent } from './vertrueque/vertrueque.component';
 import { ModificarusuarioComponent } from './modificarusuario/modificarusuario.component';
 import { CategoriasComponent } from './administrador/categorias/categorias.component';
+import { FacturatruequeComponent } from './facturatrueque/facturatrueque.component';
 
 
 
@@ -40,6 +41,7 @@ const routes: Routes = [/*{ path: '', redirectTo: '/adHeader', pathMatch: 'full'
 { path: 'admclientes', component: ListaClientesComponent },
 { path: 'trueque', component: TruequeComponent },
 { path: 'misproductos', component: MisproductosComponent },
+{ path: 'facturatru', component: FacturatruequeComponent },
 { path: 'productOferta', component: ProductoOfertaComponent },
 { path: 'principalt', component: PrincipaltruequeComponent },
 { path: 'factura', component: FacturaComponent },

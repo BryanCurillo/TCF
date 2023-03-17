@@ -379,7 +379,6 @@ section.\32 {
 }
 
 .card span {
-    font-family: 'Josefin Sans', sans-serif;
     position: absolute;
     width: 100%;
     height: 100%;
@@ -394,6 +393,7 @@ section.\32 {
 .card:hover span {
     top: 0;
     font-size: 50px;
+    transition: 0.5s;
 }
 
 
@@ -408,6 +408,9 @@ section.\32 {
 
 img{
     width: 60%;
+}
+img.\32 {
+    width: 80%;
 }
 /* CARTA DE OFERTA FIN */
 
@@ -433,3 +436,7 @@ button.full-rounded:hover {
 }
 
 /* BOTON ACEPTAR FIN */
+
+.titulo.y.boton {
+    margin-bottom: 40px;
+}
