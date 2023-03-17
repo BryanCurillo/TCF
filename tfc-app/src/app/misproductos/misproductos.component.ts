@@ -7,6 +7,13 @@ import { PublicacionService } from '../service/publicacion.service';
 import Swal from 'sweetalert2';
 import { CategoriaService } from '../service/categoria.service';
 import { Categoria } from '../modelo/categoria';
+import { TruequeService } from '../service/trueque.service';
+import { Trueque } from '../modelo/trueque';
+import { Oferta } from '../modelo/oferta';
+import jsPDF from 'jspdf';
+import autoTable from 'jspdf-autotable';
+import { Venta } from '../modelo/venta';
+import { usuario } from '../modelo/usuario';
 
 @Component({
   selector: 'app-misproductos',
@@ -18,7 +25,8 @@ export class MisproductosComponent {
   constructor(private publicacionService: PublicacionService,
     private productoService: ProductoService,
     private categoriaService: CategoriaService,
-    private activatedRoute: ActivatedRoute) { }
+    private activatedRoute: ActivatedRoute,
+    private TruequeService: TruequeService) { }
 
   ngOnInit(): void {
     this.cargarPublicaciones()
@@ -30,12 +38,20 @@ export class MisproductosComponent {
   publicaciones: Publicacion[] = [];
   categorias: Categoria[] = [];
   idUsu: number = parseInt(String(localStorage.getItem("userId")));
+  trueques: Trueque[] = [];
+  ventas: Venta[] = [];
+  trueque: Trueque;
+  Oferta: Oferta;
+  Venta: Venta;
+ public usuario: usuario = new usuario();
+
 
   cargarPublicaciones(): void {
     this.cargarCategorias();
     this.publicacionService.getPublicaciones().subscribe(
-      publicaciones => { this.publicaciones = publicaciones      
-     }
+      publicaciones => {
+        this.publicaciones = publicaciones
+      }
 
     );
   }
@@ -43,11 +59,11 @@ export class MisproductosComponent {
   cargarCategorias(): void {
 
     this.categoriaService.getCate(true).subscribe(
-      categorias => {this.categorias =categorias }
+      categorias => { this.categorias = categorias }
     );
   }
 
-    eliminarPublicacion(publicacion:Publicacion): void {
+  eliminarPublicacion(publicacion: Publicacion): void {
 
     this.activatedRoute.params.subscribe(cliente => {
 
@@ -69,7 +85,7 @@ export class MisproductosComponent {
           this.productoService.deleteProducto(publicacion.pubIdProducto.prodId).subscribe()
           this.publicacionService.deletePublicacion(publicacion.pubId).subscribe(publicacion => {
             this.publicacionService.getPublicaciones().subscribe(publicaciones => this.publicaciones = publicaciones)
-            
+
             Swal.fire({
               position: 'center',
               icon: 'success',
@@ -84,13 +100,38 @@ export class MisproductosComponent {
           Swal.fire('Changes are not saved', '', 'info')
         }
       })
-
-      // if (id) {
-       
-      // }
     })
   }
+
+  generarReporteVenta() {
+
+    const doc = new jsPDF({
+      orientation:'portrait',
+      unit: 'px',
+      format:'letter'
+    });
+  
+    // Encabezado
+    const direccionEmpresa = 'REGISTRO DE PRODUCTOS';
+    doc.text(direccionEmpresa, doc.internal.pageSize.width/2,25,{align:'center'} );
+
+    autoTable(doc, {
+      head: [['ID DE PUBLICACION', 'PRODUCTO','DESCRIPCION DEL PRODUCTO','PRECIO DEL PRODUCTO','TIPO DE COMERCIO']],
+      body: this.publicaciones.map((row) => [row.pubId, row.pubIdProducto.prodNombre, row.pubIdProducto.prodDescripcion, row.pubIdProducto.prodPrecio,row.pubTipo]),
+    });
+    // Pie 
+    const administrador = 'Truekshop || Cuenca, Ecuador';
+    const textDimensions = doc.getTextDimensions(administrador);
+    doc.text(administrador, doc.internal.pageSize.width - textDimensions.w - 14, doc.internal.pageSize.height - 10);
+    
+    
+    doc.output('dataurlnewwindow');
+    doc.save('productos.pdf');
+  }
+
 }
+
+
 
 
 

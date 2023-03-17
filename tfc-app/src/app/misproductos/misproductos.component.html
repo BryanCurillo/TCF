@@ -15,7 +15,7 @@
             <h1 class="card-title;" style="text-align: center;">
                 <img src="https://cdn-icons-png.flaticon.com/512/743/743007.png" class="card-img-top" alt="..."
                     style="height: 40px; width: 40px;">
-                Ventas
+                MIS PRODUCTOS PARA VENTA
             </h1>
 
             <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
@@ -68,7 +68,6 @@
 
         </div>
     </div>
-
     <div class="card" style=" margin-top: 30px; ">
 
 
@@ -79,7 +78,7 @@
             <h1 class="card-title;" style="text-align: center;">
                 <img src="https://cdn-icons-png.flaticon.com/512/2048/2048923.png" class="card-img-top" alt="..."
                     style="height: 40px; width: 40px;">
-                Truekes
+                MIS PRODUCTOS PARA TRUEKE
             </h1>
 
             <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
@@ -133,6 +132,48 @@
         </div>
     </div>
 </div>
+<div class="card" style=" margin-top: 30px; ">
+
+
+    <div class="card-body">
+
+
+
+        <h1 class="card-title;" style="text-align: center;">
+            <img src="https://cdn-icons-png.flaticon.com/512/2048/2048923.png" class="card-img-top" alt="..."
+                style="height: 40px; width: 40px;">
+            TRUEKES REALIZADOS
+            </h1>
+
+
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Id Del Trueque</th>
+                    <th>Id del Ofertante</th>
+
+                    <th>Categoria</th>
+                </tr>
+            </thead>
+            <tbody class="table-group-divider">
+                <ng-container *ngFor="let trueque of trueques">
+                    <ng-container let id of idUsu>
+                                <td>{{trueque.truNumero}}</td>
+                                <td>{{trueque.truIdOferta.ofeIdOfertante}}</td>
+                                <ng-container *ngFor="let categoria of categorias">
+                                    <td *ngIf="categoria.catId==publicacion.pubIdProducto.prodIdCategoria">
+                                        {{categoria.catNombre}}</td>
+                                </ng-container>
+                        </ng-container>
+                    </ng-container>
+            </tbody>
+        </table>
+
+
+    </div>
+</div>
+<button type="button" name="button" (click)="generarReporteVenta()"
+class="btn btn-danger">GENERAR REPORTE</button>
 <app-footer></app-footer>
 
 </html>

@@ -55,18 +55,7 @@ export class FacturatruequeComponent implements OnInit {
             this.publicacion=pub
           })
         })
-        // this.usuario=;
       })
-
-
-
-      // if (id) {
-      //   this.publicacionService.getPublicacionId(id).subscribe((publicacion) => {
-      //     this.publicacionNew = publicacion,
-      //       this.producto = this.publicacionNew.pubIdProducto
-      //     this.cargarFotos(this.producto.fileName);
-      //   })
-      // }
     })
   }
 }

@@ -62,7 +62,6 @@ export class VertruequeComponent implements OnInit {
 
   recuperarId() {
     this.IdProducto =parseInt( String(localStorage.getItem("publicacionId")));
-
   }
   recuperarUSU() {
     this.userId = parseInt(String(localStorage.getItem("userId")))
