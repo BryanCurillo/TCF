@@ -23,7 +23,8 @@ export class PrincipaltruequeComponent implements OnInit {
   fileModels: FileModel[];
   idProducto: number = 0;
   categorias: Categoria[] = [];
-  
+  userId: number;
+  userName: number;
   public categoriaFK: Categoria = new Categoria();
   categoriaSELEC: Categoria = new Categoria()
 
@@ -39,7 +40,13 @@ export class PrincipaltruequeComponent implements OnInit {
     this.cargarPublicaciones()
     this.cargarFotos()
     this.cargarCategorias()
+    this.recuperarUSU()
+  }
 
+  recuperarUSU() {
+    this.userId = parseInt(String(localStorage.getItem("userId")))
+    this.userName = parseInt(String(localStorage.getItem("userName")))
+    // alert("user= "+this.userId)
   }
 
   public cargarFotos() {

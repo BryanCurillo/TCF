@@ -54,7 +54,7 @@ constructor(private router:Router, private service:ServisLoginResgisService){}
 
     //si alguno de los datos esta vacion tiene que regresar ala pagina principal y no puede avanzar 
     if(user=='null' || gmail=='null' || dni=='null'){
-      // this.router.navigate(["login"]);
+       this.router.navigate(["login"]);
     }
   }
 

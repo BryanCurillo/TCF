@@ -14,6 +14,7 @@
 
     </div>
 </div>
+
 <body>
     <div class="container">
 
@@ -27,14 +28,15 @@
                 <div class="input-box">
                     <select name="miselect" [(ngModel)]="seleccionados" required (change)="cargarPublicaciones()">
                         <!-- <option *ngFor="let categoria of categorias" [ngValue]="categoria" >{{categoria.catNombre}}</option> -->
-                        <option *ngFor="let categoria of categorias" [ngValue]="categoria" [selected]="categoria.catNombre === 'Hogar'">
+                        <option *ngFor="let categoria of categorias" [ngValue]="categoria"
+                            [selected]="categoria.catNombre === 'Hogar'">
                             {{categoria.catNombre}}
-                          </option>
+                        </option>
                     </select>
                     <span> Filtro</span>
                 </div>
             </div>
-          </section>
+        </section>
 
         <section class="layout">
             <ng-container *ngFor="let publicacion of publicaciones">
@@ -61,6 +63,67 @@
                     </div>
 
                 </div>
+            </ng-container>
+
+        </section>
+    </div>
+
+
+    <div class="container">
+
+
+        <section class="layout2">
+            <div>
+                <h1 data-text="Mis productos para Trueque"></h1>
+            </div>
+            <div>
+
+                <div class="input-box">
+                    <select name="miselect" [(ngModel)]="seleccionados" required (change)="cargarPublicaciones()">
+                        <!-- <option *ngFor="let categoria of categorias" [ngValue]="categoria" >{{categoria.catNombre}}</option> -->
+                        <option *ngFor="let categoria of categorias" [ngValue]="categoria"
+                            [selected]="categoria.catNombre === 'Hogar'">
+                            {{categoria.catNombre}}
+                        </option>
+                    </select>
+                    <span> Filtro</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="layout">
+
+            <ng-container *ngFor="let publicacion of publicaciones">
+
+
+
+                <ng-container *ngIf="publicacion.pubTipo=='Trueke'">
+
+                    <div *ngIf="publicacion.pubIdVendedor==userId">
+
+                        <div class="card">
+                            <ng-container *ngFor="let fileModel of fileModels">
+                                <div class="card-img" *ngIf="fileModel.name==publicacion.pubIdProducto.fileName">
+                                    <img [src]="fileModel.url" class="img2">
+                                </div>
+                            </ng-container>
+                            <div class="card-info">
+                                <p class="text-title">{{publicacion.pubIdProducto.prodNombre}}</p>
+                                <p class="text-body">{{publicacion.pubDescripcion}}</p>
+                            </div>
+                            <div class="card-footer">
+                                <span class="text-title2">Precio: ${{publicacion.pubIdProducto.prodPrecio}}</span>
+                                <div class="card-button">
+                                    <button (click)="verProducto(publicacion.pubId)">
+                                        <img src="assets/img/comprar.png" width="24">
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </ng-container>
+
             </ng-container>
 
         </section>
