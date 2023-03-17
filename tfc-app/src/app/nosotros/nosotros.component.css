@@ -18,6 +18,10 @@
     transform: translateY(-10px);
 }
 
+h1 {
+    text-align: center;
+}   
+
 .user-picture {
     overflow: hidden;
     object-fit: cover;

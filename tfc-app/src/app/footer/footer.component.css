@@ -38,6 +38,16 @@ ul {
 	padding: 70px 0;
 }
 
+p.title2 {
+    font-size: 3em;
+    font-weight: 500;
+}
+
+p.subtitle2 {
+    font-size: 3em;
+    font-weight: 500;
+}
+
 .footer-col {
 	width: 25%;
 	padding: 0 15px;
