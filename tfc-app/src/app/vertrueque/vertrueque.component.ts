@@ -88,18 +88,30 @@ export class VertruequeComponent implements OnInit {
     }); 
   }
 
+  agregarOferta():void{
+    if(this.publicacion?.pubIdVendedor!=this.userId){
 
+      this.router.navigate([`/productOferta`])
+    }else{
+      
+    }
+
+  }
   generatTrueke(oferta:Oferta):void{
-    this.truequeNew.truIdOferta=oferta;
 
-    this.truequeService.create(this.truequeNew).subscribe(trueque=>{
-      this.truekeId=trueque.truNumero;
-      oferta.ofeEstado=true;
-      this.ofertaService.create(oferta).subscribe((ofertaUp)=>{
+    if(oferta.ofeIdOfertante!=this.userId){
+      this.truequeNew.truIdOferta=oferta;
 
-        this.router.navigate([`/facTueque/${trueque.truNumero}`])
+      this.truequeService.create(this.truequeNew).subscribe(trueque=>{
+        this.truekeId=trueque.truNumero;
+        oferta.ofeEstado=true;
+        this.ofertaService.create(oferta).subscribe((ofertaUp)=>{
+  
+          this.router.navigate([`/facTueque/${trueque.truNumero}`])
+        })
       })
-    })
+    }
+
   }
 
 }
