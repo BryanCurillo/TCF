@@ -102,7 +102,7 @@ export class LoginRegisComponent {
         if (data!= null) {
           this.modeloUsuario=data;
 
-          localStorage.setItem("userId",this.modeloUsuario.usuId.toString());
+          // localStorage.setItem("userId",this.modeloUsuario.usuId.toString());
           localStorage.setItem("userName",this.modeloUsuario.usuNombreUsuario.toString());
           // var usuarioJSON = JSON.stringify(this.modeloUsuario);
           // localStorage.setItem("usuarioObj", usuarioJSON);
