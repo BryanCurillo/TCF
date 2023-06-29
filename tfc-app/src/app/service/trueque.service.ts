@@ -15,7 +15,7 @@ export class TruequeService {
   constructor(private http: HttpClient) { }
 
 
-  public create(trueque: Trueque): Observable<Trueque> {
+  create(trueque: Trueque): Observable<Trueque> {
 
     return this.http.post<Trueque>(this.url,trueque,{headers:this.httpHeaders})
   }
